@@ -1,0 +1,1845 @@
+// Automatically generated file - don't change
+// 
+
+#ifndef ___SAI_GEN_ATTR_H__
+#define ___SAI_GEN_ATTR_H__
+
+// clang-format off
+extern "C" {
+#include <sai.h>
+}
+#include <sstream>
+#include <unordered_map>
+#define DEFINE_salt_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {memcpy(d, attr_value._field, 12);} \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {memcpy(attr_value._field, d, 12);} \
+};
+
+#define DEFINE_sak_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {memcpy(d, attr_value._field, 32);} \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {memcpy(attr_value._field, d, 32);} \
+};
+
+#define DEFINE_authkey_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {memcpy(d, attr_value._field, 16);} \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {memcpy(attr_value._field, d, 16);} \
+};
+
+#define DEFINE_ip6_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {memcpy(d, attr_value._field, 16);} \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {memcpy(attr_value._field, d, 16);} \
+};
+
+#define DEFINE_mac_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {memcpy(d, attr_value._field, 6);} \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {memcpy(attr_value._field, d, 6);} \
+};
+
+#define DEFINE_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static D get (const sai_attribute_value_t& attr_value) \
+       {return (D) attr_value._field; } \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {attr_value._field = (D) d;} \
+};
+
+#define DEFINE_aclaction_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get (const sai_attribute_value_t& attr_value, D& d) \
+       {int s = sizeof(D); \
+        memcpy(&d, &attr_value.aclaction.parameter._field, s); } \
+    static void set (sai_attribute_value_t& attr_value, D d) \
+       {int s = sizeof(D); \
+        memcpy(&attr_value.aclaction.parameter._field, &d, s);} \
+};
+
+#define DEFINE_aclfield_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get_data (const sai_attribute_value_t& attr_value, D& d) \
+       {int s = sizeof(D); \
+        memcpy(&d, &attr_value.aclfield.data._field, s); } \
+    static void set_data (sai_attribute_value_t& attr_value, D d) \
+       {int s = sizeof(D); \
+        memcpy(&attr_value.aclfield.data._field, &d, s);} \
+    static void get_mask (const sai_attribute_value_t& attr_value, D& d) \
+       {int s = sizeof(D); \
+        memcpy(&d, &attr_value.aclfield.mask._field, s); } \
+    static void set_mask (sai_attribute_value_t& attr_value, D d) \
+       {int s = sizeof(D); \
+        memcpy(&attr_value.aclfield.mask._field, &d, s);} \
+};
+
+#define DEFINE_aclfield_no_mask_attr_templ(_attrT, _field, _struct) \
+template <_attrT V, typename D> \
+struct _struct { \
+    static void get_data (const sai_attribute_value_t& attr_value, D& d) \
+       {int s = sizeof(D); \
+        memcpy(&d, &attr_value.aclfield.data._field, s); } \
+    static void set_data (sai_attribute_value_t& attr_value, D d) \
+       {int s = sizeof(D); \
+        memcpy(&attr_value.aclfield.data._field, &d, s);} \
+};
+
+#define get_data_aclfield_attr_no_mask_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get_data(attr_value, value)
+
+#define set_data_aclfield_attr_no_mask_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set_data(attr_value, value)
+
+#define get_aclaction_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_aclaction_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_data_aclfield_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get_data(attr_value, value)
+
+#define set_data_aclfield_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set_data(attr_value, value)
+
+#define get_mask_aclfield_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get_mask(attr_value, value)
+
+#define set_mask_aclfield_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set_mask(attr_value, value)
+
+#define get_salt_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_salt_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_sak_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_sak_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_authkey_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_authkey_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_ip6_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_ip6_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_mac_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::get(attr_value, value)
+
+#define set_mac_attr_value(attr_def, attr_value, value) \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_attr_value(attr_def, attr_value) \
+        attr_def##_VAL::get(attr_value)
+
+#define set_attr_value(attr_def, attr_value, value)  \
+        attr_def##_VAL::set(attr_value, value)
+
+#define get_mac_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        get_mac_attr_value(attr_def, it->second, res);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+#define get_ip6_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        get_ip6_attr_value(attr_def, it->second, res);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+#define get_salt_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        get_salt_attr_value(attr_def, it->second, res);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+#define get_sak_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        get_sak_attr_value(attr_def, it->second, res);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+#define get_authkey_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        get_authkey_attr_value(attr_def, it->second, res);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+#define get_attrs_value(attr_def, attrs, res, mandatory) \
+{ auto it = attrs.find(attr_def);\
+    if (it != attrs.end()) {\
+        res = get_attr_value(attr_def, it->second);} \
+    else if (mandatory) { \
+        return SAI_STATUS_MANDATORY_ATTRIBUTE_MISSING; \
+    }}
+
+DEFINE_attr_templ(sai_acl_counter_attr_t, booldata, sai_acl_counter_attr_t_booldata);
+DEFINE_attr_templ(sai_acl_counter_attr_t, oid, sai_acl_counter_attr_t_oid);
+DEFINE_attr_templ(sai_acl_counter_attr_t, u64, sai_acl_counter_attr_t_u64);
+DEFINE_attr_templ(sai_acl_entry_attr_t, booldata, sai_acl_entry_attr_t_booldata);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, booldata, sai_acl_entry_attr_t_aclaction_booldata);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, s32, sai_acl_entry_attr_t_aclaction_s32);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, ip4, sai_acl_entry_attr_t_aclaction_ip4);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, ip6, sai_acl_entry_attr_t_aclaction_ip6);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, ipaddr, sai_acl_entry_attr_t_aclaction_ipaddr);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, mac, sai_acl_entry_attr_t_aclaction_mac);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, oid, sai_acl_entry_attr_t_aclaction_oid);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, objlist, sai_acl_entry_attr_t_aclaction_objlist);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, u16, sai_acl_entry_attr_t_aclaction_u16);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, u32, sai_acl_entry_attr_t_aclaction_u32);
+DEFINE_aclaction_attr_templ(sai_acl_entry_attr_t, u8, sai_acl_entry_attr_t_aclaction_u8);
+DEFINE_aclfield_no_mask_attr_templ(sai_acl_entry_attr_t, booldata, sai_acl_entry_attr_t_aclfield_booldata);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, s32, sai_acl_entry_attr_t_aclfield_s32);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, ip4, sai_acl_entry_attr_t_aclfield_ip4);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, ip6, sai_acl_entry_attr_t_aclfield_ip6);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, mac, sai_acl_entry_attr_t_aclfield_mac);
+DEFINE_aclfield_no_mask_attr_templ(sai_acl_entry_attr_t, oid, sai_acl_entry_attr_t_aclfield_oid);
+DEFINE_aclfield_no_mask_attr_templ(sai_acl_entry_attr_t, objlist, sai_acl_entry_attr_t_aclfield_objlist);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, u16, sai_acl_entry_attr_t_aclfield_u16);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, u32, sai_acl_entry_attr_t_aclfield_u32);
+DEFINE_aclfield_attr_templ(sai_acl_entry_attr_t, u8, sai_acl_entry_attr_t_aclfield_u8);
+DEFINE_attr_templ(sai_acl_entry_attr_t, oid, sai_acl_entry_attr_t_oid);
+DEFINE_attr_templ(sai_acl_entry_attr_t, u32, sai_acl_entry_attr_t_u32);
+DEFINE_attr_templ(sai_acl_range_attr_t, s32, sai_acl_range_attr_t_s32);
+DEFINE_attr_templ(sai_acl_range_attr_t, u32range, sai_acl_range_attr_t_u32range);
+DEFINE_attr_templ(sai_acl_table_attr_t, booldata, sai_acl_table_attr_t_booldata);
+DEFINE_attr_templ(sai_acl_table_attr_t, s32, sai_acl_table_attr_t_s32);
+DEFINE_attr_templ(sai_acl_table_attr_t, objlist, sai_acl_table_attr_t_objlist);
+DEFINE_attr_templ(sai_acl_table_attr_t, s32list, sai_acl_table_attr_t_s32list);
+DEFINE_attr_templ(sai_acl_table_attr_t, u32, sai_acl_table_attr_t_u32);
+DEFINE_attr_templ(sai_acl_table_group_attr_t, s32, sai_acl_table_group_attr_t_s32);
+DEFINE_attr_templ(sai_acl_table_group_attr_t, objlist, sai_acl_table_group_attr_t_objlist);
+DEFINE_attr_templ(sai_acl_table_group_attr_t, s32list, sai_acl_table_group_attr_t_s32list);
+DEFINE_attr_templ(sai_acl_table_group_member_attr_t, oid, sai_acl_table_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_acl_table_group_member_attr_t, u32, sai_acl_table_group_member_attr_t_u32);
+DEFINE_attr_templ(sai_bfd_session_attr_t, booldata, sai_bfd_session_attr_t_booldata);
+DEFINE_attr_templ(sai_bfd_session_attr_t, s32, sai_bfd_session_attr_t_s32);
+DEFINE_attr_templ(sai_bfd_session_attr_t, ipaddr, sai_bfd_session_attr_t_ipaddr);
+DEFINE_mac_attr_templ(sai_bfd_session_attr_t, mac, sai_bfd_session_attr_t_mac);
+DEFINE_attr_templ(sai_bfd_session_attr_t, oid, sai_bfd_session_attr_t_oid);
+DEFINE_attr_templ(sai_bfd_session_attr_t, u16, sai_bfd_session_attr_t_u16);
+DEFINE_attr_templ(sai_bfd_session_attr_t, u32, sai_bfd_session_attr_t_u32);
+DEFINE_attr_templ(sai_bfd_session_attr_t, u8, sai_bfd_session_attr_t_u8);
+DEFINE_attr_templ(sai_bridge_attr_t, booldata, sai_bridge_attr_t_booldata);
+DEFINE_attr_templ(sai_bridge_attr_t, s32, sai_bridge_attr_t_s32);
+DEFINE_attr_templ(sai_bridge_attr_t, oid, sai_bridge_attr_t_oid);
+DEFINE_attr_templ(sai_bridge_attr_t, objlist, sai_bridge_attr_t_objlist);
+DEFINE_attr_templ(sai_bridge_attr_t, u32, sai_bridge_attr_t_u32);
+DEFINE_attr_templ(sai_bridge_port_attr_t, booldata, sai_bridge_port_attr_t_booldata);
+DEFINE_attr_templ(sai_bridge_port_attr_t, s32, sai_bridge_port_attr_t_s32);
+DEFINE_attr_templ(sai_bridge_port_attr_t, oid, sai_bridge_port_attr_t_oid);
+DEFINE_attr_templ(sai_bridge_port_attr_t, u16, sai_bridge_port_attr_t_u16);
+DEFINE_attr_templ(sai_bridge_port_attr_t, u32, sai_bridge_port_attr_t_u32);
+DEFINE_attr_templ(sai_buffer_pool_attr_t, s32, sai_buffer_pool_attr_t_s32);
+DEFINE_attr_templ(sai_buffer_pool_attr_t, oid, sai_buffer_pool_attr_t_oid);
+DEFINE_attr_templ(sai_buffer_pool_attr_t, objlist, sai_buffer_pool_attr_t_objlist);
+DEFINE_attr_templ(sai_buffer_pool_attr_t, u64, sai_buffer_pool_attr_t_u64);
+DEFINE_attr_templ(sai_buffer_profile_attr_t, s32, sai_buffer_profile_attr_t_s32);
+DEFINE_attr_templ(sai_buffer_profile_attr_t, s8, sai_buffer_profile_attr_t_s8);
+DEFINE_attr_templ(sai_buffer_profile_attr_t, oid, sai_buffer_profile_attr_t_oid);
+DEFINE_attr_templ(sai_buffer_profile_attr_t, u64, sai_buffer_profile_attr_t_u64);
+DEFINE_attr_templ(sai_counter_attr_t, s32, sai_counter_attr_t_s32);
+DEFINE_attr_templ(sai_debug_counter_attr_t, s32, sai_debug_counter_attr_t_s32);
+DEFINE_attr_templ(sai_debug_counter_attr_t, s32list, sai_debug_counter_attr_t_s32list);
+DEFINE_attr_templ(sai_debug_counter_attr_t, u32, sai_debug_counter_attr_t_u32);
+DEFINE_attr_templ(sai_dtel_attr_t, booldata, sai_dtel_attr_t_booldata);
+DEFINE_aclfield_attr_templ(sai_dtel_attr_t, u8, sai_dtel_attr_t_aclfield_u8);
+DEFINE_attr_templ(sai_dtel_attr_t, objlist, sai_dtel_attr_t_objlist);
+DEFINE_attr_templ(sai_dtel_attr_t, u16, sai_dtel_attr_t_u16);
+DEFINE_attr_templ(sai_dtel_attr_t, u32, sai_dtel_attr_t_u32);
+DEFINE_attr_templ(sai_dtel_attr_t, u8, sai_dtel_attr_t_u8);
+DEFINE_attr_templ(sai_dtel_event_attr_t, s32, sai_dtel_event_attr_t_s32);
+DEFINE_attr_templ(sai_dtel_event_attr_t, oid, sai_dtel_event_attr_t_oid);
+DEFINE_attr_templ(sai_dtel_event_attr_t, u8, sai_dtel_event_attr_t_u8);
+DEFINE_attr_templ(sai_dtel_int_session_attr_t, booldata, sai_dtel_int_session_attr_t_booldata);
+DEFINE_attr_templ(sai_dtel_int_session_attr_t, u8, sai_dtel_int_session_attr_t_u8);
+DEFINE_attr_templ(sai_dtel_queue_report_attr_t, booldata, sai_dtel_queue_report_attr_t_booldata);
+DEFINE_attr_templ(sai_dtel_queue_report_attr_t, oid, sai_dtel_queue_report_attr_t_oid);
+DEFINE_attr_templ(sai_dtel_queue_report_attr_t, u32, sai_dtel_queue_report_attr_t_u32);
+DEFINE_attr_templ(sai_dtel_report_session_attr_t, ipaddrlist, sai_dtel_report_session_attr_t_ipaddrlist);
+DEFINE_attr_templ(sai_dtel_report_session_attr_t, ipaddr, sai_dtel_report_session_attr_t_ipaddr);
+DEFINE_attr_templ(sai_dtel_report_session_attr_t, oid, sai_dtel_report_session_attr_t_oid);
+DEFINE_attr_templ(sai_dtel_report_session_attr_t, u16, sai_dtel_report_session_attr_t_u16);
+DEFINE_attr_templ(sai_fdb_entry_attr_t, s32, sai_fdb_entry_attr_t_s32);
+DEFINE_attr_templ(sai_fdb_entry_attr_t, ipaddr, sai_fdb_entry_attr_t_ipaddr);
+DEFINE_attr_templ(sai_fdb_entry_attr_t, oid, sai_fdb_entry_attr_t_oid);
+DEFINE_attr_templ(sai_fdb_entry_attr_t, u32, sai_fdb_entry_attr_t_u32);
+DEFINE_attr_templ(sai_fdb_flush_attr_t, s32, sai_fdb_flush_attr_t_s32);
+DEFINE_attr_templ(sai_fdb_flush_attr_t, oid, sai_fdb_flush_attr_t_oid);
+DEFINE_attr_templ(sai_hash_attr_t, objlist, sai_hash_attr_t_objlist);
+DEFINE_attr_templ(sai_hash_attr_t, s32list, sai_hash_attr_t_s32list);
+DEFINE_attr_templ(sai_hostif_attr_t, booldata, sai_hostif_attr_t_booldata);
+DEFINE_attr_templ(sai_hostif_attr_t, chardata[32], sai_hostif_attr_t_chardata_32_);
+DEFINE_attr_templ(sai_hostif_attr_t, s32, sai_hostif_attr_t_s32);
+DEFINE_attr_templ(sai_hostif_attr_t, oid, sai_hostif_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_attr_t, u32, sai_hostif_attr_t_u32);
+DEFINE_attr_templ(sai_hostif_packet_attr_t, s32, sai_hostif_packet_attr_t_s32);
+DEFINE_attr_templ(sai_hostif_packet_attr_t, oid, sai_hostif_packet_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_packet_attr_t, timespec, sai_hostif_packet_attr_t_timespec);
+DEFINE_attr_templ(sai_hostif_table_entry_attr_t, s32, sai_hostif_table_entry_attr_t_s32);
+DEFINE_attr_templ(sai_hostif_table_entry_attr_t, oid, sai_hostif_table_entry_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_trap_attr_t, s32, sai_hostif_trap_attr_t_s32);
+DEFINE_attr_templ(sai_hostif_trap_attr_t, oid, sai_hostif_trap_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_trap_attr_t, objlist, sai_hostif_trap_attr_t_objlist);
+DEFINE_attr_templ(sai_hostif_trap_attr_t, u32, sai_hostif_trap_attr_t_u32);
+DEFINE_attr_templ(sai_hostif_trap_group_attr_t, booldata, sai_hostif_trap_group_attr_t_booldata);
+DEFINE_attr_templ(sai_hostif_trap_group_attr_t, oid, sai_hostif_trap_group_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_trap_group_attr_t, u32, sai_hostif_trap_group_attr_t_u32);
+DEFINE_attr_templ(sai_hostif_user_defined_trap_attr_t, s32, sai_hostif_user_defined_trap_attr_t_s32);
+DEFINE_attr_templ(sai_hostif_user_defined_trap_attr_t, oid, sai_hostif_user_defined_trap_attr_t_oid);
+DEFINE_attr_templ(sai_hostif_user_defined_trap_attr_t, u32, sai_hostif_user_defined_trap_attr_t_u32);
+DEFINE_attr_templ(sai_ingress_priority_group_attr_t, oid, sai_ingress_priority_group_attr_t_oid);
+DEFINE_attr_templ(sai_ingress_priority_group_attr_t, objlist, sai_ingress_priority_group_attr_t_objlist);
+DEFINE_attr_templ(sai_ingress_priority_group_attr_t, u8, sai_ingress_priority_group_attr_t_u8);
+DEFINE_attr_templ(sai_inseg_entry_attr_t, oid, sai_inseg_entry_attr_t_oid);
+DEFINE_attr_templ(sai_inseg_entry_attr_t, s32, sai_inseg_entry_attr_t_s32);
+DEFINE_attr_templ(sai_inseg_entry_attr_t, u8, sai_inseg_entry_attr_t_u8);
+DEFINE_attr_templ(sai_ipmc_entry_attr_t, oid, sai_ipmc_entry_attr_t_oid);
+DEFINE_attr_templ(sai_ipmc_entry_attr_t, s32, sai_ipmc_entry_attr_t_s32);
+DEFINE_attr_templ(sai_ipmc_group_attr_t, objlist, sai_ipmc_group_attr_t_objlist);
+DEFINE_attr_templ(sai_ipmc_group_attr_t, u32, sai_ipmc_group_attr_t_u32);
+DEFINE_attr_templ(sai_ipmc_group_member_attr_t, oid, sai_ipmc_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_isolation_group_attr_t, s32, sai_isolation_group_attr_t_s32);
+DEFINE_attr_templ(sai_isolation_group_attr_t, objlist, sai_isolation_group_attr_t_objlist);
+DEFINE_attr_templ(sai_isolation_group_member_attr_t, oid, sai_isolation_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_l2mc_entry_attr_t, oid, sai_l2mc_entry_attr_t_oid);
+DEFINE_attr_templ(sai_l2mc_entry_attr_t, s32, sai_l2mc_entry_attr_t_s32);
+DEFINE_attr_templ(sai_l2mc_group_attr_t, objlist, sai_l2mc_group_attr_t_objlist);
+DEFINE_attr_templ(sai_l2mc_group_attr_t, u32, sai_l2mc_group_attr_t_u32);
+DEFINE_attr_templ(sai_l2mc_group_member_attr_t, ipaddr, sai_l2mc_group_member_attr_t_ipaddr);
+DEFINE_attr_templ(sai_l2mc_group_member_attr_t, oid, sai_l2mc_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_lag_attr_t, booldata, sai_lag_attr_t_booldata);
+DEFINE_attr_templ(sai_lag_attr_t, oid, sai_lag_attr_t_oid);
+DEFINE_attr_templ(sai_lag_attr_t, objlist, sai_lag_attr_t_objlist);
+DEFINE_attr_templ(sai_lag_attr_t, u16, sai_lag_attr_t_u16);
+DEFINE_attr_templ(sai_lag_attr_t, u8, sai_lag_attr_t_u8);
+DEFINE_attr_templ(sai_lag_member_attr_t, booldata, sai_lag_member_attr_t_booldata);
+DEFINE_attr_templ(sai_lag_member_attr_t, oid, sai_lag_member_attr_t_oid);
+DEFINE_attr_templ(sai_mcast_fdb_entry_attr_t, oid, sai_mcast_fdb_entry_attr_t_oid);
+DEFINE_attr_templ(sai_mcast_fdb_entry_attr_t, s32, sai_mcast_fdb_entry_attr_t_s32);
+DEFINE_attr_templ(sai_mcast_fdb_entry_attr_t, u32, sai_mcast_fdb_entry_attr_t_u32);
+DEFINE_attr_templ(sai_mirror_session_attr_t, booldata, sai_mirror_session_attr_t_booldata);
+DEFINE_attr_templ(sai_mirror_session_attr_t, s32, sai_mirror_session_attr_t_s32);
+DEFINE_attr_templ(sai_mirror_session_attr_t, ipaddr, sai_mirror_session_attr_t_ipaddr);
+DEFINE_mac_attr_templ(sai_mirror_session_attr_t, mac, sai_mirror_session_attr_t_mac);
+DEFINE_attr_templ(sai_mirror_session_attr_t, oid, sai_mirror_session_attr_t_oid);
+DEFINE_attr_templ(sai_mirror_session_attr_t, objlist, sai_mirror_session_attr_t_objlist);
+DEFINE_attr_templ(sai_mirror_session_attr_t, u16, sai_mirror_session_attr_t_u16);
+DEFINE_attr_templ(sai_mirror_session_attr_t, u32, sai_mirror_session_attr_t_u32);
+DEFINE_attr_templ(sai_mirror_session_attr_t, u8, sai_mirror_session_attr_t_u8);
+DEFINE_attr_templ(sai_nat_entry_attr_t, booldata, sai_nat_entry_attr_t_booldata);
+DEFINE_attr_templ(sai_nat_entry_attr_t, ip4, sai_nat_entry_attr_t_ip4);
+DEFINE_attr_templ(sai_nat_entry_attr_t, s32, sai_nat_entry_attr_t_s32);
+DEFINE_attr_templ(sai_nat_entry_attr_t, oid, sai_nat_entry_attr_t_oid);
+DEFINE_attr_templ(sai_nat_entry_attr_t, u16, sai_nat_entry_attr_t_u16);
+DEFINE_attr_templ(sai_nat_entry_attr_t, u64, sai_nat_entry_attr_t_u64);
+DEFINE_attr_templ(sai_nat_zone_counter_attr_t, booldata, sai_nat_zone_counter_attr_t_booldata);
+DEFINE_attr_templ(sai_nat_zone_counter_attr_t, s32, sai_nat_zone_counter_attr_t_s32);
+DEFINE_attr_templ(sai_nat_zone_counter_attr_t, u64, sai_nat_zone_counter_attr_t_u64);
+DEFINE_attr_templ(sai_nat_zone_counter_attr_t, u8, sai_nat_zone_counter_attr_t_u8);
+DEFINE_attr_templ(sai_neighbor_entry_attr_t, booldata, sai_neighbor_entry_attr_t_booldata);
+DEFINE_mac_attr_templ(sai_neighbor_entry_attr_t, mac, sai_neighbor_entry_attr_t_mac);
+DEFINE_attr_templ(sai_neighbor_entry_attr_t, oid, sai_neighbor_entry_attr_t_oid);
+DEFINE_attr_templ(sai_neighbor_entry_attr_t, s32, sai_neighbor_entry_attr_t_s32);
+DEFINE_attr_templ(sai_neighbor_entry_attr_t, u32, sai_neighbor_entry_attr_t_u32);
+DEFINE_attr_templ(sai_next_hop_attr_t, ipaddr, sai_next_hop_attr_t_ipaddr);
+DEFINE_mac_attr_templ(sai_next_hop_attr_t, mac, sai_next_hop_attr_t_mac);
+DEFINE_attr_templ(sai_next_hop_attr_t, s32, sai_next_hop_attr_t_s32);
+DEFINE_attr_templ(sai_next_hop_attr_t, oid, sai_next_hop_attr_t_oid);
+DEFINE_attr_templ(sai_next_hop_attr_t, u32list, sai_next_hop_attr_t_u32list);
+DEFINE_attr_templ(sai_next_hop_attr_t, u32, sai_next_hop_attr_t_u32);
+DEFINE_attr_templ(sai_next_hop_group_attr_t, booldata, sai_next_hop_group_attr_t_booldata);
+DEFINE_attr_templ(sai_next_hop_group_attr_t, s32, sai_next_hop_group_attr_t_s32);
+DEFINE_attr_templ(sai_next_hop_group_attr_t, oid, sai_next_hop_group_attr_t_oid);
+DEFINE_attr_templ(sai_next_hop_group_attr_t, objlist, sai_next_hop_group_attr_t_objlist);
+DEFINE_attr_templ(sai_next_hop_group_attr_t, u32, sai_next_hop_group_attr_t_u32);
+DEFINE_attr_templ(sai_next_hop_group_member_attr_t, s32, sai_next_hop_group_member_attr_t_s32);
+DEFINE_attr_templ(sai_next_hop_group_member_attr_t, oid, sai_next_hop_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_next_hop_group_member_attr_t, u32, sai_next_hop_group_member_attr_t_u32);
+DEFINE_attr_templ(sai_policer_attr_t, s32, sai_policer_attr_t_s32);
+DEFINE_attr_templ(sai_policer_attr_t, s32list, sai_policer_attr_t_s32list);
+DEFINE_attr_templ(sai_policer_attr_t, u64, sai_policer_attr_t_u64);
+DEFINE_attr_templ(sai_port_attr_t, booldata, sai_port_attr_t_booldata);
+DEFINE_attr_templ(sai_port_attr_t, oid, sai_port_attr_t_oid);
+DEFINE_attr_templ(sai_port_attr_t, objlist, sai_port_attr_t_objlist);
+DEFINE_attr_templ(sai_port_attr_t, s32, sai_port_attr_t_s32);
+DEFINE_attr_templ(sai_port_attr_t, porteyevalues, sai_port_attr_t_porteyevalues);
+DEFINE_attr_templ(sai_port_attr_t, s32list, sai_port_attr_t_s32list);
+DEFINE_attr_templ(sai_port_attr_t, u32list, sai_port_attr_t_u32list);
+DEFINE_attr_templ(sai_port_attr_t, u16, sai_port_attr_t_u16);
+DEFINE_attr_templ(sai_port_attr_t, u32, sai_port_attr_t_u32);
+DEFINE_attr_templ(sai_port_attr_t, u64, sai_port_attr_t_u64);
+DEFINE_attr_templ(sai_port_attr_t, u8, sai_port_attr_t_u8);
+DEFINE_attr_templ(sai_port_pool_attr_t, oid, sai_port_pool_attr_t_oid);
+DEFINE_attr_templ(sai_port_serdes_attr_t, oid, sai_port_serdes_attr_t_oid);
+DEFINE_attr_templ(sai_port_serdes_attr_t, u32list, sai_port_serdes_attr_t_u32list);
+DEFINE_attr_templ(sai_qos_map_attr_t, qosmap, sai_qos_map_attr_t_qosmap);
+DEFINE_attr_templ(sai_qos_map_attr_t, s32, sai_qos_map_attr_t_s32);
+DEFINE_attr_templ(sai_queue_attr_t, booldata, sai_queue_attr_t_booldata);
+DEFINE_attr_templ(sai_queue_attr_t, oid, sai_queue_attr_t_oid);
+DEFINE_attr_templ(sai_queue_attr_t, objlist, sai_queue_attr_t_objlist);
+DEFINE_attr_templ(sai_queue_attr_t, s32, sai_queue_attr_t_s32);
+DEFINE_attr_templ(sai_queue_attr_t, u8, sai_queue_attr_t_u8);
+DEFINE_attr_templ(sai_route_entry_attr_t, s32, sai_route_entry_attr_t_s32);
+DEFINE_attr_templ(sai_route_entry_attr_t, oid, sai_route_entry_attr_t_oid);
+DEFINE_attr_templ(sai_route_entry_attr_t, u32, sai_route_entry_attr_t_u32);
+DEFINE_attr_templ(sai_router_interface_attr_t, booldata, sai_router_interface_attr_t_booldata);
+DEFINE_mac_attr_templ(sai_router_interface_attr_t, mac, sai_router_interface_attr_t_mac);
+DEFINE_attr_templ(sai_router_interface_attr_t, oid, sai_router_interface_attr_t_oid);
+DEFINE_attr_templ(sai_router_interface_attr_t, s32, sai_router_interface_attr_t_s32);
+DEFINE_attr_templ(sai_router_interface_attr_t, u16, sai_router_interface_attr_t_u16);
+DEFINE_attr_templ(sai_router_interface_attr_t, u32, sai_router_interface_attr_t_u32);
+DEFINE_attr_templ(sai_router_interface_attr_t, u8, sai_router_interface_attr_t_u8);
+DEFINE_attr_templ(sai_rpf_group_attr_t, objlist, sai_rpf_group_attr_t_objlist);
+DEFINE_attr_templ(sai_rpf_group_attr_t, u32, sai_rpf_group_attr_t_u32);
+DEFINE_attr_templ(sai_rpf_group_member_attr_t, oid, sai_rpf_group_member_attr_t_oid);
+DEFINE_attr_templ(sai_samplepacket_attr_t, s32, sai_samplepacket_attr_t_s32);
+DEFINE_attr_templ(sai_samplepacket_attr_t, u32, sai_samplepacket_attr_t_u32);
+DEFINE_attr_templ(sai_scheduler_attr_t, s32, sai_scheduler_attr_t_s32);
+DEFINE_attr_templ(sai_scheduler_attr_t, u64, sai_scheduler_attr_t_u64);
+DEFINE_attr_templ(sai_scheduler_attr_t, u8, sai_scheduler_attr_t_u8);
+DEFINE_attr_templ(sai_scheduler_group_attr_t, oid, sai_scheduler_group_attr_t_oid);
+DEFINE_attr_templ(sai_scheduler_group_attr_t, objlist, sai_scheduler_group_attr_t_objlist);
+DEFINE_attr_templ(sai_scheduler_group_attr_t, u32, sai_scheduler_group_attr_t_u32);
+DEFINE_attr_templ(sai_scheduler_group_attr_t, u8, sai_scheduler_group_attr_t_u8);
+DEFINE_attr_templ(sai_segmentroute_sidlist_attr_t, segmentlist, sai_segmentroute_sidlist_attr_t_segmentlist);
+DEFINE_attr_templ(sai_segmentroute_sidlist_attr_t, s32, sai_segmentroute_sidlist_attr_t_s32);
+DEFINE_attr_templ(sai_segmentroute_sidlist_attr_t, tlvlist, sai_segmentroute_sidlist_attr_t_tlvlist);
+DEFINE_attr_templ(sai_stp_attr_t, oid, sai_stp_attr_t_oid);
+DEFINE_attr_templ(sai_stp_attr_t, objlist, sai_stp_attr_t_objlist);
+DEFINE_attr_templ(sai_stp_attr_t, vlanlist, sai_stp_attr_t_vlanlist);
+DEFINE_attr_templ(sai_stp_port_attr_t, oid, sai_stp_port_attr_t_oid);
+DEFINE_attr_templ(sai_stp_port_attr_t, s32, sai_stp_port_attr_t_s32);
+DEFINE_attr_templ(sai_switch_attr_t, booldata, sai_switch_attr_t_booldata);
+DEFINE_attr_templ(sai_switch_attr_t, aclcapability, sai_switch_attr_t_aclcapability);
+DEFINE_attr_templ(sai_switch_attr_t, aclresource, sai_switch_attr_t_aclresource);
+DEFINE_attr_templ(sai_switch_attr_t, s32, sai_switch_attr_t_s32);
+DEFINE_mac_attr_templ(sai_switch_attr_t, mac, sai_switch_attr_t_mac);
+DEFINE_attr_templ(sai_switch_attr_t, maplist, sai_switch_attr_t_maplist);
+DEFINE_attr_templ(sai_switch_attr_t, oid, sai_switch_attr_t_oid);
+DEFINE_attr_templ(sai_switch_attr_t, objlist, sai_switch_attr_t_objlist);
+DEFINE_attr_templ(sai_switch_attr_t, ptr, sai_switch_attr_t_ptr);
+DEFINE_attr_templ(sai_switch_attr_t, s32list, sai_switch_attr_t_s32list);
+DEFINE_attr_templ(sai_switch_attr_t, s8list, sai_switch_attr_t_s8list);
+DEFINE_attr_templ(sai_switch_attr_t, u32list, sai_switch_attr_t_u32list);
+DEFINE_attr_templ(sai_switch_attr_t, u32range, sai_switch_attr_t_u32range);
+DEFINE_attr_templ(sai_switch_attr_t, u16, sai_switch_attr_t_u16);
+DEFINE_attr_templ(sai_switch_attr_t, u32, sai_switch_attr_t_u32);
+DEFINE_attr_templ(sai_switch_attr_t, u64, sai_switch_attr_t_u64);
+DEFINE_attr_templ(sai_switch_attr_t, u8, sai_switch_attr_t_u8);
+DEFINE_attr_templ(sai_tam_attr_t, objlist, sai_tam_attr_t_objlist);
+DEFINE_attr_templ(sai_tam_attr_t, s32list, sai_tam_attr_t_s32list);
+DEFINE_attr_templ(sai_tam_collector_attr_t, booldata, sai_tam_collector_attr_t_booldata);
+DEFINE_attr_templ(sai_tam_collector_attr_t, ipaddr, sai_tam_collector_attr_t_ipaddr);
+DEFINE_attr_templ(sai_tam_collector_attr_t, oid, sai_tam_collector_attr_t_oid);
+DEFINE_attr_templ(sai_tam_collector_attr_t, u16, sai_tam_collector_attr_t_u16);
+DEFINE_attr_templ(sai_tam_collector_attr_t, u8, sai_tam_collector_attr_t_u8);
+DEFINE_attr_templ(sai_tam_event_action_attr_t, oid, sai_tam_event_action_attr_t_oid);
+DEFINE_attr_templ(sai_tam_event_action_attr_t, u32, sai_tam_event_action_attr_t_u32);
+DEFINE_attr_templ(sai_tam_event_attr_t, oid, sai_tam_event_attr_t_oid);
+DEFINE_attr_templ(sai_tam_event_attr_t, objlist, sai_tam_event_attr_t_objlist);
+DEFINE_attr_templ(sai_tam_event_attr_t, s32, sai_tam_event_attr_t_s32);
+DEFINE_attr_templ(sai_tam_event_attr_t, u8, sai_tam_event_attr_t_u8);
+DEFINE_attr_templ(sai_tam_event_threshold_attr_t, s32, sai_tam_event_threshold_attr_t_s32);
+DEFINE_attr_templ(sai_tam_event_threshold_attr_t, u32, sai_tam_event_threshold_attr_t_u32);
+DEFINE_attr_templ(sai_tam_int_attr_t, booldata, sai_tam_int_attr_t_booldata);
+DEFINE_attr_templ(sai_tam_int_attr_t, oid, sai_tam_int_attr_t_oid);
+DEFINE_attr_templ(sai_tam_int_attr_t, objlist, sai_tam_int_attr_t_objlist);
+DEFINE_attr_templ(sai_tam_int_attr_t, s32, sai_tam_int_attr_t_s32);
+DEFINE_attr_templ(sai_tam_int_attr_t, u16, sai_tam_int_attr_t_u16);
+DEFINE_attr_templ(sai_tam_int_attr_t, u32, sai_tam_int_attr_t_u32);
+DEFINE_attr_templ(sai_tam_int_attr_t, u8, sai_tam_int_attr_t_u8);
+DEFINE_attr_templ(sai_tam_math_func_attr_t, s32, sai_tam_math_func_attr_t_s32);
+DEFINE_attr_templ(sai_tam_report_attr_t, s32, sai_tam_report_attr_t_s32);
+DEFINE_attr_templ(sai_tam_report_attr_t, u32list, sai_tam_report_attr_t_u32list);
+DEFINE_attr_templ(sai_tam_report_attr_t, u32, sai_tam_report_attr_t_u32);
+DEFINE_attr_templ(sai_tam_tel_type_attr_t, booldata, sai_tam_tel_type_attr_t_booldata);
+DEFINE_attr_templ(sai_tam_tel_type_attr_t, oid, sai_tam_tel_type_attr_t_oid);
+DEFINE_attr_templ(sai_tam_tel_type_attr_t, s32, sai_tam_tel_type_attr_t_s32);
+DEFINE_attr_templ(sai_tam_tel_type_attr_t, u32, sai_tam_tel_type_attr_t_u32);
+DEFINE_attr_templ(sai_tam_tel_type_attr_t, u8, sai_tam_tel_type_attr_t_u8);
+DEFINE_attr_templ(sai_tam_telemetry_attr_t, objlist, sai_tam_telemetry_attr_t_objlist);
+DEFINE_attr_templ(sai_tam_telemetry_attr_t, s32, sai_tam_telemetry_attr_t_s32);
+DEFINE_attr_templ(sai_tam_telemetry_attr_t, u32, sai_tam_telemetry_attr_t_u32);
+DEFINE_attr_templ(sai_tam_transport_attr_t, s32, sai_tam_transport_attr_t_s32);
+DEFINE_attr_templ(sai_tam_transport_attr_t, u32, sai_tam_transport_attr_t_u32);
+DEFINE_attr_templ(sai_tunnel_attr_t, booldata, sai_tunnel_attr_t_booldata);
+DEFINE_attr_templ(sai_tunnel_attr_t, ipaddr, sai_tunnel_attr_t_ipaddr);
+DEFINE_attr_templ(sai_tunnel_attr_t, oid, sai_tunnel_attr_t_oid);
+DEFINE_attr_templ(sai_tunnel_attr_t, objlist, sai_tunnel_attr_t_objlist);
+DEFINE_attr_templ(sai_tunnel_attr_t, s32, sai_tunnel_attr_t_s32);
+DEFINE_attr_templ(sai_tunnel_attr_t, u32, sai_tunnel_attr_t_u32);
+DEFINE_attr_templ(sai_tunnel_attr_t, u8, sai_tunnel_attr_t_u8);
+DEFINE_attr_templ(sai_tunnel_map_attr_t, objlist, sai_tunnel_map_attr_t_objlist);
+DEFINE_attr_templ(sai_tunnel_map_attr_t, s32, sai_tunnel_map_attr_t_s32);
+DEFINE_attr_templ(sai_tunnel_map_entry_attr_t, oid, sai_tunnel_map_entry_attr_t_oid);
+DEFINE_attr_templ(sai_tunnel_map_entry_attr_t, s32, sai_tunnel_map_entry_attr_t_s32);
+DEFINE_attr_templ(sai_tunnel_map_entry_attr_t, u16, sai_tunnel_map_entry_attr_t_u16);
+DEFINE_attr_templ(sai_tunnel_map_entry_attr_t, u32, sai_tunnel_map_entry_attr_t_u32);
+DEFINE_attr_templ(sai_tunnel_map_entry_attr_t, u8, sai_tunnel_map_entry_attr_t_u8);
+DEFINE_attr_templ(sai_tunnel_term_table_entry_attr_t, ipaddr, sai_tunnel_term_table_entry_attr_t_ipaddr);
+DEFINE_attr_templ(sai_tunnel_term_table_entry_attr_t, oid, sai_tunnel_term_table_entry_attr_t_oid);
+DEFINE_attr_templ(sai_tunnel_term_table_entry_attr_t, s32, sai_tunnel_term_table_entry_attr_t_s32);
+DEFINE_attr_templ(sai_udf_attr_t, oid, sai_udf_attr_t_oid);
+DEFINE_attr_templ(sai_udf_attr_t, u8list, sai_udf_attr_t_u8list);
+DEFINE_attr_templ(sai_udf_attr_t, s32, sai_udf_attr_t_s32);
+DEFINE_attr_templ(sai_udf_attr_t, u16, sai_udf_attr_t_u16);
+DEFINE_attr_templ(sai_udf_group_attr_t, objlist, sai_udf_group_attr_t_objlist);
+DEFINE_attr_templ(sai_udf_group_attr_t, s32, sai_udf_group_attr_t_s32);
+DEFINE_attr_templ(sai_udf_group_attr_t, u16, sai_udf_group_attr_t_u16);
+DEFINE_aclfield_attr_templ(sai_udf_match_attr_t, u16, sai_udf_match_attr_t_aclfield_u16);
+DEFINE_aclfield_attr_templ(sai_udf_match_attr_t, u8, sai_udf_match_attr_t_aclfield_u8);
+DEFINE_attr_templ(sai_udf_match_attr_t, u8, sai_udf_match_attr_t_u8);
+DEFINE_attr_templ(sai_virtual_router_attr_t, booldata, sai_virtual_router_attr_t_booldata);
+DEFINE_mac_attr_templ(sai_virtual_router_attr_t, mac, sai_virtual_router_attr_t_mac);
+DEFINE_attr_templ(sai_virtual_router_attr_t, s32, sai_virtual_router_attr_t_s32);
+DEFINE_attr_templ(sai_vlan_attr_t, booldata, sai_vlan_attr_t_booldata);
+DEFINE_attr_templ(sai_vlan_attr_t, oid, sai_vlan_attr_t_oid);
+DEFINE_attr_templ(sai_vlan_attr_t, objlist, sai_vlan_attr_t_objlist);
+DEFINE_attr_templ(sai_vlan_attr_t, u16, sai_vlan_attr_t_u16);
+DEFINE_attr_templ(sai_vlan_attr_t, u32, sai_vlan_attr_t_u32);
+DEFINE_attr_templ(sai_vlan_attr_t, s32, sai_vlan_attr_t_s32);
+DEFINE_attr_templ(sai_vlan_member_attr_t, oid, sai_vlan_member_attr_t_oid);
+DEFINE_attr_templ(sai_vlan_member_attr_t, s32, sai_vlan_member_attr_t_s32);
+DEFINE_attr_templ(sai_wred_attr_t, booldata, sai_wred_attr_t_booldata);
+DEFINE_attr_templ(sai_wred_attr_t, s32, sai_wred_attr_t_s32);
+DEFINE_attr_templ(sai_wred_attr_t, u32, sai_wred_attr_t_u32);
+DEFINE_attr_templ(sai_wred_attr_t, u8, sai_wred_attr_t_u8);
+
+using SAI_ACL_COUNTER_ATTR_BYTES_VAL = sai_acl_counter_attr_t_u64<SAI_ACL_COUNTER_ATTR_BYTES, sai_uint64_t>;
+using SAI_ACL_COUNTER_ATTR_ENABLE_BYTE_COUNT_VAL = sai_acl_counter_attr_t_booldata<SAI_ACL_COUNTER_ATTR_ENABLE_BYTE_COUNT, bool>;
+using SAI_ACL_COUNTER_ATTR_ENABLE_PACKET_COUNT_VAL = sai_acl_counter_attr_t_booldata<SAI_ACL_COUNTER_ATTR_ENABLE_PACKET_COUNT, bool>;
+using SAI_ACL_COUNTER_ATTR_PACKETS_VAL = sai_acl_counter_attr_t_u64<SAI_ACL_COUNTER_ATTR_PACKETS, sai_uint64_t>;
+using SAI_ACL_COUNTER_ATTR_TABLE_ID_VAL = sai_acl_counter_attr_t_oid<SAI_ACL_COUNTER_ATTR_TABLE_ID, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_ACL_DTEL_FLOW_OP_VAL = sai_acl_entry_attr_t_aclaction_s32<SAI_ACL_ENTRY_ATTR_ACTION_ACL_DTEL_FLOW_OP, sai_acl_dtel_flow_op_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_COUNTER_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_COUNTER, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_TTL_VAL = sai_acl_entry_attr_t_aclaction_s32<SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_TTL, sai_int32_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DTEL_DROP_REPORT_ENABLE_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_DTEL_DROP_REPORT_ENABLE, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DTEL_FLOW_SAMPLE_PERCENT_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_DTEL_FLOW_SAMPLE_PERCENT, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DTEL_INT_SESSION_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_DTEL_INT_SESSION, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DTEL_REPORT_ALL_PACKETS_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_DTEL_REPORT_ALL_PACKETS, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_BLOCK_PORT_LIST_VAL = sai_acl_entry_attr_t_aclaction_objlist<SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_BLOCK_PORT_LIST, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_SAMPLEPACKET_ENABLE_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_SAMPLEPACKET_ENABLE, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_ENDPOINT_IP_VAL = sai_acl_entry_attr_t_aclaction_ipaddr<SAI_ACL_ENTRY_ATTR_ACTION_ENDPOINT_IP, sai_ip_address_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_FLOOD_VAL = sai_acl_entry_attr_t_aclaction_s32<SAI_ACL_ENTRY_ATTR_ACTION_FLOOD, sai_int32_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INGRESS_SAMPLEPACKET_ENABLE_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_INGRESS_SAMPLEPACKET_ENABLE, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INT_DELETE_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_INT_DELETE, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INT_INSERT_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_INT_INSERT, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_DROPS_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_DROPS, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_FLOW_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_FLOW, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_TAIL_DROPS_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_TAIL_DROPS, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_EGRESS_VAL = sai_acl_entry_attr_t_aclaction_objlist<SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_EGRESS, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_INGRESS_VAL = sai_acl_entry_attr_t_aclaction_objlist<SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_INGRESS, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_NO_NAT_VAL = sai_acl_entry_attr_t_aclaction_booldata<SAI_ACL_ENTRY_ATTR_ACTION_NO_NAT, bool>;
+using SAI_ACL_ENTRY_ATTR_ACTION_PACKET_ACTION_VAL = sai_acl_entry_attr_t_aclaction_s32<SAI_ACL_ENTRY_ATTR_ACTION_PACKET_ACTION, sai_packet_action_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_LIST_VAL = sai_acl_entry_attr_t_aclaction_objlist<SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_LIST, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_ACL_META_DATA_VAL = sai_acl_entry_attr_t_aclaction_u32<SAI_ACL_ENTRY_ATTR_ACTION_SET_ACL_META_DATA, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_DO_NOT_LEARN_VAL = sai_acl_entry_attr_t_aclaction_u32<SAI_ACL_ENTRY_ATTR_ACTION_SET_DO_NOT_LEARN, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_DSCP_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_SET_DSCP, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IP_VAL = sai_acl_entry_attr_t_aclaction_ip4<SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IPV6_VAL = sai_acl_entry_attr_t_aclaction_ip6<SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_MAC_VAL = sai_acl_entry_attr_t_aclaction_mac<SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_MAC, sai_mac_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_ECN_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_SET_ECN, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_ID_VAL = sai_acl_entry_attr_t_aclaction_u32<SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_ID, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_PRI_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_PRI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_ISOLATION_GROUP_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_SET_ISOLATION_GROUP, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_DST_PORT_VAL = sai_acl_entry_attr_t_aclaction_u16<SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_DST_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_SRC_PORT_VAL = sai_acl_entry_attr_t_aclaction_u16<SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_SRC_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_ID_VAL = sai_acl_entry_attr_t_aclaction_u16<SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_ID, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_PRI_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_PRI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_PACKET_COLOR_VAL = sai_acl_entry_attr_t_aclaction_s32<SAI_ACL_ENTRY_ATTR_ACTION_SET_PACKET_COLOR, sai_packet_color_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_POLICER_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_SET_POLICER, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IP_VAL = sai_acl_entry_attr_t_aclaction_ip4<SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IPV6_VAL = sai_acl_entry_attr_t_aclaction_ip6<SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_MAC_VAL = sai_acl_entry_attr_t_aclaction_mac<SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_MAC, sai_mac_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_TC_VAL = sai_acl_entry_attr_t_aclaction_u8<SAI_ACL_ENTRY_ATTR_ACTION_SET_TC, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_SET_USER_TRAP_ID_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_SET_USER_TRAP_ID, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ACTION_TAM_INT_OBJECT_VAL = sai_acl_entry_attr_t_aclaction_oid<SAI_ACL_ENTRY_ATTR_ACTION_TAM_INT_OBJECT, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_ADMIN_STATE_VAL = sai_acl_entry_attr_t_booldata<SAI_ACL_ENTRY_ATTR_ADMIN_STATE, bool>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_FRAG_VAL = sai_acl_entry_attr_t_aclfield_s32<SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_FRAG, sai_acl_ip_frag_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_TYPE_VAL = sai_acl_entry_attr_t_aclfield_s32<SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_TYPE, sai_acl_ip_type_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ACL_RANGE_TYPE_VAL = sai_acl_entry_attr_t_aclfield_objlist<SAI_ACL_ENTRY_ATTR_FIELD_ACL_RANGE_TYPE, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ACL_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_ACL_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_AETH_SYNDROME_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_AETH_SYNDROME, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_BTH_OPCODE_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_BTH_OPCODE, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_DSCP_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_DSCP, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_DST_IP_VAL = sai_acl_entry_attr_t_aclfield_ip4<SAI_ACL_ENTRY_ATTR_FIELD_DST_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_VAL = sai_acl_entry_attr_t_aclfield_ip6<SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_DST_MAC_VAL = sai_acl_entry_attr_t_aclfield_mac<SAI_ACL_ENTRY_ATTR_FIELD_DST_MAC, sai_mac_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ECN_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_ECN, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ETHER_TYPE_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_ETHER_TYPE, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_FDB_DST_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_FDB_DST_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_FDB_NPU_META_DST_HIT_VAL = sai_acl_entry_attr_t_aclfield_booldata<SAI_ACL_ENTRY_ATTR_FIELD_FDB_NPU_META_DST_HIT, bool>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_CODE_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_CODE, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_TYPE_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_TYPE, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ICMP_CODE_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_ICMP_CODE, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ICMP_TYPE_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_ICMP_TYPE, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IP_VAL = sai_acl_entry_attr_t_aclfield_ip4<SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IPV6_VAL = sai_acl_entry_attr_t_aclfield_ip6<SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_ETHER_TYPE_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_INNER_ETHER_TYPE, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_IP_PROTOCOL_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_INNER_IP_PROTOCOL, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_DST_PORT_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_DST_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_SRC_PORT_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_SRC_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IP_VAL = sai_acl_entry_attr_t_aclfield_ip4<SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IPV6_VAL = sai_acl_entry_attr_t_aclfield_ip6<SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_CFI_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_CFI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_ID_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_ID, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_PRI_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_PRI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IN_PORT_VAL = sai_acl_entry_attr_t_aclfield_oid<SAI_ACL_ENTRY_ATTR_FIELD_IN_PORT, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IN_PORTS_VAL = sai_acl_entry_attr_t_aclfield_objlist<SAI_ACL_ENTRY_ATTR_FIELD_IN_PORTS, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IPV6_FLOW_LABEL_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_IPV6_FLOW_LABEL, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IPV6_NEXT_HEADER_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_IPV6_NEXT_HEADER, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IP_FLAGS_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_IP_FLAGS, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IP_IDENTIFICATION_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_IP_IDENTIFICATION, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_IP_PROTOCOL_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_IP_PROTOCOL, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_L4_DST_PORT_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_L4_DST_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_L4_SRC_PORT_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_L4_SRC_PORT, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_DST_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_DST_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT_VAL = sai_acl_entry_attr_t_aclfield_booldata<SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT, bool>;
+using SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_CFI_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_CFI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_ID_VAL = sai_acl_entry_attr_t_aclfield_u16<SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_ID, sai_uint16_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_PRI_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_PRI, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORT_VAL = sai_acl_entry_attr_t_aclfield_oid<SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORT, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORTS_VAL = sai_acl_entry_attr_t_aclfield_objlist<SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORTS, sai_object_list_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_PACKET_VLAN_VAL = sai_acl_entry_attr_t_aclfield_s32<SAI_ACL_ENTRY_ATTR_FIELD_PACKET_VLAN, sai_packet_vlan_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_PORT_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_PORT_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_DST_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_DST_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_NPU_META_DST_HIT_VAL = sai_acl_entry_attr_t_aclfield_booldata<SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_NPU_META_DST_HIT, bool>;
+using SAI_ACL_ENTRY_ATTR_FIELD_SRC_IP_VAL = sai_acl_entry_attr_t_aclfield_ip4<SAI_ACL_ENTRY_ATTR_FIELD_SRC_IP, sai_ip4_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_VAL = sai_acl_entry_attr_t_aclfield_ip6<SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6, sai_ip6_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_SRC_MAC_VAL = sai_acl_entry_attr_t_aclfield_mac<SAI_ACL_ENTRY_ATTR_FIELD_SRC_MAC, sai_mac_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_SRC_PORT_VAL = sai_acl_entry_attr_t_aclfield_oid<SAI_ACL_ENTRY_ATTR_FIELD_SRC_PORT, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_TC_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_TC, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_TCP_FLAGS_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_TCP_FLAGS, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_TOS_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_TOS, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_TTL_VAL = sai_acl_entry_attr_t_aclfield_u8<SAI_ACL_ENTRY_ATTR_FIELD_TTL, sai_uint8_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_TUNNEL_VNI_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_TUNNEL_VNI, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_FIELD_VLAN_USER_META_VAL = sai_acl_entry_attr_t_aclfield_u32<SAI_ACL_ENTRY_ATTR_FIELD_VLAN_USER_META, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_PRIORITY_VAL = sai_acl_entry_attr_t_u32<SAI_ACL_ENTRY_ATTR_PRIORITY, sai_uint32_t>;
+using SAI_ACL_ENTRY_ATTR_TABLE_ID_VAL = sai_acl_entry_attr_t_oid<SAI_ACL_ENTRY_ATTR_TABLE_ID, sai_object_id_t>;
+using SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MIN_VAL = sai_acl_entry_attr_t_aclfield_oid<SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MIN, sai_object_id_t>;
+using SAI_ACL_RANGE_ATTR_LIMIT_VAL = sai_acl_range_attr_t_u32range<SAI_ACL_RANGE_ATTR_LIMIT, sai_u32_range_t>;
+using SAI_ACL_RANGE_ATTR_TYPE_VAL = sai_acl_range_attr_t_s32<SAI_ACL_RANGE_ATTR_TYPE, sai_acl_range_type_t>;
+using SAI_ACL_TABLE_ATTR_ACL_ACTION_TYPE_LIST_VAL = sai_acl_table_attr_t_s32list<SAI_ACL_TABLE_ATTR_ACL_ACTION_TYPE_LIST, sai_s32_list_t>;
+using SAI_ACL_TABLE_ATTR_ACL_BIND_POINT_TYPE_LIST_VAL = sai_acl_table_attr_t_s32list<SAI_ACL_TABLE_ATTR_ACL_BIND_POINT_TYPE_LIST, sai_s32_list_t>;
+using SAI_ACL_TABLE_ATTR_ACL_STAGE_VAL = sai_acl_table_attr_t_s32<SAI_ACL_TABLE_ATTR_ACL_STAGE, sai_acl_stage_t>;
+using SAI_ACL_TABLE_ATTR_AVAILABLE_ACL_COUNTER_VAL = sai_acl_table_attr_t_u32<SAI_ACL_TABLE_ATTR_AVAILABLE_ACL_COUNTER, sai_uint32_t>;
+using SAI_ACL_TABLE_ATTR_AVAILABLE_ACL_ENTRY_VAL = sai_acl_table_attr_t_u32<SAI_ACL_TABLE_ATTR_AVAILABLE_ACL_ENTRY, sai_uint32_t>;
+using SAI_ACL_TABLE_ATTR_ENTRY_LIST_VAL = sai_acl_table_attr_t_objlist<SAI_ACL_TABLE_ATTR_ENTRY_LIST, sai_object_list_t>;
+using SAI_ACL_TABLE_ATTR_FIELD_ACL_IP_FRAG_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ACL_IP_FRAG, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ACL_IP_TYPE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ACL_IP_TYPE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ACL_RANGE_TYPE_VAL = sai_acl_table_attr_t_s32list<SAI_ACL_TABLE_ATTR_FIELD_ACL_RANGE_TYPE, sai_s32_list_t>;
+using SAI_ACL_TABLE_ATTR_FIELD_ACL_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ACL_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_AETH_SYNDROME_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_AETH_SYNDROME, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_BTH_OPCODE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_BTH_OPCODE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_DSCP_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_DSCP, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_DST_IP_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_DST_IP, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_DST_IPV6_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_DST_IPV6, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_DST_MAC_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_DST_MAC, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ECN_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ECN, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ETHER_TYPE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ETHER_TYPE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_FDB_DST_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_FDB_DST_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_FDB_NPU_META_DST_HIT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_FDB_NPU_META_DST_HIT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ICMPV6_CODE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ICMPV6_CODE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ICMPV6_TYPE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ICMPV6_TYPE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ICMP_CODE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ICMP_CODE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ICMP_TYPE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ICMP_TYPE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_DST_IP_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_DST_IP, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_DST_IPV6_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_DST_IPV6, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_ETHER_TYPE_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_ETHER_TYPE, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_IP_PROTOCOL_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_IP_PROTOCOL, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_L4_DST_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_L4_DST_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_L4_SRC_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_L4_SRC_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_SRC_IP_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_SRC_IP, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_SRC_IPV6_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_SRC_IPV6, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_CFI_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_CFI, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_ID_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_ID, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_PRI_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_INNER_VLAN_PRI, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IN_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IN_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IN_PORTS_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IN_PORTS, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IPV6_FLOW_LABEL_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IPV6_FLOW_LABEL, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IPV6_NEXT_HEADER_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IPV6_NEXT_HEADER, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IP_FLAGS_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IP_FLAGS, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IP_IDENTIFICATION_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IP_IDENTIFICATION, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_IP_PROTOCOL_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_IP_PROTOCOL, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_L4_DST_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_L4_DST_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_L4_SRC_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_L4_SRC_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_NEIGHBOR_DST_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_NEIGHBOR_DST_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_CFI_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_CFI, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_ID_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_ID, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_PRI_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_OUTER_VLAN_PRI, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_OUT_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_OUT_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_OUT_PORTS_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_OUT_PORTS, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_PACKET_VLAN_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_PACKET_VLAN, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_PORT_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_PORT_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ROUTE_DST_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ROUTE_DST_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_ROUTE_NPU_META_DST_HIT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_ROUTE_NPU_META_DST_HIT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_SRC_IP_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_SRC_IP, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_SRC_IPV6_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_SRC_IPV6, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_SRC_MAC_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_SRC_MAC, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_SRC_PORT_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_SRC_PORT, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_TC_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_TC, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_TCP_FLAGS_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_TCP_FLAGS, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_TOS_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_TOS, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_TTL_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_TTL, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_TUNNEL_VNI_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_TUNNEL_VNI, bool>;
+using SAI_ACL_TABLE_ATTR_FIELD_VLAN_USER_META_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_FIELD_VLAN_USER_META, bool>;
+using SAI_ACL_TABLE_ATTR_SIZE_VAL = sai_acl_table_attr_t_u32<SAI_ACL_TABLE_ATTR_SIZE, sai_uint32_t>;
+using SAI_ACL_TABLE_ATTR_USER_DEFINED_FIELD_GROUP_MIN_VAL = sai_acl_table_attr_t_booldata<SAI_ACL_TABLE_ATTR_USER_DEFINED_FIELD_GROUP_MIN, bool>;
+using SAI_ACL_TABLE_GROUP_ATTR_ACL_BIND_POINT_TYPE_LIST_VAL = sai_acl_table_group_attr_t_s32list<SAI_ACL_TABLE_GROUP_ATTR_ACL_BIND_POINT_TYPE_LIST, sai_s32_list_t>;
+using SAI_ACL_TABLE_GROUP_ATTR_ACL_STAGE_VAL = sai_acl_table_group_attr_t_s32<SAI_ACL_TABLE_GROUP_ATTR_ACL_STAGE, sai_acl_stage_t>;
+using SAI_ACL_TABLE_GROUP_ATTR_MEMBER_LIST_VAL = sai_acl_table_group_attr_t_objlist<SAI_ACL_TABLE_GROUP_ATTR_MEMBER_LIST, sai_object_list_t>;
+using SAI_ACL_TABLE_GROUP_ATTR_TYPE_VAL = sai_acl_table_group_attr_t_s32<SAI_ACL_TABLE_GROUP_ATTR_TYPE, sai_acl_table_group_type_t>;
+using SAI_ACL_TABLE_GROUP_MEMBER_ATTR_ACL_TABLE_GROUP_ID_VAL = sai_acl_table_group_member_attr_t_oid<SAI_ACL_TABLE_GROUP_MEMBER_ATTR_ACL_TABLE_GROUP_ID, sai_object_id_t>;
+using SAI_ACL_TABLE_GROUP_MEMBER_ATTR_ACL_TABLE_ID_VAL = sai_acl_table_group_member_attr_t_oid<SAI_ACL_TABLE_GROUP_MEMBER_ATTR_ACL_TABLE_ID, sai_object_id_t>;
+using SAI_ACL_TABLE_GROUP_MEMBER_ATTR_PRIORITY_VAL = sai_acl_table_group_member_attr_t_u32<SAI_ACL_TABLE_GROUP_MEMBER_ATTR_PRIORITY, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_BFD_ENCAPSULATION_TYPE_VAL = sai_bfd_session_attr_t_s32<SAI_BFD_SESSION_ATTR_BFD_ENCAPSULATION_TYPE, sai_bfd_encapsulation_type_t>;
+using SAI_BFD_SESSION_ATTR_CBIT_VAL = sai_bfd_session_attr_t_booldata<SAI_BFD_SESSION_ATTR_CBIT, bool>;
+using SAI_BFD_SESSION_ATTR_DST_IP_ADDRESS_VAL = sai_bfd_session_attr_t_ipaddr<SAI_BFD_SESSION_ATTR_DST_IP_ADDRESS, sai_ip_address_t>;
+using SAI_BFD_SESSION_ATTR_DST_MAC_ADDRESS_VAL = sai_bfd_session_attr_t_mac<SAI_BFD_SESSION_ATTR_DST_MAC_ADDRESS, sai_mac_t>;
+using SAI_BFD_SESSION_ATTR_ECHO_ENABLE_VAL = sai_bfd_session_attr_t_booldata<SAI_BFD_SESSION_ATTR_ECHO_ENABLE, bool>;
+using SAI_BFD_SESSION_ATTR_HW_LOOKUP_VALID_VAL = sai_bfd_session_attr_t_booldata<SAI_BFD_SESSION_ATTR_HW_LOOKUP_VALID, bool>;
+using SAI_BFD_SESSION_ATTR_IPHDR_VERSION_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_IPHDR_VERSION, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_LOCAL_DIAG_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_LOCAL_DIAG, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_LOCAL_DISCRIMINATOR_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_LOCAL_DISCRIMINATOR, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_MIN_RX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_MIN_RX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_MIN_TX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_MIN_TX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_MULTIHOP_VAL = sai_bfd_session_attr_t_booldata<SAI_BFD_SESSION_ATTR_MULTIHOP, bool>;
+using SAI_BFD_SESSION_ATTR_MULTIPLIER_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_MULTIPLIER, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_NEGOTIATED_RX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_NEGOTIATED_RX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_NEGOTIATED_TX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_NEGOTIATED_TX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_OFFLOAD_TYPE_VAL = sai_bfd_session_attr_t_s32<SAI_BFD_SESSION_ATTR_OFFLOAD_TYPE, sai_bfd_session_offload_type_t>;
+using SAI_BFD_SESSION_ATTR_PORT_VAL = sai_bfd_session_attr_t_oid<SAI_BFD_SESSION_ATTR_PORT, sai_object_id_t>;
+using SAI_BFD_SESSION_ATTR_REMOTE_DIAG_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_REMOTE_DIAG, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_REMOTE_DISCRIMINATOR_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_REMOTE_DISCRIMINATOR, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_REMOTE_MIN_RX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_REMOTE_MIN_RX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_REMOTE_MIN_TX_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_REMOTE_MIN_TX, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_REMOTE_MULTIPLIER_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_REMOTE_MULTIPLIER, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_SRC_IP_ADDRESS_VAL = sai_bfd_session_attr_t_ipaddr<SAI_BFD_SESSION_ATTR_SRC_IP_ADDRESS, sai_ip_address_t>;
+using SAI_BFD_SESSION_ATTR_SRC_MAC_ADDRESS_VAL = sai_bfd_session_attr_t_mac<SAI_BFD_SESSION_ATTR_SRC_MAC_ADDRESS, sai_mac_t>;
+using SAI_BFD_SESSION_ATTR_STATE_VAL = sai_bfd_session_attr_t_s32<SAI_BFD_SESSION_ATTR_STATE, sai_bfd_session_state_t>;
+using SAI_BFD_SESSION_ATTR_TC_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_TC, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_TOS_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_TOS, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_TTL_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_TTL, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_TUNNEL_DST_IP_ADDRESS_VAL = sai_bfd_session_attr_t_ipaddr<SAI_BFD_SESSION_ATTR_TUNNEL_DST_IP_ADDRESS, sai_ip_address_t>;
+using SAI_BFD_SESSION_ATTR_TUNNEL_SRC_IP_ADDRESS_VAL = sai_bfd_session_attr_t_ipaddr<SAI_BFD_SESSION_ATTR_TUNNEL_SRC_IP_ADDRESS, sai_ip_address_t>;
+using SAI_BFD_SESSION_ATTR_TUNNEL_TOS_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_TUNNEL_TOS, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_TUNNEL_TTL_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_TUNNEL_TTL, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_TYPE_VAL = sai_bfd_session_attr_t_s32<SAI_BFD_SESSION_ATTR_TYPE, sai_bfd_session_type_t>;
+using SAI_BFD_SESSION_ATTR_UDP_SRC_PORT_VAL = sai_bfd_session_attr_t_u32<SAI_BFD_SESSION_ATTR_UDP_SRC_PORT, sai_uint32_t>;
+using SAI_BFD_SESSION_ATTR_VIRTUAL_ROUTER_VAL = sai_bfd_session_attr_t_oid<SAI_BFD_SESSION_ATTR_VIRTUAL_ROUTER, sai_object_id_t>;
+using SAI_BFD_SESSION_ATTR_VLAN_CFI_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_VLAN_CFI, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_VLAN_HEADER_VALID_VAL = sai_bfd_session_attr_t_booldata<SAI_BFD_SESSION_ATTR_VLAN_HEADER_VALID, bool>;
+using SAI_BFD_SESSION_ATTR_VLAN_ID_VAL = sai_bfd_session_attr_t_u16<SAI_BFD_SESSION_ATTR_VLAN_ID, sai_uint16_t>;
+using SAI_BFD_SESSION_ATTR_VLAN_PRI_VAL = sai_bfd_session_attr_t_u8<SAI_BFD_SESSION_ATTR_VLAN_PRI, sai_uint8_t>;
+using SAI_BFD_SESSION_ATTR_VLAN_TPID_VAL = sai_bfd_session_attr_t_u16<SAI_BFD_SESSION_ATTR_VLAN_TPID, sai_uint16_t>;
+using SAI_BRIDGE_ATTR_BROADCAST_FLOOD_CONTROL_TYPE_VAL = sai_bridge_attr_t_s32<SAI_BRIDGE_ATTR_BROADCAST_FLOOD_CONTROL_TYPE, sai_bridge_flood_control_type_t>;
+using SAI_BRIDGE_ATTR_BROADCAST_FLOOD_GROUP_VAL = sai_bridge_attr_t_oid<SAI_BRIDGE_ATTR_BROADCAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_BRIDGE_ATTR_LEARN_DISABLE_VAL = sai_bridge_attr_t_booldata<SAI_BRIDGE_ATTR_LEARN_DISABLE, bool>;
+using SAI_BRIDGE_ATTR_MAX_LEARNED_ADDRESSES_VAL = sai_bridge_attr_t_u32<SAI_BRIDGE_ATTR_MAX_LEARNED_ADDRESSES, sai_uint32_t>;
+using SAI_BRIDGE_ATTR_PORT_LIST_VAL = sai_bridge_attr_t_objlist<SAI_BRIDGE_ATTR_PORT_LIST, sai_object_list_t>;
+using SAI_BRIDGE_ATTR_TYPE_VAL = sai_bridge_attr_t_s32<SAI_BRIDGE_ATTR_TYPE, sai_bridge_type_t>;
+using SAI_BRIDGE_ATTR_UNKNOWN_MULTICAST_FLOOD_CONTROL_TYPE_VAL = sai_bridge_attr_t_s32<SAI_BRIDGE_ATTR_UNKNOWN_MULTICAST_FLOOD_CONTROL_TYPE, sai_bridge_flood_control_type_t>;
+using SAI_BRIDGE_ATTR_UNKNOWN_MULTICAST_FLOOD_GROUP_VAL = sai_bridge_attr_t_oid<SAI_BRIDGE_ATTR_UNKNOWN_MULTICAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_BRIDGE_ATTR_UNKNOWN_UNICAST_FLOOD_CONTROL_TYPE_VAL = sai_bridge_attr_t_s32<SAI_BRIDGE_ATTR_UNKNOWN_UNICAST_FLOOD_CONTROL_TYPE, sai_bridge_flood_control_type_t>;
+using SAI_BRIDGE_ATTR_UNKNOWN_UNICAST_FLOOD_GROUP_VAL = sai_bridge_attr_t_oid<SAI_BRIDGE_ATTR_UNKNOWN_UNICAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_ADMIN_STATE_VAL = sai_bridge_port_attr_t_booldata<SAI_BRIDGE_PORT_ATTR_ADMIN_STATE, bool>;
+using SAI_BRIDGE_PORT_ATTR_BRIDGE_ID_VAL = sai_bridge_port_attr_t_oid<SAI_BRIDGE_PORT_ATTR_BRIDGE_ID, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_EGRESS_FILTERING_VAL = sai_bridge_port_attr_t_booldata<SAI_BRIDGE_PORT_ATTR_EGRESS_FILTERING, bool>;
+using SAI_BRIDGE_PORT_ATTR_FDB_LEARNING_LIMIT_VIOLATION_PACKET_ACTION_VAL = sai_bridge_port_attr_t_s32<SAI_BRIDGE_PORT_ATTR_FDB_LEARNING_LIMIT_VIOLATION_PACKET_ACTION, sai_packet_action_t>;
+using SAI_BRIDGE_PORT_ATTR_FDB_LEARNING_MODE_VAL = sai_bridge_port_attr_t_s32<SAI_BRIDGE_PORT_ATTR_FDB_LEARNING_MODE, sai_bridge_port_fdb_learning_mode_t>;
+using SAI_BRIDGE_PORT_ATTR_INGRESS_FILTERING_VAL = sai_bridge_port_attr_t_booldata<SAI_BRIDGE_PORT_ATTR_INGRESS_FILTERING, bool>;
+using SAI_BRIDGE_PORT_ATTR_ISOLATION_GROUP_VAL = sai_bridge_port_attr_t_oid<SAI_BRIDGE_PORT_ATTR_ISOLATION_GROUP, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_MAX_LEARNED_ADDRESSES_VAL = sai_bridge_port_attr_t_u32<SAI_BRIDGE_PORT_ATTR_MAX_LEARNED_ADDRESSES, sai_uint32_t>;
+using SAI_BRIDGE_PORT_ATTR_PORT_ID_VAL = sai_bridge_port_attr_t_oid<SAI_BRIDGE_PORT_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_RIF_ID_VAL = sai_bridge_port_attr_t_oid<SAI_BRIDGE_PORT_ATTR_RIF_ID, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_TAGGING_MODE_VAL = sai_bridge_port_attr_t_s32<SAI_BRIDGE_PORT_ATTR_TAGGING_MODE, sai_bridge_port_tagging_mode_t>;
+using SAI_BRIDGE_PORT_ATTR_TUNNEL_ID_VAL = sai_bridge_port_attr_t_oid<SAI_BRIDGE_PORT_ATTR_TUNNEL_ID, sai_object_id_t>;
+using SAI_BRIDGE_PORT_ATTR_TYPE_VAL = sai_bridge_port_attr_t_s32<SAI_BRIDGE_PORT_ATTR_TYPE, sai_bridge_port_type_t>;
+using SAI_BRIDGE_PORT_ATTR_VLAN_ID_VAL = sai_bridge_port_attr_t_u16<SAI_BRIDGE_PORT_ATTR_VLAN_ID, sai_uint16_t>;
+using SAI_BUFFER_POOL_ATTR_SHARED_SIZE_VAL = sai_buffer_pool_attr_t_u64<SAI_BUFFER_POOL_ATTR_SHARED_SIZE, sai_uint64_t>;
+using SAI_BUFFER_POOL_ATTR_SIZE_VAL = sai_buffer_pool_attr_t_u64<SAI_BUFFER_POOL_ATTR_SIZE, sai_uint64_t>;
+using SAI_BUFFER_POOL_ATTR_TAM_VAL = sai_buffer_pool_attr_t_objlist<SAI_BUFFER_POOL_ATTR_TAM, sai_object_list_t>;
+using SAI_BUFFER_POOL_ATTR_THRESHOLD_MODE_VAL = sai_buffer_pool_attr_t_s32<SAI_BUFFER_POOL_ATTR_THRESHOLD_MODE, sai_buffer_pool_threshold_mode_t>;
+using SAI_BUFFER_POOL_ATTR_TYPE_VAL = sai_buffer_pool_attr_t_s32<SAI_BUFFER_POOL_ATTR_TYPE, sai_buffer_pool_type_t>;
+using SAI_BUFFER_POOL_ATTR_WRED_PROFILE_ID_VAL = sai_buffer_pool_attr_t_oid<SAI_BUFFER_POOL_ATTR_WRED_PROFILE_ID, sai_object_id_t>;
+using SAI_BUFFER_POOL_ATTR_XOFF_SIZE_VAL = sai_buffer_pool_attr_t_u64<SAI_BUFFER_POOL_ATTR_XOFF_SIZE, sai_uint64_t>;
+using SAI_BUFFER_PROFILE_ATTR_POOL_ID_VAL = sai_buffer_profile_attr_t_oid<SAI_BUFFER_PROFILE_ATTR_POOL_ID, sai_object_id_t>;
+using SAI_BUFFER_PROFILE_ATTR_RESERVED_BUFFER_SIZE_VAL = sai_buffer_profile_attr_t_u64<SAI_BUFFER_PROFILE_ATTR_RESERVED_BUFFER_SIZE, sai_uint64_t>;
+using SAI_BUFFER_PROFILE_ATTR_SHARED_DYNAMIC_TH_VAL = sai_buffer_profile_attr_t_s8<SAI_BUFFER_PROFILE_ATTR_SHARED_DYNAMIC_TH, sai_int8_t>;
+using SAI_BUFFER_PROFILE_ATTR_SHARED_STATIC_TH_VAL = sai_buffer_profile_attr_t_u64<SAI_BUFFER_PROFILE_ATTR_SHARED_STATIC_TH, sai_uint64_t>;
+using SAI_BUFFER_PROFILE_ATTR_THRESHOLD_MODE_VAL = sai_buffer_profile_attr_t_s32<SAI_BUFFER_PROFILE_ATTR_THRESHOLD_MODE, sai_buffer_profile_threshold_mode_t>;
+using SAI_BUFFER_PROFILE_ATTR_XOFF_TH_VAL = sai_buffer_profile_attr_t_u64<SAI_BUFFER_PROFILE_ATTR_XOFF_TH, sai_uint64_t>;
+using SAI_BUFFER_PROFILE_ATTR_XON_OFFSET_TH_VAL = sai_buffer_profile_attr_t_u64<SAI_BUFFER_PROFILE_ATTR_XON_OFFSET_TH, sai_uint64_t>;
+using SAI_BUFFER_PROFILE_ATTR_XON_TH_VAL = sai_buffer_profile_attr_t_u64<SAI_BUFFER_PROFILE_ATTR_XON_TH, sai_uint64_t>;
+using SAI_COUNTER_ATTR_TYPE_VAL = sai_counter_attr_t_s32<SAI_COUNTER_ATTR_TYPE, sai_counter_type_t>;
+using SAI_DEBUG_COUNTER_ATTR_BIND_METHOD_VAL = sai_debug_counter_attr_t_s32<SAI_DEBUG_COUNTER_ATTR_BIND_METHOD, sai_debug_counter_bind_method_t>;
+using SAI_DEBUG_COUNTER_ATTR_INDEX_VAL = sai_debug_counter_attr_t_u32<SAI_DEBUG_COUNTER_ATTR_INDEX, sai_uint32_t>;
+using SAI_DEBUG_COUNTER_ATTR_IN_DROP_REASON_LIST_VAL = sai_debug_counter_attr_t_s32list<SAI_DEBUG_COUNTER_ATTR_IN_DROP_REASON_LIST, sai_s32_list_t>;
+using SAI_DEBUG_COUNTER_ATTR_OUT_DROP_REASON_LIST_VAL = sai_debug_counter_attr_t_s32list<SAI_DEBUG_COUNTER_ATTR_OUT_DROP_REASON_LIST, sai_s32_list_t>;
+using SAI_DEBUG_COUNTER_ATTR_TYPE_VAL = sai_debug_counter_attr_t_s32<SAI_DEBUG_COUNTER_ATTR_TYPE, sai_debug_counter_type_t>;
+using SAI_DTEL_ATTR_DROP_REPORT_ENABLE_VAL = sai_dtel_attr_t_booldata<SAI_DTEL_ATTR_DROP_REPORT_ENABLE, bool>;
+using SAI_DTEL_ATTR_FLOW_STATE_CLEAR_CYCLE_VAL = sai_dtel_attr_t_u16<SAI_DTEL_ATTR_FLOW_STATE_CLEAR_CYCLE, sai_uint16_t>;
+using SAI_DTEL_ATTR_INT_ENDPOINT_ENABLE_VAL = sai_dtel_attr_t_booldata<SAI_DTEL_ATTR_INT_ENDPOINT_ENABLE, bool>;
+using SAI_DTEL_ATTR_INT_L4_DSCP_VAL = sai_dtel_attr_t_aclfield_u8<SAI_DTEL_ATTR_INT_L4_DSCP, sai_uint8_t>;
+using SAI_DTEL_ATTR_INT_TRANSIT_ENABLE_VAL = sai_dtel_attr_t_booldata<SAI_DTEL_ATTR_INT_TRANSIT_ENABLE, bool>;
+using SAI_DTEL_ATTR_LATENCY_SENSITIVITY_VAL = sai_dtel_attr_t_u8<SAI_DTEL_ATTR_LATENCY_SENSITIVITY, sai_uint8_t>;
+using SAI_DTEL_ATTR_POSTCARD_ENABLE_VAL = sai_dtel_attr_t_booldata<SAI_DTEL_ATTR_POSTCARD_ENABLE, bool>;
+using SAI_DTEL_ATTR_QUEUE_REPORT_ENABLE_VAL = sai_dtel_attr_t_booldata<SAI_DTEL_ATTR_QUEUE_REPORT_ENABLE, bool>;
+using SAI_DTEL_ATTR_SINK_PORT_LIST_VAL = sai_dtel_attr_t_objlist<SAI_DTEL_ATTR_SINK_PORT_LIST, sai_object_list_t>;
+using SAI_DTEL_ATTR_SWITCH_ID_VAL = sai_dtel_attr_t_u32<SAI_DTEL_ATTR_SWITCH_ID, sai_uint32_t>;
+using SAI_DTEL_EVENT_ATTR_DSCP_VALUE_VAL = sai_dtel_event_attr_t_u8<SAI_DTEL_EVENT_ATTR_DSCP_VALUE, sai_uint8_t>;
+using SAI_DTEL_EVENT_ATTR_REPORT_SESSION_VAL = sai_dtel_event_attr_t_oid<SAI_DTEL_EVENT_ATTR_REPORT_SESSION, sai_object_id_t>;
+using SAI_DTEL_EVENT_ATTR_TYPE_VAL = sai_dtel_event_attr_t_s32<SAI_DTEL_EVENT_ATTR_TYPE, sai_dtel_event_type_t>;
+using SAI_DTEL_INT_SESSION_ATTR_COLLECT_EGRESS_TIMESTAMP_VAL = sai_dtel_int_session_attr_t_booldata<SAI_DTEL_INT_SESSION_ATTR_COLLECT_EGRESS_TIMESTAMP, bool>;
+using SAI_DTEL_INT_SESSION_ATTR_COLLECT_INGRESS_TIMESTAMP_VAL = sai_dtel_int_session_attr_t_booldata<SAI_DTEL_INT_SESSION_ATTR_COLLECT_INGRESS_TIMESTAMP, bool>;
+using SAI_DTEL_INT_SESSION_ATTR_COLLECT_QUEUE_INFO_VAL = sai_dtel_int_session_attr_t_booldata<SAI_DTEL_INT_SESSION_ATTR_COLLECT_QUEUE_INFO, bool>;
+using SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_ID_VAL = sai_dtel_int_session_attr_t_booldata<SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_ID, bool>;
+using SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_PORTS_VAL = sai_dtel_int_session_attr_t_booldata<SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_PORTS, bool>;
+using SAI_DTEL_INT_SESSION_ATTR_MAX_HOP_COUNT_VAL = sai_dtel_int_session_attr_t_u8<SAI_DTEL_INT_SESSION_ATTR_MAX_HOP_COUNT, sai_uint8_t>;
+using SAI_DTEL_QUEUE_REPORT_ATTR_BREACH_QUOTA_VAL = sai_dtel_queue_report_attr_t_u32<SAI_DTEL_QUEUE_REPORT_ATTR_BREACH_QUOTA, sai_uint32_t>;
+using SAI_DTEL_QUEUE_REPORT_ATTR_DEPTH_THRESHOLD_VAL = sai_dtel_queue_report_attr_t_u32<SAI_DTEL_QUEUE_REPORT_ATTR_DEPTH_THRESHOLD, sai_uint32_t>;
+using SAI_DTEL_QUEUE_REPORT_ATTR_LATENCY_THRESHOLD_VAL = sai_dtel_queue_report_attr_t_u32<SAI_DTEL_QUEUE_REPORT_ATTR_LATENCY_THRESHOLD, sai_uint32_t>;
+using SAI_DTEL_QUEUE_REPORT_ATTR_QUEUE_ID_VAL = sai_dtel_queue_report_attr_t_oid<SAI_DTEL_QUEUE_REPORT_ATTR_QUEUE_ID, sai_object_id_t>;
+using SAI_DTEL_QUEUE_REPORT_ATTR_TAIL_DROP_VAL = sai_dtel_queue_report_attr_t_booldata<SAI_DTEL_QUEUE_REPORT_ATTR_TAIL_DROP, bool>;
+using SAI_DTEL_REPORT_SESSION_ATTR_DST_IP_LIST_VAL = sai_dtel_report_session_attr_t_ipaddrlist<SAI_DTEL_REPORT_SESSION_ATTR_DST_IP_LIST, sai_ip_address_list_t>;
+using SAI_DTEL_REPORT_SESSION_ATTR_SRC_IP_VAL = sai_dtel_report_session_attr_t_ipaddr<SAI_DTEL_REPORT_SESSION_ATTR_SRC_IP, sai_ip_address_t>;
+using SAI_DTEL_REPORT_SESSION_ATTR_TRUNCATE_SIZE_VAL = sai_dtel_report_session_attr_t_u16<SAI_DTEL_REPORT_SESSION_ATTR_TRUNCATE_SIZE, sai_uint16_t>;
+using SAI_DTEL_REPORT_SESSION_ATTR_UDP_DST_PORT_VAL = sai_dtel_report_session_attr_t_u16<SAI_DTEL_REPORT_SESSION_ATTR_UDP_DST_PORT, sai_uint16_t>;
+using SAI_DTEL_REPORT_SESSION_ATTR_VIRTUAL_ROUTER_ID_VAL = sai_dtel_report_session_attr_t_oid<SAI_DTEL_REPORT_SESSION_ATTR_VIRTUAL_ROUTER_ID, sai_object_id_t>;
+using SAI_FDB_ENTRY_ATTR_BRIDGE_PORT_ID_VAL = sai_fdb_entry_attr_t_oid<SAI_FDB_ENTRY_ATTR_BRIDGE_PORT_ID, sai_object_id_t>;
+using SAI_FDB_ENTRY_ATTR_COUNTER_ID_VAL = sai_fdb_entry_attr_t_oid<SAI_FDB_ENTRY_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_FDB_ENTRY_ATTR_ENDPOINT_IP_VAL = sai_fdb_entry_attr_t_ipaddr<SAI_FDB_ENTRY_ATTR_ENDPOINT_IP, sai_ip_address_t>;
+using SAI_FDB_ENTRY_ATTR_META_DATA_VAL = sai_fdb_entry_attr_t_u32<SAI_FDB_ENTRY_ATTR_META_DATA, sai_uint32_t>;
+using SAI_FDB_ENTRY_ATTR_PACKET_ACTION_VAL = sai_fdb_entry_attr_t_s32<SAI_FDB_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_FDB_ENTRY_ATTR_TYPE_VAL = sai_fdb_entry_attr_t_s32<SAI_FDB_ENTRY_ATTR_TYPE, sai_fdb_entry_type_t>;
+using SAI_FDB_ENTRY_ATTR_USER_TRAP_ID_VAL = sai_fdb_entry_attr_t_oid<SAI_FDB_ENTRY_ATTR_USER_TRAP_ID, sai_object_id_t>;
+using SAI_FDB_FLUSH_ATTR_BRIDGE_PORT_ID_VAL = sai_fdb_flush_attr_t_oid<SAI_FDB_FLUSH_ATTR_BRIDGE_PORT_ID, sai_object_id_t>;
+using SAI_FDB_FLUSH_ATTR_BV_ID_VAL = sai_fdb_flush_attr_t_oid<SAI_FDB_FLUSH_ATTR_BV_ID, sai_object_id_t>;
+using SAI_FDB_FLUSH_ATTR_ENTRY_TYPE_VAL = sai_fdb_flush_attr_t_s32<SAI_FDB_FLUSH_ATTR_ENTRY_TYPE, sai_fdb_flush_entry_type_t>;
+using SAI_HASH_ATTR_NATIVE_HASH_FIELD_LIST_VAL = sai_hash_attr_t_s32list<SAI_HASH_ATTR_NATIVE_HASH_FIELD_LIST, sai_s32_list_t>;
+using SAI_HASH_ATTR_UDF_GROUP_LIST_VAL = sai_hash_attr_t_objlist<SAI_HASH_ATTR_UDF_GROUP_LIST, sai_object_list_t>;
+using SAI_HOSTIF_ATTR_GENETLINK_MCGRP_NAME_VAL = sai_hostif_attr_t_chardata_32_<SAI_HOSTIF_ATTR_GENETLINK_MCGRP_NAME, char>;
+using SAI_HOSTIF_ATTR_NAME_VAL = sai_hostif_attr_t_chardata_32_<SAI_HOSTIF_ATTR_NAME, char>;
+using SAI_HOSTIF_ATTR_OBJ_ID_VAL = sai_hostif_attr_t_oid<SAI_HOSTIF_ATTR_OBJ_ID, sai_object_id_t>;
+using SAI_HOSTIF_ATTR_OPER_STATUS_VAL = sai_hostif_attr_t_booldata<SAI_HOSTIF_ATTR_OPER_STATUS, bool>;
+using SAI_HOSTIF_ATTR_QUEUE_VAL = sai_hostif_attr_t_u32<SAI_HOSTIF_ATTR_QUEUE, sai_uint32_t>;
+using SAI_HOSTIF_ATTR_TYPE_VAL = sai_hostif_attr_t_s32<SAI_HOSTIF_ATTR_TYPE, sai_hostif_type_t>;
+using SAI_HOSTIF_ATTR_VLAN_TAG_VAL = sai_hostif_attr_t_s32<SAI_HOSTIF_ATTR_VLAN_TAG, sai_hostif_vlan_tag_t>;
+using SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID_VAL = sai_hostif_packet_attr_t_oid<SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID, sai_object_id_t>;
+using SAI_HOSTIF_PACKET_ATTR_EGRESS_PORT_OR_LAG_VAL = sai_hostif_packet_attr_t_oid<SAI_HOSTIF_PACKET_ATTR_EGRESS_PORT_OR_LAG, sai_object_id_t>;
+using SAI_HOSTIF_PACKET_ATTR_HOSTIF_TRAP_ID_VAL = sai_hostif_packet_attr_t_oid<SAI_HOSTIF_PACKET_ATTR_HOSTIF_TRAP_ID, sai_object_id_t>;
+using SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE_VAL = sai_hostif_packet_attr_t_s32<SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE, sai_hostif_tx_type_t>;
+using SAI_HOSTIF_PACKET_ATTR_INGRESS_LAG_VAL = sai_hostif_packet_attr_t_oid<SAI_HOSTIF_PACKET_ATTR_INGRESS_LAG, sai_object_id_t>;
+using SAI_HOSTIF_PACKET_ATTR_INGRESS_PORT_VAL = sai_hostif_packet_attr_t_oid<SAI_HOSTIF_PACKET_ATTR_INGRESS_PORT, sai_object_id_t>;
+using SAI_HOSTIF_PACKET_ATTR_TIMESTAMP_VAL = sai_hostif_packet_attr_t_timespec<SAI_HOSTIF_PACKET_ATTR_TIMESTAMP, sai_timespec_t>;
+using SAI_HOSTIF_TABLE_ENTRY_ATTR_CHANNEL_TYPE_VAL = sai_hostif_table_entry_attr_t_s32<SAI_HOSTIF_TABLE_ENTRY_ATTR_CHANNEL_TYPE, sai_hostif_table_entry_channel_type_t>;
+using SAI_HOSTIF_TABLE_ENTRY_ATTR_HOST_IF_VAL = sai_hostif_table_entry_attr_t_oid<SAI_HOSTIF_TABLE_ENTRY_ATTR_HOST_IF, sai_object_id_t>;
+using SAI_HOSTIF_TABLE_ENTRY_ATTR_OBJ_ID_VAL = sai_hostif_table_entry_attr_t_oid<SAI_HOSTIF_TABLE_ENTRY_ATTR_OBJ_ID, sai_object_id_t>;
+using SAI_HOSTIF_TABLE_ENTRY_ATTR_TRAP_ID_VAL = sai_hostif_table_entry_attr_t_oid<SAI_HOSTIF_TABLE_ENTRY_ATTR_TRAP_ID, sai_object_id_t>;
+using SAI_HOSTIF_TABLE_ENTRY_ATTR_TYPE_VAL = sai_hostif_table_entry_attr_t_s32<SAI_HOSTIF_TABLE_ENTRY_ATTR_TYPE, sai_hostif_table_entry_type_t>;
+using SAI_HOSTIF_TRAP_ATTR_COUNTER_ID_VAL = sai_hostif_trap_attr_t_oid<SAI_HOSTIF_TRAP_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_HOSTIF_TRAP_ATTR_EXCLUDE_PORT_LIST_VAL = sai_hostif_trap_attr_t_objlist<SAI_HOSTIF_TRAP_ATTR_EXCLUDE_PORT_LIST, sai_object_list_t>;
+using SAI_HOSTIF_TRAP_ATTR_MIRROR_SESSION_VAL = sai_hostif_trap_attr_t_objlist<SAI_HOSTIF_TRAP_ATTR_MIRROR_SESSION, sai_object_list_t>;
+using SAI_HOSTIF_TRAP_ATTR_PACKET_ACTION_VAL = sai_hostif_trap_attr_t_s32<SAI_HOSTIF_TRAP_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_HOSTIF_TRAP_ATTR_TRAP_GROUP_VAL = sai_hostif_trap_attr_t_oid<SAI_HOSTIF_TRAP_ATTR_TRAP_GROUP, sai_object_id_t>;
+using SAI_HOSTIF_TRAP_ATTR_TRAP_PRIORITY_VAL = sai_hostif_trap_attr_t_u32<SAI_HOSTIF_TRAP_ATTR_TRAP_PRIORITY, sai_uint32_t>;
+using SAI_HOSTIF_TRAP_ATTR_TRAP_TYPE_VAL = sai_hostif_trap_attr_t_s32<SAI_HOSTIF_TRAP_ATTR_TRAP_TYPE, sai_hostif_trap_type_t>;
+using SAI_HOSTIF_TRAP_GROUP_ATTR_ADMIN_STATE_VAL = sai_hostif_trap_group_attr_t_booldata<SAI_HOSTIF_TRAP_GROUP_ATTR_ADMIN_STATE, bool>;
+using SAI_HOSTIF_TRAP_GROUP_ATTR_POLICER_VAL = sai_hostif_trap_group_attr_t_oid<SAI_HOSTIF_TRAP_GROUP_ATTR_POLICER, sai_object_id_t>;
+using SAI_HOSTIF_TRAP_GROUP_ATTR_QUEUE_VAL = sai_hostif_trap_group_attr_t_u32<SAI_HOSTIF_TRAP_GROUP_ATTR_QUEUE, sai_uint32_t>;
+using SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_GROUP_VAL = sai_hostif_user_defined_trap_attr_t_oid<SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_GROUP, sai_object_id_t>;
+using SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_PRIORITY_VAL = sai_hostif_user_defined_trap_attr_t_u32<SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_PRIORITY, sai_uint32_t>;
+using SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TYPE_VAL = sai_hostif_user_defined_trap_attr_t_s32<SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TYPE, sai_hostif_user_defined_trap_type_t>;
+using SAI_INGRESS_PRIORITY_GROUP_ATTR_BUFFER_PROFILE_VAL = sai_ingress_priority_group_attr_t_oid<SAI_INGRESS_PRIORITY_GROUP_ATTR_BUFFER_PROFILE, sai_object_id_t>;
+using SAI_INGRESS_PRIORITY_GROUP_ATTR_INDEX_VAL = sai_ingress_priority_group_attr_t_u8<SAI_INGRESS_PRIORITY_GROUP_ATTR_INDEX, sai_uint8_t>;
+using SAI_INGRESS_PRIORITY_GROUP_ATTR_PORT_VAL = sai_ingress_priority_group_attr_t_oid<SAI_INGRESS_PRIORITY_GROUP_ATTR_PORT, sai_object_id_t>;
+using SAI_INGRESS_PRIORITY_GROUP_ATTR_TAM_VAL = sai_ingress_priority_group_attr_t_objlist<SAI_INGRESS_PRIORITY_GROUP_ATTR_TAM, sai_object_list_t>;
+using SAI_INSEG_ENTRY_ATTR_NEXT_HOP_ID_VAL = sai_inseg_entry_attr_t_oid<SAI_INSEG_ENTRY_ATTR_NEXT_HOP_ID, sai_object_id_t>;
+using SAI_INSEG_ENTRY_ATTR_NUM_OF_POP_VAL = sai_inseg_entry_attr_t_u8<SAI_INSEG_ENTRY_ATTR_NUM_OF_POP, sai_uint8_t>;
+using SAI_INSEG_ENTRY_ATTR_PACKET_ACTION_VAL = sai_inseg_entry_attr_t_s32<SAI_INSEG_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_INSEG_ENTRY_ATTR_TRAP_PRIORITY_VAL = sai_inseg_entry_attr_t_u8<SAI_INSEG_ENTRY_ATTR_TRAP_PRIORITY, sai_uint8_t>;
+using SAI_IPMC_ENTRY_ATTR_OUTPUT_GROUP_ID_VAL = sai_ipmc_entry_attr_t_oid<SAI_IPMC_ENTRY_ATTR_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_IPMC_ENTRY_ATTR_PACKET_ACTION_VAL = sai_ipmc_entry_attr_t_s32<SAI_IPMC_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_IPMC_ENTRY_ATTR_RPF_GROUP_ID_VAL = sai_ipmc_entry_attr_t_oid<SAI_IPMC_ENTRY_ATTR_RPF_GROUP_ID, sai_object_id_t>;
+using SAI_IPMC_GROUP_ATTR_IPMC_MEMBER_LIST_VAL = sai_ipmc_group_attr_t_objlist<SAI_IPMC_GROUP_ATTR_IPMC_MEMBER_LIST, sai_object_list_t>;
+using SAI_IPMC_GROUP_ATTR_IPMC_OUTPUT_COUNT_VAL = sai_ipmc_group_attr_t_u32<SAI_IPMC_GROUP_ATTR_IPMC_OUTPUT_COUNT, sai_uint32_t>;
+using SAI_IPMC_GROUP_MEMBER_ATTR_IPMC_GROUP_ID_VAL = sai_ipmc_group_member_attr_t_oid<SAI_IPMC_GROUP_MEMBER_ATTR_IPMC_GROUP_ID, sai_object_id_t>;
+using SAI_IPMC_GROUP_MEMBER_ATTR_IPMC_OUTPUT_ID_VAL = sai_ipmc_group_member_attr_t_oid<SAI_IPMC_GROUP_MEMBER_ATTR_IPMC_OUTPUT_ID, sai_object_id_t>;
+using SAI_ISOLATION_GROUP_ATTR_ISOLATION_MEMBER_LIST_VAL = sai_isolation_group_attr_t_objlist<SAI_ISOLATION_GROUP_ATTR_ISOLATION_MEMBER_LIST, sai_object_list_t>;
+using SAI_ISOLATION_GROUP_ATTR_TYPE_VAL = sai_isolation_group_attr_t_s32<SAI_ISOLATION_GROUP_ATTR_TYPE, sai_isolation_group_type_t>;
+using SAI_ISOLATION_GROUP_MEMBER_ATTR_ISOLATION_GROUP_ID_VAL = sai_isolation_group_member_attr_t_oid<SAI_ISOLATION_GROUP_MEMBER_ATTR_ISOLATION_GROUP_ID, sai_object_id_t>;
+using SAI_ISOLATION_GROUP_MEMBER_ATTR_ISOLATION_OBJECT_VAL = sai_isolation_group_member_attr_t_oid<SAI_ISOLATION_GROUP_MEMBER_ATTR_ISOLATION_OBJECT, sai_object_id_t>;
+using SAI_L2MC_ENTRY_ATTR_OUTPUT_GROUP_ID_VAL = sai_l2mc_entry_attr_t_oid<SAI_L2MC_ENTRY_ATTR_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_L2MC_ENTRY_ATTR_PACKET_ACTION_VAL = sai_l2mc_entry_attr_t_s32<SAI_L2MC_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_L2MC_GROUP_ATTR_L2MC_MEMBER_LIST_VAL = sai_l2mc_group_attr_t_objlist<SAI_L2MC_GROUP_ATTR_L2MC_MEMBER_LIST, sai_object_list_t>;
+using SAI_L2MC_GROUP_ATTR_L2MC_OUTPUT_COUNT_VAL = sai_l2mc_group_attr_t_u32<SAI_L2MC_GROUP_ATTR_L2MC_OUTPUT_COUNT, sai_uint32_t>;
+using SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_ENDPOINT_IP_VAL = sai_l2mc_group_member_attr_t_ipaddr<SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_ENDPOINT_IP, sai_ip_address_t>;
+using SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_GROUP_ID_VAL = sai_l2mc_group_member_attr_t_oid<SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_GROUP_ID, sai_object_id_t>;
+using SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_OUTPUT_ID_VAL = sai_l2mc_group_member_attr_t_oid<SAI_L2MC_GROUP_MEMBER_ATTR_L2MC_OUTPUT_ID, sai_object_id_t>;
+using SAI_LAG_ATTR_DEFAULT_VLAN_PRIORITY_VAL = sai_lag_attr_t_u8<SAI_LAG_ATTR_DEFAULT_VLAN_PRIORITY, sai_uint8_t>;
+using SAI_LAG_ATTR_DROP_TAGGED_VAL = sai_lag_attr_t_booldata<SAI_LAG_ATTR_DROP_TAGGED, bool>;
+using SAI_LAG_ATTR_DROP_UNTAGGED_VAL = sai_lag_attr_t_booldata<SAI_LAG_ATTR_DROP_UNTAGGED, bool>;
+using SAI_LAG_ATTR_EGRESS_ACL_VAL = sai_lag_attr_t_oid<SAI_LAG_ATTR_EGRESS_ACL, sai_object_id_t>;
+using SAI_LAG_ATTR_INGRESS_ACL_VAL = sai_lag_attr_t_oid<SAI_LAG_ATTR_INGRESS_ACL, sai_object_id_t>;
+using SAI_LAG_ATTR_PORT_LIST_VAL = sai_lag_attr_t_objlist<SAI_LAG_ATTR_PORT_LIST, sai_object_list_t>;
+using SAI_LAG_ATTR_PORT_VLAN_ID_VAL = sai_lag_attr_t_u16<SAI_LAG_ATTR_PORT_VLAN_ID, sai_uint16_t>;
+using SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE_VAL = sai_lag_member_attr_t_booldata<SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE, bool>;
+using SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE_VAL = sai_lag_member_attr_t_booldata<SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE, bool>;
+using SAI_LAG_MEMBER_ATTR_LAG_ID_VAL = sai_lag_member_attr_t_oid<SAI_LAG_MEMBER_ATTR_LAG_ID, sai_object_id_t>;
+using SAI_LAG_MEMBER_ATTR_PORT_ID_VAL = sai_lag_member_attr_t_oid<SAI_LAG_MEMBER_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID_VAL = sai_mcast_fdb_entry_attr_t_oid<SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID, sai_object_id_t>;
+using SAI_MCAST_FDB_ENTRY_ATTR_META_DATA_VAL = sai_mcast_fdb_entry_attr_t_u32<SAI_MCAST_FDB_ENTRY_ATTR_META_DATA, sai_uint32_t>;
+using SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION_VAL = sai_mcast_fdb_entry_attr_t_s32<SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_MIRROR_SESSION_ATTR_CONGESTION_MODE_VAL = sai_mirror_session_attr_t_s32<SAI_MIRROR_SESSION_ATTR_CONGESTION_MODE, sai_mirror_session_congestion_mode_t>;
+using SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS_VAL = sai_mirror_session_attr_t_ipaddr<SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS, sai_ip_address_t>;
+using SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS_VAL = sai_mirror_session_attr_t_mac<SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS, sai_mac_t>;
+using SAI_MIRROR_SESSION_ATTR_ERSPAN_ENCAPSULATION_TYPE_VAL = sai_mirror_session_attr_t_s32<SAI_MIRROR_SESSION_ATTR_ERSPAN_ENCAPSULATION_TYPE, sai_erspan_encapsulation_type_t>;
+using SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE_VAL = sai_mirror_session_attr_t_u16<SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE, sai_uint16_t>;
+using SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_MONITOR_PORT_VAL = sai_mirror_session_attr_t_oid<SAI_MIRROR_SESSION_ATTR_MONITOR_PORT, sai_object_id_t>;
+using SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST_VAL = sai_mirror_session_attr_t_objlist<SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST, sai_object_list_t>;
+using SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST_VALID_VAL = sai_mirror_session_attr_t_booldata<SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST_VALID, bool>;
+using SAI_MIRROR_SESSION_ATTR_POLICER_VAL = sai_mirror_session_attr_t_oid<SAI_MIRROR_SESSION_ATTR_POLICER, sai_object_id_t>;
+using SAI_MIRROR_SESSION_ATTR_SAMPLE_RATE_VAL = sai_mirror_session_attr_t_u32<SAI_MIRROR_SESSION_ATTR_SAMPLE_RATE, sai_uint32_t>;
+using SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS_VAL = sai_mirror_session_attr_t_ipaddr<SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS, sai_ip_address_t>;
+using SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS_VAL = sai_mirror_session_attr_t_mac<SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS, sai_mac_t>;
+using SAI_MIRROR_SESSION_ATTR_TC_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_TC, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_TOS_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_TOS, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_TRUNCATE_SIZE_VAL = sai_mirror_session_attr_t_u16<SAI_MIRROR_SESSION_ATTR_TRUNCATE_SIZE, sai_uint16_t>;
+using SAI_MIRROR_SESSION_ATTR_TTL_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_TTL, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_TYPE_VAL = sai_mirror_session_attr_t_s32<SAI_MIRROR_SESSION_ATTR_TYPE, sai_mirror_session_type_t>;
+using SAI_MIRROR_SESSION_ATTR_VLAN_CFI_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_VLAN_CFI, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID_VAL = sai_mirror_session_attr_t_booldata<SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID, bool>;
+using SAI_MIRROR_SESSION_ATTR_VLAN_ID_VAL = sai_mirror_session_attr_t_u16<SAI_MIRROR_SESSION_ATTR_VLAN_ID, sai_uint16_t>;
+using SAI_MIRROR_SESSION_ATTR_VLAN_PRI_VAL = sai_mirror_session_attr_t_u8<SAI_MIRROR_SESSION_ATTR_VLAN_PRI, sai_uint8_t>;
+using SAI_MIRROR_SESSION_ATTR_VLAN_TPID_VAL = sai_mirror_session_attr_t_u16<SAI_MIRROR_SESSION_ATTR_VLAN_TPID, sai_uint16_t>;
+using SAI_NAT_ENTRY_ATTR_BYTE_COUNT_VAL = sai_nat_entry_attr_t_u64<SAI_NAT_ENTRY_ATTR_BYTE_COUNT, sai_uint64_t>;
+using SAI_NAT_ENTRY_ATTR_DST_IP_VAL = sai_nat_entry_attr_t_ip4<SAI_NAT_ENTRY_ATTR_DST_IP, sai_ip4_t>;
+using SAI_NAT_ENTRY_ATTR_DST_IP_MASK_VAL = sai_nat_entry_attr_t_ip4<SAI_NAT_ENTRY_ATTR_DST_IP_MASK, sai_ip4_t>;
+using SAI_NAT_ENTRY_ATTR_ENABLE_BYTE_COUNT_VAL = sai_nat_entry_attr_t_booldata<SAI_NAT_ENTRY_ATTR_ENABLE_BYTE_COUNT, bool>;
+using SAI_NAT_ENTRY_ATTR_ENABLE_PACKET_COUNT_VAL = sai_nat_entry_attr_t_booldata<SAI_NAT_ENTRY_ATTR_ENABLE_PACKET_COUNT, bool>;
+using SAI_NAT_ENTRY_ATTR_HIT_BIT_VAL = sai_nat_entry_attr_t_booldata<SAI_NAT_ENTRY_ATTR_HIT_BIT, bool>;
+using SAI_NAT_ENTRY_ATTR_HIT_BIT_COR_VAL = sai_nat_entry_attr_t_booldata<SAI_NAT_ENTRY_ATTR_HIT_BIT_COR, bool>;
+using SAI_NAT_ENTRY_ATTR_L4_DST_PORT_VAL = sai_nat_entry_attr_t_u16<SAI_NAT_ENTRY_ATTR_L4_DST_PORT, sai_uint16_t>;
+using SAI_NAT_ENTRY_ATTR_L4_SRC_PORT_VAL = sai_nat_entry_attr_t_u16<SAI_NAT_ENTRY_ATTR_L4_SRC_PORT, sai_uint16_t>;
+using SAI_NAT_ENTRY_ATTR_NAT_TYPE_VAL = sai_nat_entry_attr_t_s32<SAI_NAT_ENTRY_ATTR_NAT_TYPE, sai_nat_type_t>;
+using SAI_NAT_ENTRY_ATTR_PACKET_COUNT_VAL = sai_nat_entry_attr_t_u64<SAI_NAT_ENTRY_ATTR_PACKET_COUNT, sai_uint64_t>;
+using SAI_NAT_ENTRY_ATTR_SRC_IP_VAL = sai_nat_entry_attr_t_ip4<SAI_NAT_ENTRY_ATTR_SRC_IP, sai_ip4_t>;
+using SAI_NAT_ENTRY_ATTR_SRC_IP_MASK_VAL = sai_nat_entry_attr_t_ip4<SAI_NAT_ENTRY_ATTR_SRC_IP_MASK, sai_ip4_t>;
+using SAI_NAT_ENTRY_ATTR_VR_ID_VAL = sai_nat_entry_attr_t_oid<SAI_NAT_ENTRY_ATTR_VR_ID, sai_object_id_t>;
+using SAI_NAT_ZONE_COUNTER_ATTR_DISCARD_PACKET_COUNT_VAL = sai_nat_zone_counter_attr_t_u64<SAI_NAT_ZONE_COUNTER_ATTR_DISCARD_PACKET_COUNT, sai_uint64_t>;
+using SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_DISCARD_VAL = sai_nat_zone_counter_attr_t_booldata<SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_DISCARD, bool>;
+using SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_TRANSLATIONS_VAL = sai_nat_zone_counter_attr_t_booldata<SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_TRANSLATIONS, bool>;
+using SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_TRANSLATION_NEEDED_VAL = sai_nat_zone_counter_attr_t_booldata<SAI_NAT_ZONE_COUNTER_ATTR_ENABLE_TRANSLATION_NEEDED, bool>;
+using SAI_NAT_ZONE_COUNTER_ATTR_NAT_TYPE_VAL = sai_nat_zone_counter_attr_t_s32<SAI_NAT_ZONE_COUNTER_ATTR_NAT_TYPE, sai_nat_type_t>;
+using SAI_NAT_ZONE_COUNTER_ATTR_TRANSLATIONS_PACKET_COUNT_VAL = sai_nat_zone_counter_attr_t_u64<SAI_NAT_ZONE_COUNTER_ATTR_TRANSLATIONS_PACKET_COUNT, sai_uint64_t>;
+using SAI_NAT_ZONE_COUNTER_ATTR_TRANSLATION_NEEDED_PACKET_COUNT_VAL = sai_nat_zone_counter_attr_t_u64<SAI_NAT_ZONE_COUNTER_ATTR_TRANSLATION_NEEDED_PACKET_COUNT, sai_uint64_t>;
+using SAI_NAT_ZONE_COUNTER_ATTR_ZONE_ID_VAL = sai_nat_zone_counter_attr_t_u8<SAI_NAT_ZONE_COUNTER_ATTR_ZONE_ID, sai_uint8_t>;
+using SAI_NEIGHBOR_ENTRY_ATTR_COUNTER_ID_VAL = sai_neighbor_entry_attr_t_oid<SAI_NEIGHBOR_ENTRY_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_NEIGHBOR_ENTRY_ATTR_DST_MAC_ADDRESS_VAL = sai_neighbor_entry_attr_t_mac<SAI_NEIGHBOR_ENTRY_ATTR_DST_MAC_ADDRESS, sai_mac_t>;
+using SAI_NEIGHBOR_ENTRY_ATTR_META_DATA_VAL = sai_neighbor_entry_attr_t_u32<SAI_NEIGHBOR_ENTRY_ATTR_META_DATA, sai_uint32_t>;
+using SAI_NEIGHBOR_ENTRY_ATTR_NO_HOST_ROUTE_VAL = sai_neighbor_entry_attr_t_booldata<SAI_NEIGHBOR_ENTRY_ATTR_NO_HOST_ROUTE, bool>;
+using SAI_NEIGHBOR_ENTRY_ATTR_PACKET_ACTION_VAL = sai_neighbor_entry_attr_t_s32<SAI_NEIGHBOR_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_NEIGHBOR_ENTRY_ATTR_USER_TRAP_ID_VAL = sai_neighbor_entry_attr_t_oid<SAI_NEIGHBOR_ENTRY_ATTR_USER_TRAP_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_ATTR_COUNTER_ID_VAL = sai_next_hop_attr_t_oid<SAI_NEXT_HOP_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_ATTR_IP_VAL = sai_next_hop_attr_t_ipaddr<SAI_NEXT_HOP_ATTR_IP, sai_ip_address_t>;
+using SAI_NEXT_HOP_ATTR_LABELSTACK_VAL = sai_next_hop_attr_t_u32list<SAI_NEXT_HOP_ATTR_LABELSTACK, sai_u32_list_t>;
+using SAI_NEXT_HOP_ATTR_ROUTER_INTERFACE_ID_VAL = sai_next_hop_attr_t_oid<SAI_NEXT_HOP_ATTR_ROUTER_INTERFACE_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_ATTR_SEGMENTROUTE_ENDPOINT_POP_TYPE_VAL = sai_next_hop_attr_t_s32<SAI_NEXT_HOP_ATTR_SEGMENTROUTE_ENDPOINT_POP_TYPE, sai_next_hop_endpoint_pop_type_t>;
+using SAI_NEXT_HOP_ATTR_SEGMENTROUTE_ENDPOINT_TYPE_VAL = sai_next_hop_attr_t_s32<SAI_NEXT_HOP_ATTR_SEGMENTROUTE_ENDPOINT_TYPE, sai_next_hop_endpoint_type_t>;
+using SAI_NEXT_HOP_ATTR_SEGMENTROUTE_SIDLIST_ID_VAL = sai_next_hop_attr_t_oid<SAI_NEXT_HOP_ATTR_SEGMENTROUTE_SIDLIST_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_ATTR_TUNNEL_ID_VAL = sai_next_hop_attr_t_oid<SAI_NEXT_HOP_ATTR_TUNNEL_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_ATTR_TUNNEL_MAC_VAL = sai_next_hop_attr_t_mac<SAI_NEXT_HOP_ATTR_TUNNEL_MAC, sai_mac_t>;
+using SAI_NEXT_HOP_ATTR_TUNNEL_VNI_VAL = sai_next_hop_attr_t_u32<SAI_NEXT_HOP_ATTR_TUNNEL_VNI, sai_uint32_t>;
+using SAI_NEXT_HOP_ATTR_TYPE_VAL = sai_next_hop_attr_t_s32<SAI_NEXT_HOP_ATTR_TYPE, sai_next_hop_type_t>;
+using SAI_NEXT_HOP_GROUP_ATTR_COUNTER_ID_VAL = sai_next_hop_group_attr_t_oid<SAI_NEXT_HOP_GROUP_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_COUNT_VAL = sai_next_hop_group_attr_t_u32<SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_COUNT, sai_uint32_t>;
+using SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_MEMBER_LIST_VAL = sai_next_hop_group_attr_t_objlist<SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_MEMBER_LIST, sai_object_list_t>;
+using SAI_NEXT_HOP_GROUP_ATTR_SET_SWITCHOVER_VAL = sai_next_hop_group_attr_t_booldata<SAI_NEXT_HOP_GROUP_ATTR_SET_SWITCHOVER, bool>;
+using SAI_NEXT_HOP_GROUP_ATTR_TYPE_VAL = sai_next_hop_group_attr_t_s32<SAI_NEXT_HOP_GROUP_ATTR_TYPE, sai_next_hop_group_type_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_CONFIGURED_ROLE_VAL = sai_next_hop_group_member_attr_t_s32<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_CONFIGURED_ROLE, sai_next_hop_group_member_configured_role_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_MONITORED_OBJECT_VAL = sai_next_hop_group_member_attr_t_oid<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_MONITORED_OBJECT, sai_object_id_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_NEXT_HOP_GROUP_ID_VAL = sai_next_hop_group_member_attr_t_oid<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_NEXT_HOP_GROUP_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_NEXT_HOP_ID_VAL = sai_next_hop_group_member_attr_t_oid<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_NEXT_HOP_ID, sai_object_id_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_OBSERVED_ROLE_VAL = sai_next_hop_group_member_attr_t_s32<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_OBSERVED_ROLE, sai_next_hop_group_member_observed_role_t>;
+using SAI_NEXT_HOP_GROUP_MEMBER_ATTR_WEIGHT_VAL = sai_next_hop_group_member_attr_t_u32<SAI_NEXT_HOP_GROUP_MEMBER_ATTR_WEIGHT, sai_uint32_t>;
+using SAI_POLICER_ATTR_CBS_VAL = sai_policer_attr_t_u64<SAI_POLICER_ATTR_CBS, sai_uint64_t>;
+using SAI_POLICER_ATTR_CIR_VAL = sai_policer_attr_t_u64<SAI_POLICER_ATTR_CIR, sai_uint64_t>;
+using SAI_POLICER_ATTR_COLOR_SOURCE_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_COLOR_SOURCE, sai_policer_color_source_t>;
+using SAI_POLICER_ATTR_ENABLE_COUNTER_PACKET_ACTION_LIST_VAL = sai_policer_attr_t_s32list<SAI_POLICER_ATTR_ENABLE_COUNTER_PACKET_ACTION_LIST, sai_s32_list_t>;
+using SAI_POLICER_ATTR_GREEN_PACKET_ACTION_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_GREEN_PACKET_ACTION, sai_packet_action_t>;
+using SAI_POLICER_ATTR_METER_TYPE_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_METER_TYPE, sai_meter_type_t>;
+using SAI_POLICER_ATTR_MODE_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_MODE, sai_policer_mode_t>;
+using SAI_POLICER_ATTR_PBS_VAL = sai_policer_attr_t_u64<SAI_POLICER_ATTR_PBS, sai_uint64_t>;
+using SAI_POLICER_ATTR_PIR_VAL = sai_policer_attr_t_u64<SAI_POLICER_ATTR_PIR, sai_uint64_t>;
+using SAI_POLICER_ATTR_RED_PACKET_ACTION_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_RED_PACKET_ACTION, sai_packet_action_t>;
+using SAI_POLICER_ATTR_YELLOW_PACKET_ACTION_VAL = sai_policer_attr_t_s32<SAI_POLICER_ATTR_YELLOW_PACKET_ACTION, sai_packet_action_t>;
+using SAI_PORT_ATTR_ADMIN_STATE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_ADMIN_STATE, bool>;
+using SAI_PORT_ATTR_ADVERTISED_ASYMMETRIC_PAUSE_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_ADVERTISED_ASYMMETRIC_PAUSE_MODE, bool>;
+using SAI_PORT_ATTR_ADVERTISED_AUTO_NEG_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_ADVERTISED_AUTO_NEG_MODE, bool>;
+using SAI_PORT_ATTR_ADVERTISED_FEC_MODE_VAL = sai_port_attr_t_s32list<SAI_PORT_ATTR_ADVERTISED_FEC_MODE, sai_s32_list_t>;
+using SAI_PORT_ATTR_ADVERTISED_FLOW_CONTROL_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_ADVERTISED_FLOW_CONTROL_MODE, sai_port_flow_control_mode_t>;
+using SAI_PORT_ATTR_ADVERTISED_HALF_DUPLEX_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_ADVERTISED_HALF_DUPLEX_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_ADVERTISED_MEDIA_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_ADVERTISED_MEDIA_TYPE, sai_port_media_type_t>;
+using SAI_PORT_ATTR_ADVERTISED_OUI_CODE_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_ADVERTISED_OUI_CODE, sai_uint32_t>;
+using SAI_PORT_ATTR_ADVERTISED_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_ADVERTISED_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_AUTO_NEG_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_AUTO_NEG_MODE, bool>;
+using SAI_PORT_ATTR_BROADCAST_STORM_CONTROL_POLICER_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_BROADCAST_STORM_CONTROL_POLICER_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_CURRENT_BREAKOUT_MODE_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_CURRENT_BREAKOUT_MODE_TYPE, sai_port_breakout_mode_type_t>;
+using SAI_PORT_ATTR_DEFAULT_VLAN_PRIORITY_VAL = sai_port_attr_t_u8<SAI_PORT_ATTR_DEFAULT_VLAN_PRIORITY, sai_uint8_t>;
+using SAI_PORT_ATTR_DROP_TAGGED_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_DROP_TAGGED, bool>;
+using SAI_PORT_ATTR_DROP_UNTAGGED_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_DROP_UNTAGGED, bool>;
+using SAI_PORT_ATTR_EEE_ENABLE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_EEE_ENABLE, bool>;
+using SAI_PORT_ATTR_EEE_IDLE_TIME_VAL = sai_port_attr_t_u16<SAI_PORT_ATTR_EEE_IDLE_TIME, sai_uint16_t>;
+using SAI_PORT_ATTR_EEE_WAKE_TIME_VAL = sai_port_attr_t_u16<SAI_PORT_ATTR_EEE_WAKE_TIME, sai_uint16_t>;
+using SAI_PORT_ATTR_EGRESS_ACL_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_EGRESS_ACL, sai_object_id_t>;
+using SAI_PORT_ATTR_EGRESS_BLOCK_PORT_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_EGRESS_BLOCK_PORT_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_EGRESS_MIRROR_SESSION_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_EGRESS_MIRROR_SESSION, sai_object_list_t>;
+using SAI_PORT_ATTR_EGRESS_SAMPLEPACKET_ENABLE_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_EGRESS_SAMPLEPACKET_ENABLE, sai_object_id_t>;
+using SAI_PORT_ATTR_EYE_VALUES_VAL = sai_port_attr_t_porteyevalues<SAI_PORT_ATTR_EYE_VALUES, sai_port_eye_values_list_t>;
+using SAI_PORT_ATTR_FEC_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_FEC_MODE, sai_port_fec_mode_t>;
+using SAI_PORT_ATTR_FLOOD_STORM_CONTROL_POLICER_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_FLOOD_STORM_CONTROL_POLICER_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_FULL_DUPLEX_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_FULL_DUPLEX_MODE, bool>;
+using SAI_PORT_ATTR_GLOBAL_FLOW_CONTROL_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_GLOBAL_FLOW_CONTROL_MODE, sai_port_flow_control_mode_t>;
+using SAI_PORT_ATTR_HW_LANE_LIST_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_HW_LANE_LIST, sai_u32_list_t>;
+using SAI_PORT_ATTR_HW_PROFILE_ID_VAL = sai_port_attr_t_u64<SAI_PORT_ATTR_HW_PROFILE_ID, sai_uint64_t>;
+using SAI_PORT_ATTR_INGRESS_ACL_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_INGRESS_ACL, sai_object_id_t>;
+using SAI_PORT_ATTR_INGRESS_MIRROR_SESSION_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_INGRESS_MIRROR_SESSION, sai_object_list_t>;
+using SAI_PORT_ATTR_INGRESS_PRIORITY_GROUP_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_INGRESS_PRIORITY_GROUP_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_INGRESS_SAMPLEPACKET_ENABLE_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_INGRESS_SAMPLEPACKET_ENABLE, sai_object_id_t>;
+using SAI_PORT_ATTR_INTERNAL_LOOPBACK_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_INTERNAL_LOOPBACK_MODE, sai_port_internal_loopback_mode_t>;
+using SAI_PORT_ATTR_ISOLATION_GROUP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_ISOLATION_GROUP, sai_object_id_t>;
+using SAI_PORT_ATTR_LINK_TRAINING_ENABLE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_LINK_TRAINING_ENABLE, bool>;
+using SAI_PORT_ATTR_MEDIA_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_MEDIA_TYPE, sai_port_media_type_t>;
+using SAI_PORT_ATTR_META_DATA_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_META_DATA, sai_uint32_t>;
+using SAI_PORT_ATTR_MTU_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_MTU, sai_uint32_t>;
+using SAI_PORT_ATTR_MULTICAST_STORM_CONTROL_POLICER_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_MULTICAST_STORM_CONTROL_POLICER_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_NUMBER_OF_INGRESS_PRIORITY_GROUPS_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_NUMBER_OF_INGRESS_PRIORITY_GROUPS, sai_uint32_t>;
+using SAI_PORT_ATTR_OPER_SPEED_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_OPER_SPEED, sai_uint32_t>;
+using SAI_PORT_ATTR_OPER_STATUS_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_OPER_STATUS, sai_port_oper_status_t>;
+using SAI_PORT_ATTR_PKT_TX_ENABLE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_PKT_TX_ENABLE, bool>;
+using SAI_PORT_ATTR_POLICER_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_POLICER_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_PORT_POOL_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_PORT_POOL_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_PORT_SERDES_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_PORT_SERDES_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_PORT_VLAN_ID_VAL = sai_port_attr_t_u16<SAI_PORT_ATTR_PORT_VLAN_ID, sai_uint16_t>;
+using SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_VAL = sai_port_attr_t_u8<SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL, sai_uint8_t>;
+using SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_MODE, sai_port_priority_flow_control_mode_t>;
+using SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_RX_VAL = sai_port_attr_t_u8<SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_RX, sai_uint8_t>;
+using SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_TX_VAL = sai_port_attr_t_u8<SAI_PORT_ATTR_PRIORITY_FLOW_CONTROL_TX, sai_uint8_t>;
+using SAI_PORT_ATTR_PTP_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_PTP_MODE, sai_port_ptp_mode_t>;
+using SAI_PORT_ATTR_QOS_DEFAULT_TC_VAL = sai_port_attr_t_u8<SAI_PORT_ATTR_QOS_DEFAULT_TC, sai_uint8_t>;
+using SAI_PORT_ATTR_QOS_DOT1P_TO_COLOR_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_DOT1P_TO_COLOR_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_DOT1P_TO_TC_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_DOT1P_TO_TC_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_DSCP_TO_COLOR_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_DSCP_TO_COLOR_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_DSCP_TO_TC_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_DSCP_TO_TC_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_EGRESS_BUFFER_PROFILE_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_QOS_EGRESS_BUFFER_PROFILE_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_QOS_INGRESS_BUFFER_PROFILE_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_QOS_INGRESS_BUFFER_PROFILE_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_QOS_NUMBER_OF_QUEUES_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_QOS_NUMBER_OF_QUEUES, sai_uint32_t>;
+using SAI_PORT_ATTR_QOS_NUMBER_OF_SCHEDULER_GROUPS_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_QOS_NUMBER_OF_SCHEDULER_GROUPS, sai_uint32_t>;
+using SAI_PORT_ATTR_QOS_PFC_PRIORITY_TO_PRIORITY_GROUP_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_PFC_PRIORITY_TO_PRIORITY_GROUP_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_PFC_PRIORITY_TO_QUEUE_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_PFC_PRIORITY_TO_QUEUE_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_QUEUE_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_QOS_QUEUE_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_QOS_SCHEDULER_GROUP_LIST_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_QOS_SCHEDULER_GROUP_LIST, sai_object_list_t>;
+using SAI_PORT_ATTR_QOS_SCHEDULER_PROFILE_ID_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_SCHEDULER_PROFILE_ID, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_TC_AND_COLOR_TO_DOT1P_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_TC_AND_COLOR_TO_DOT1P_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_TC_AND_COLOR_TO_DSCP_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_TC_AND_COLOR_TO_DSCP_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_TC_TO_PRIORITY_GROUP_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_TC_TO_PRIORITY_GROUP_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_QOS_TC_TO_QUEUE_MAP_VAL = sai_port_attr_t_oid<SAI_PORT_ATTR_QOS_TC_TO_QUEUE_MAP, sai_object_id_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_ASYMMETRIC_PAUSE_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_REMOTE_ADVERTISED_ASYMMETRIC_PAUSE_MODE, bool>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_AUTO_NEG_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_REMOTE_ADVERTISED_AUTO_NEG_MODE, bool>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_FEC_MODE_VAL = sai_port_attr_t_s32list<SAI_PORT_ATTR_REMOTE_ADVERTISED_FEC_MODE, sai_s32_list_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_FLOW_CONTROL_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_REMOTE_ADVERTISED_FLOW_CONTROL_MODE, sai_port_flow_control_mode_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_HALF_DUPLEX_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_REMOTE_ADVERTISED_HALF_DUPLEX_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_MEDIA_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_REMOTE_ADVERTISED_MEDIA_TYPE, sai_port_media_type_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_OUI_CODE_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_REMOTE_ADVERTISED_OUI_CODE, sai_uint32_t>;
+using SAI_PORT_ATTR_REMOTE_ADVERTISED_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_REMOTE_ADVERTISED_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_SERDES_IDRIVER_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_SERDES_IDRIVER, sai_u32_list_t>;
+using SAI_PORT_ATTR_SERDES_IPREDRIVER_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_SERDES_IPREDRIVER, sai_u32_list_t>;
+using SAI_PORT_ATTR_SERDES_PREEMPHASIS_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_SERDES_PREEMPHASIS, sai_u32_list_t>;
+using SAI_PORT_ATTR_SPEED_VAL = sai_port_attr_t_u32<SAI_PORT_ATTR_SPEED, sai_uint32_t>;
+using SAI_PORT_ATTR_SUPPORTED_ASYMMETRIC_PAUSE_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_SUPPORTED_ASYMMETRIC_PAUSE_MODE, bool>;
+using SAI_PORT_ATTR_SUPPORTED_AUTO_NEG_MODE_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_SUPPORTED_AUTO_NEG_MODE, bool>;
+using SAI_PORT_ATTR_SUPPORTED_BREAKOUT_MODE_TYPE_VAL = sai_port_attr_t_s32list<SAI_PORT_ATTR_SUPPORTED_BREAKOUT_MODE_TYPE, sai_s32_list_t>;
+using SAI_PORT_ATTR_SUPPORTED_FEC_MODE_VAL = sai_port_attr_t_s32list<SAI_PORT_ATTR_SUPPORTED_FEC_MODE, sai_s32_list_t>;
+using SAI_PORT_ATTR_SUPPORTED_FLOW_CONTROL_MODE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_SUPPORTED_FLOW_CONTROL_MODE, sai_port_flow_control_mode_t>;
+using SAI_PORT_ATTR_SUPPORTED_HALF_DUPLEX_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_SUPPORTED_HALF_DUPLEX_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_SUPPORTED_MEDIA_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_SUPPORTED_MEDIA_TYPE, sai_port_media_type_t>;
+using SAI_PORT_ATTR_SUPPORTED_SPEED_VAL = sai_port_attr_t_u32list<SAI_PORT_ATTR_SUPPORTED_SPEED, sai_u32_list_t>;
+using SAI_PORT_ATTR_TAM_OBJECT_VAL = sai_port_attr_t_objlist<SAI_PORT_ATTR_TAM_OBJECT, sai_object_list_t>;
+using SAI_PORT_ATTR_TYPE_VAL = sai_port_attr_t_s32<SAI_PORT_ATTR_TYPE, sai_port_type_t>;
+using SAI_PORT_ATTR_UPDATE_DSCP_VAL = sai_port_attr_t_booldata<SAI_PORT_ATTR_UPDATE_DSCP, bool>;
+using SAI_PORT_POOL_ATTR_BUFFER_POOL_ID_VAL = sai_port_pool_attr_t_oid<SAI_PORT_POOL_ATTR_BUFFER_POOL_ID, sai_object_id_t>;
+using SAI_PORT_POOL_ATTR_PORT_ID_VAL = sai_port_pool_attr_t_oid<SAI_PORT_POOL_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_PORT_POOL_ATTR_QOS_WRED_PROFILE_ID_VAL = sai_port_pool_attr_t_oid<SAI_PORT_POOL_ATTR_QOS_WRED_PROFILE_ID, sai_object_id_t>;
+using SAI_PORT_SERDES_ATTR_IDRIVER_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_IDRIVER, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_IPREDRIVER_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_IPREDRIVER, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_PORT_ID_VAL = sai_port_serdes_attr_t_oid<SAI_PORT_SERDES_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_PORT_SERDES_ATTR_PREEMPHASIS_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_PREEMPHASIS, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_ATTN_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_ATTN, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_MAIN_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_MAIN, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_POST1_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_POST1, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_POST2_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_POST2, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_POST3_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_POST3, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_PRE1_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_PRE1, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_PRE2_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_PRE2, sai_u32_list_t>;
+using SAI_PORT_SERDES_ATTR_TX_FIR_PRE3_VAL = sai_port_serdes_attr_t_u32list<SAI_PORT_SERDES_ATTR_TX_FIR_PRE3, sai_u32_list_t>;
+using SAI_QOS_MAP_ATTR_MAP_TO_VALUE_LIST_VAL = sai_qos_map_attr_t_qosmap<SAI_QOS_MAP_ATTR_MAP_TO_VALUE_LIST, sai_qos_map_list_t>;
+using SAI_QOS_MAP_ATTR_TYPE_VAL = sai_qos_map_attr_t_s32<SAI_QOS_MAP_ATTR_TYPE, sai_qos_map_type_t>;
+using SAI_QUEUE_ATTR_BUFFER_PROFILE_ID_VAL = sai_queue_attr_t_oid<SAI_QUEUE_ATTR_BUFFER_PROFILE_ID, sai_object_id_t>;
+using SAI_QUEUE_ATTR_ENABLE_PFC_DLDR_VAL = sai_queue_attr_t_booldata<SAI_QUEUE_ATTR_ENABLE_PFC_DLDR, bool>;
+using SAI_QUEUE_ATTR_INDEX_VAL = sai_queue_attr_t_u8<SAI_QUEUE_ATTR_INDEX, sai_uint8_t>;
+using SAI_QUEUE_ATTR_PARENT_SCHEDULER_NODE_VAL = sai_queue_attr_t_oid<SAI_QUEUE_ATTR_PARENT_SCHEDULER_NODE, sai_object_id_t>;
+using SAI_QUEUE_ATTR_PAUSE_STATUS_VAL = sai_queue_attr_t_booldata<SAI_QUEUE_ATTR_PAUSE_STATUS, bool>;
+using SAI_QUEUE_ATTR_PFC_DLR_INIT_VAL = sai_queue_attr_t_booldata<SAI_QUEUE_ATTR_PFC_DLR_INIT, bool>;
+using SAI_QUEUE_ATTR_PORT_VAL = sai_queue_attr_t_oid<SAI_QUEUE_ATTR_PORT, sai_object_id_t>;
+using SAI_QUEUE_ATTR_SCHEDULER_PROFILE_ID_VAL = sai_queue_attr_t_oid<SAI_QUEUE_ATTR_SCHEDULER_PROFILE_ID, sai_object_id_t>;
+using SAI_QUEUE_ATTR_TAM_OBJECT_VAL = sai_queue_attr_t_objlist<SAI_QUEUE_ATTR_TAM_OBJECT, sai_object_list_t>;
+using SAI_QUEUE_ATTR_TYPE_VAL = sai_queue_attr_t_s32<SAI_QUEUE_ATTR_TYPE, sai_queue_type_t>;
+using SAI_QUEUE_ATTR_WRED_PROFILE_ID_VAL = sai_queue_attr_t_oid<SAI_QUEUE_ATTR_WRED_PROFILE_ID, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_ADMIN_V4_STATE_VAL = sai_router_interface_attr_t_booldata<SAI_ROUTER_INTERFACE_ATTR_ADMIN_V4_STATE, bool>;
+using SAI_ROUTER_INTERFACE_ATTR_ADMIN_V6_STATE_VAL = sai_router_interface_attr_t_booldata<SAI_ROUTER_INTERFACE_ATTR_ADMIN_V6_STATE, bool>;
+using SAI_ROUTER_INTERFACE_ATTR_BRIDGE_ID_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_BRIDGE_ID, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_EGRESS_ACL_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_EGRESS_ACL, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_INGRESS_ACL_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_INGRESS_ACL, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_INNER_VLAN_ID_VAL = sai_router_interface_attr_t_u16<SAI_ROUTER_INTERFACE_ATTR_INNER_VLAN_ID, sai_uint16_t>;
+using SAI_ROUTER_INTERFACE_ATTR_IS_VIRTUAL_VAL = sai_router_interface_attr_t_booldata<SAI_ROUTER_INTERFACE_ATTR_IS_VIRTUAL, bool>;
+using SAI_ROUTER_INTERFACE_ATTR_LOOPBACK_PACKET_ACTION_VAL = sai_router_interface_attr_t_s32<SAI_ROUTER_INTERFACE_ATTR_LOOPBACK_PACKET_ACTION, sai_packet_action_t>;
+using SAI_ROUTER_INTERFACE_ATTR_MTU_VAL = sai_router_interface_attr_t_u32<SAI_ROUTER_INTERFACE_ATTR_MTU, sai_uint32_t>;
+using SAI_ROUTER_INTERFACE_ATTR_NAT_ZONE_ID_VAL = sai_router_interface_attr_t_u8<SAI_ROUTER_INTERFACE_ATTR_NAT_ZONE_ID, sai_uint8_t>;
+using SAI_ROUTER_INTERFACE_ATTR_NEIGHBOR_MISS_PACKET_ACTION_VAL = sai_router_interface_attr_t_s32<SAI_ROUTER_INTERFACE_ATTR_NEIGHBOR_MISS_PACKET_ACTION, sai_packet_action_t>;
+using SAI_ROUTER_INTERFACE_ATTR_OUTER_VLAN_ID_VAL = sai_router_interface_attr_t_u16<SAI_ROUTER_INTERFACE_ATTR_OUTER_VLAN_ID, sai_uint16_t>;
+using SAI_ROUTER_INTERFACE_ATTR_PORT_ID_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_SRC_MAC_ADDRESS_VAL = sai_router_interface_attr_t_mac<SAI_ROUTER_INTERFACE_ATTR_SRC_MAC_ADDRESS, sai_mac_t>;
+using SAI_ROUTER_INTERFACE_ATTR_TYPE_VAL = sai_router_interface_attr_t_s32<SAI_ROUTER_INTERFACE_ATTR_TYPE, sai_router_interface_type_t>;
+using SAI_ROUTER_INTERFACE_ATTR_V4_MCAST_ENABLE_VAL = sai_router_interface_attr_t_booldata<SAI_ROUTER_INTERFACE_ATTR_V4_MCAST_ENABLE, bool>;
+using SAI_ROUTER_INTERFACE_ATTR_V6_MCAST_ENABLE_VAL = sai_router_interface_attr_t_booldata<SAI_ROUTER_INTERFACE_ATTR_V6_MCAST_ENABLE, bool>;
+using SAI_ROUTER_INTERFACE_ATTR_VIRTUAL_ROUTER_ID_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_VIRTUAL_ROUTER_ID, sai_object_id_t>;
+using SAI_ROUTER_INTERFACE_ATTR_VLAN_ID_VAL = sai_router_interface_attr_t_oid<SAI_ROUTER_INTERFACE_ATTR_VLAN_ID, sai_object_id_t>;
+using SAI_ROUTE_ENTRY_ATTR_COUNTER_ID_VAL = sai_route_entry_attr_t_oid<SAI_ROUTE_ENTRY_ATTR_COUNTER_ID, sai_object_id_t>;
+using SAI_ROUTE_ENTRY_ATTR_IP_ADDR_FAMILY_VAL = sai_route_entry_attr_t_s32<SAI_ROUTE_ENTRY_ATTR_IP_ADDR_FAMILY, sai_ip_addr_family_t>;
+using SAI_ROUTE_ENTRY_ATTR_META_DATA_VAL = sai_route_entry_attr_t_u32<SAI_ROUTE_ENTRY_ATTR_META_DATA, sai_uint32_t>;
+using SAI_ROUTE_ENTRY_ATTR_NEXT_HOP_ID_VAL = sai_route_entry_attr_t_oid<SAI_ROUTE_ENTRY_ATTR_NEXT_HOP_ID, sai_object_id_t>;
+using SAI_ROUTE_ENTRY_ATTR_PACKET_ACTION_VAL = sai_route_entry_attr_t_s32<SAI_ROUTE_ENTRY_ATTR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_ROUTE_ENTRY_ATTR_USER_TRAP_ID_VAL = sai_route_entry_attr_t_oid<SAI_ROUTE_ENTRY_ATTR_USER_TRAP_ID, sai_object_id_t>;
+using SAI_RPF_GROUP_ATTR_RPF_INTERFACE_COUNT_VAL = sai_rpf_group_attr_t_u32<SAI_RPF_GROUP_ATTR_RPF_INTERFACE_COUNT, sai_uint32_t>;
+using SAI_RPF_GROUP_ATTR_RPF_MEMBER_LIST_VAL = sai_rpf_group_attr_t_objlist<SAI_RPF_GROUP_ATTR_RPF_MEMBER_LIST, sai_object_list_t>;
+using SAI_RPF_GROUP_MEMBER_ATTR_RPF_GROUP_ID_VAL = sai_rpf_group_member_attr_t_oid<SAI_RPF_GROUP_MEMBER_ATTR_RPF_GROUP_ID, sai_object_id_t>;
+using SAI_RPF_GROUP_MEMBER_ATTR_RPF_INTERFACE_ID_VAL = sai_rpf_group_member_attr_t_oid<SAI_RPF_GROUP_MEMBER_ATTR_RPF_INTERFACE_ID, sai_object_id_t>;
+using SAI_SAMPLEPACKET_ATTR_MODE_VAL = sai_samplepacket_attr_t_s32<SAI_SAMPLEPACKET_ATTR_MODE, sai_samplepacket_mode_t>;
+using SAI_SAMPLEPACKET_ATTR_SAMPLE_RATE_VAL = sai_samplepacket_attr_t_u32<SAI_SAMPLEPACKET_ATTR_SAMPLE_RATE, sai_uint32_t>;
+using SAI_SAMPLEPACKET_ATTR_TYPE_VAL = sai_samplepacket_attr_t_s32<SAI_SAMPLEPACKET_ATTR_TYPE, sai_samplepacket_type_t>;
+using SAI_SCHEDULER_ATTR_MAX_BANDWIDTH_BURST_RATE_VAL = sai_scheduler_attr_t_u64<SAI_SCHEDULER_ATTR_MAX_BANDWIDTH_BURST_RATE, sai_uint64_t>;
+using SAI_SCHEDULER_ATTR_MAX_BANDWIDTH_RATE_VAL = sai_scheduler_attr_t_u64<SAI_SCHEDULER_ATTR_MAX_BANDWIDTH_RATE, sai_uint64_t>;
+using SAI_SCHEDULER_ATTR_METER_TYPE_VAL = sai_scheduler_attr_t_s32<SAI_SCHEDULER_ATTR_METER_TYPE, sai_meter_type_t>;
+using SAI_SCHEDULER_ATTR_MIN_BANDWIDTH_BURST_RATE_VAL = sai_scheduler_attr_t_u64<SAI_SCHEDULER_ATTR_MIN_BANDWIDTH_BURST_RATE, sai_uint64_t>;
+using SAI_SCHEDULER_ATTR_MIN_BANDWIDTH_RATE_VAL = sai_scheduler_attr_t_u64<SAI_SCHEDULER_ATTR_MIN_BANDWIDTH_RATE, sai_uint64_t>;
+using SAI_SCHEDULER_ATTR_SCHEDULING_TYPE_VAL = sai_scheduler_attr_t_s32<SAI_SCHEDULER_ATTR_SCHEDULING_TYPE, sai_scheduling_type_t>;
+using SAI_SCHEDULER_ATTR_SCHEDULING_WEIGHT_VAL = sai_scheduler_attr_t_u8<SAI_SCHEDULER_ATTR_SCHEDULING_WEIGHT, sai_uint8_t>;
+using SAI_SCHEDULER_GROUP_ATTR_CHILD_COUNT_VAL = sai_scheduler_group_attr_t_u32<SAI_SCHEDULER_GROUP_ATTR_CHILD_COUNT, sai_uint32_t>;
+using SAI_SCHEDULER_GROUP_ATTR_CHILD_LIST_VAL = sai_scheduler_group_attr_t_objlist<SAI_SCHEDULER_GROUP_ATTR_CHILD_LIST, sai_object_list_t>;
+using SAI_SCHEDULER_GROUP_ATTR_LEVEL_VAL = sai_scheduler_group_attr_t_u8<SAI_SCHEDULER_GROUP_ATTR_LEVEL, sai_uint8_t>;
+using SAI_SCHEDULER_GROUP_ATTR_MAX_CHILDS_VAL = sai_scheduler_group_attr_t_u8<SAI_SCHEDULER_GROUP_ATTR_MAX_CHILDS, sai_uint8_t>;
+using SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE_VAL = sai_scheduler_group_attr_t_oid<SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE, sai_object_id_t>;
+using SAI_SCHEDULER_GROUP_ATTR_PORT_ID_VAL = sai_scheduler_group_attr_t_oid<SAI_SCHEDULER_GROUP_ATTR_PORT_ID, sai_object_id_t>;
+using SAI_SCHEDULER_GROUP_ATTR_SCHEDULER_PROFILE_ID_VAL = sai_scheduler_group_attr_t_oid<SAI_SCHEDULER_GROUP_ATTR_SCHEDULER_PROFILE_ID, sai_object_id_t>;
+using SAI_SEGMENTROUTE_SIDLIST_ATTR_SEGMENT_LIST_VAL = sai_segmentroute_sidlist_attr_t_segmentlist<SAI_SEGMENTROUTE_SIDLIST_ATTR_SEGMENT_LIST, sai_segment_list_t>;
+using SAI_SEGMENTROUTE_SIDLIST_ATTR_TLV_LIST_VAL = sai_segmentroute_sidlist_attr_t_tlvlist<SAI_SEGMENTROUTE_SIDLIST_ATTR_TLV_LIST, sai_tlv_list_t>;
+using SAI_SEGMENTROUTE_SIDLIST_ATTR_TYPE_VAL = sai_segmentroute_sidlist_attr_t_s32<SAI_SEGMENTROUTE_SIDLIST_ATTR_TYPE, sai_segmentroute_sidlist_type_t>;
+using SAI_STP_ATTR_BRIDGE_ID_VAL = sai_stp_attr_t_oid<SAI_STP_ATTR_BRIDGE_ID, sai_object_id_t>;
+using SAI_STP_ATTR_PORT_LIST_VAL = sai_stp_attr_t_objlist<SAI_STP_ATTR_PORT_LIST, sai_object_list_t>;
+using SAI_STP_ATTR_VLAN_LIST_VAL = sai_stp_attr_t_vlanlist<SAI_STP_ATTR_VLAN_LIST, sai_vlan_list_t>;
+using SAI_STP_PORT_ATTR_BRIDGE_PORT_VAL = sai_stp_port_attr_t_oid<SAI_STP_PORT_ATTR_BRIDGE_PORT, sai_object_id_t>;
+using SAI_STP_PORT_ATTR_STATE_VAL = sai_stp_port_attr_t_s32<SAI_STP_PORT_ATTR_STATE, sai_stp_port_state_t>;
+using SAI_STP_PORT_ATTR_STP_VAL = sai_stp_port_attr_t_oid<SAI_STP_PORT_ATTR_STP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ACL_CAPABILITY_VAL = sai_switch_attr_t_aclcapability<SAI_SWITCH_ATTR_ACL_CAPABILITY, sai_acl_capability_t>;
+using SAI_SWITCH_ATTR_ACL_ENTRY_MAXIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_ENTRY_MAXIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_STAGE_EGRESS_VAL = sai_switch_attr_t_aclcapability<SAI_SWITCH_ATTR_ACL_STAGE_EGRESS, sai_acl_capability_t>;
+using SAI_SWITCH_ATTR_ACL_STAGE_INGRESS_VAL = sai_switch_attr_t_aclcapability<SAI_SWITCH_ATTR_ACL_STAGE_INGRESS, sai_acl_capability_t>;
+using SAI_SWITCH_ATTR_ACL_TABLE_GROUP_MAXIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_TABLE_GROUP_MAXIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_TABLE_GROUP_MINIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_TABLE_GROUP_MINIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_TABLE_MAXIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_TABLE_MAXIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_TABLE_MINIMUM_PRIORITY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ACL_TABLE_MINIMUM_PRIORITY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ACL_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_ACL_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_ACL_USER_TRAP_ID_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_ACL_USER_TRAP_ID_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE_VAL = sai_switch_attr_t_aclresource<SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE, sai_acl_resource_list_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE_GROUP_VAL = sai_switch_attr_t_aclresource<SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE_GROUP, sai_acl_resource_list_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_DNAT_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_DNAT_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_DOUBLE_NAT_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_DOUBLE_NAT_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_FDB_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_FDB_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPMC_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPMC_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV4_NEIGHBOR_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV4_NEIGHBOR_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV4_NEXTHOP_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV4_NEXTHOP_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV4_ROUTE_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV4_ROUTE_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV6_NEIGHBOR_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV6_NEIGHBOR_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV6_NEXTHOP_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV6_NEXTHOP_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_IPV6_ROUTE_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_IPV6_ROUTE_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_L2MC_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_L2MC_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_NEXT_HOP_GROUP_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_NEXT_HOP_GROUP_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_NEXT_HOP_GROUP_MEMBER_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_NEXT_HOP_GROUP_MEMBER_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVAILABLE_SNAT_ENTRY_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_AVAILABLE_SNAT_ENTRY, sai_uint32_t>;
+using SAI_SWITCH_ATTR_AVERAGE_TEMP_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_AVERAGE_TEMP, sai_int32_t>;
+using SAI_SWITCH_ATTR_BCAST_CPU_FLOOD_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_BCAST_CPU_FLOOD_ENABLE, bool>;
+using SAI_SWITCH_ATTR_BFD_SESSION_STATE_CHANGE_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_BFD_SESSION_STATE_CHANGE_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_COUNTER_REFRESH_INTERVAL_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_COUNTER_REFRESH_INTERVAL, sai_uint32_t>;
+using SAI_SWITCH_ATTR_CPU_PORT_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_CPU_PORT, sai_object_id_t>;
+using SAI_SWITCH_ATTR_CRC_CHECK_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_CRC_CHECK_ENABLE, bool>;
+using SAI_SWITCH_ATTR_CRC_RECALCULATION_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_CRC_RECALCULATION_ENABLE, bool>;
+using SAI_SWITCH_ATTR_DEFAULT_1Q_BRIDGE_ID_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_DEFAULT_1Q_BRIDGE_ID, sai_object_id_t>;
+using SAI_SWITCH_ATTR_DEFAULT_STP_INST_ID_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_DEFAULT_STP_INST_ID, sai_object_id_t>;
+using SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_DEFAULT_VIRTUAL_ROUTER_ID_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_DEFAULT_VIRTUAL_ROUTER_ID, sai_object_id_t>;
+using SAI_SWITCH_ATTR_DEFAULT_VLAN_ID_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_DEFAULT_VLAN_ID, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ECMP_DEFAULT_HASH_ALGORITHM_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_ECMP_DEFAULT_HASH_ALGORITHM, sai_hash_algorithm_t>;
+using SAI_SWITCH_ATTR_ECMP_DEFAULT_HASH_SEED_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ECMP_DEFAULT_HASH_SEED, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ECMP_DEFAULT_SYMMETRIC_HASH_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_ECMP_DEFAULT_SYMMETRIC_HASH, bool>;
+using SAI_SWITCH_ATTR_ECMP_HASH_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_ECMP_HASH, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ECMP_HASH_IPV4_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_ECMP_HASH_IPV4, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ECMP_HASH_IPV4_IN_IPV4_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_ECMP_HASH_IPV4_IN_IPV4, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ECMP_HASH_IPV6_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_ECMP_HASH_IPV6, sai_object_id_t>;
+using SAI_SWITCH_ATTR_ECMP_MEMBERS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_ECMP_MEMBERS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_ECN_ECT_THRESHOLD_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_ECN_ECT_THRESHOLD_ENABLE, bool>;
+using SAI_SWITCH_ATTR_EGRESS_ACL_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_EGRESS_ACL, sai_object_id_t>;
+using SAI_SWITCH_ATTR_EGRESS_BUFFER_POOL_NUM_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_EGRESS_BUFFER_POOL_NUM, sai_uint32_t>;
+using SAI_SWITCH_ATTR_FAST_API_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_FAST_API_ENABLE, bool>;
+using SAI_SWITCH_ATTR_FDB_AGING_TIME_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_FDB_AGING_TIME, sai_uint32_t>;
+using SAI_SWITCH_ATTR_FDB_BROADCAST_MISS_PACKET_ACTION_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_FDB_BROADCAST_MISS_PACKET_ACTION, sai_packet_action_t>;
+using SAI_SWITCH_ATTR_FDB_DST_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_FDB_DST_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_FDB_EVENT_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_FDB_EVENT_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_FDB_MULTICAST_MISS_PACKET_ACTION_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_FDB_MULTICAST_MISS_PACKET_ACTION, sai_packet_action_t>;
+using SAI_SWITCH_ATTR_FDB_TABLE_SIZE_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_FDB_TABLE_SIZE, sai_uint32_t>;
+using SAI_SWITCH_ATTR_FDB_UNICAST_MISS_PACKET_ACTION_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_FDB_UNICAST_MISS_PACKET_ACTION, sai_packet_action_t>;
+using SAI_SWITCH_ATTR_FIRMWARE_PATH_NAME_VAL = sai_switch_attr_t_s8list<SAI_SWITCH_ATTR_FIRMWARE_PATH_NAME, sai_s8_list_t>;
+using SAI_SWITCH_ATTR_INGRESS_ACL_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_INGRESS_ACL, sai_object_id_t>;
+using SAI_SWITCH_ATTR_INGRESS_BUFFER_POOL_NUM_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_INGRESS_BUFFER_POOL_NUM, sai_uint32_t>;
+using SAI_SWITCH_ATTR_INIT_SWITCH_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_INIT_SWITCH, bool>;
+using SAI_SWITCH_ATTR_L3_NEIGHBOR_TABLE_SIZE_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_L3_NEIGHBOR_TABLE_SIZE, sai_uint32_t>;
+using SAI_SWITCH_ATTR_L3_ROUTE_TABLE_SIZE_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_L3_ROUTE_TABLE_SIZE, sai_uint32_t>;
+using SAI_SWITCH_ATTR_LAG_DEFAULT_HASH_ALGORITHM_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_LAG_DEFAULT_HASH_ALGORITHM, sai_hash_algorithm_t>;
+using SAI_SWITCH_ATTR_LAG_DEFAULT_HASH_SEED_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_LAG_DEFAULT_HASH_SEED, sai_uint32_t>;
+using SAI_SWITCH_ATTR_LAG_DEFAULT_SYMMETRIC_HASH_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_LAG_DEFAULT_SYMMETRIC_HASH, bool>;
+using SAI_SWITCH_ATTR_LAG_HASH_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_LAG_HASH, sai_object_id_t>;
+using SAI_SWITCH_ATTR_LAG_HASH_IPV4_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_LAG_HASH_IPV4, sai_object_id_t>;
+using SAI_SWITCH_ATTR_LAG_HASH_IPV4_IN_IPV4_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_LAG_HASH_IPV4_IN_IPV4, sai_object_id_t>;
+using SAI_SWITCH_ATTR_LAG_HASH_IPV6_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_LAG_HASH_IPV6, sai_object_id_t>;
+using SAI_SWITCH_ATTR_LAG_MEMBERS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_LAG_MEMBERS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_ACL_ACTION_COUNT_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_ACL_ACTION_COUNT, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_ACL_RANGE_COUNT_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_ACL_RANGE_COUNT, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_BFD_SESSION_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_BFD_SESSION, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_LEARNED_ADDRESSES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_LEARNED_ADDRESSES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_MIRROR_SESSION_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_MIRROR_SESSION, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_NUMBER_OF_SUPPORTED_PORTS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_NUMBER_OF_SUPPORTED_PORTS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_NUMBER_OF_TEMP_SENSORS_VAL = sai_switch_attr_t_u8<SAI_SWITCH_ATTR_MAX_NUMBER_OF_TEMP_SENSORS, sai_uint8_t>;
+using SAI_SWITCH_ATTR_MAX_SAMPLED_MIRROR_SESSION_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_SAMPLED_MIRROR_SESSION, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_STP_INSTANCE_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_STP_INSTANCE, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MAX_TEMP_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_MAX_TEMP, sai_int32_t>;
+using SAI_SWITCH_ATTR_MAX_VIRTUAL_ROUTERS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MAX_VIRTUAL_ROUTERS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MCAST_CPU_FLOOD_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_MCAST_CPU_FLOOD_ENABLE, bool>;
+using SAI_SWITCH_ATTR_MCAST_SNOOPING_CAPABILITY_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_MCAST_SNOOPING_CAPABILITY, sai_switch_mcast_snooping_capability_t>;
+using SAI_SWITCH_ATTR_MIN_BFD_RX_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MIN_BFD_RX, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MIN_BFD_TX_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MIN_BFD_TX, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MIN_PLANNED_RESTART_INTERVAL_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_MIN_PLANNED_RESTART_INTERVAL, sai_uint32_t>;
+using SAI_SWITCH_ATTR_MIRROR_TC_VAL = sai_switch_attr_t_u8<SAI_SWITCH_ATTR_MIRROR_TC, sai_uint8_t>;
+using SAI_SWITCH_ATTR_NAT_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_NAT_ENABLE, bool>;
+using SAI_SWITCH_ATTR_NAT_ZONE_COUNTER_OBJECT_ID_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_NAT_ZONE_COUNTER_OBJECT_ID, sai_object_id_t>;
+using SAI_SWITCH_ATTR_NEIGHBOR_DST_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_NEIGHBOR_DST_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_ACTIVE_PORTS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_ACTIVE_PORTS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_BFD_SESSION_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_BFD_SESSION, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_CPU_QUEUES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_CPU_QUEUES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_ECMP_GROUPS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_ECMP_GROUPS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_LAGS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_LAGS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_MULTICAST_QUEUES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_MULTICAST_QUEUES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_QUEUES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_QUEUES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NUMBER_OF_UNICAST_QUEUES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_NUMBER_OF_UNICAST_QUEUES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_NV_STORAGE_SIZE_VAL = sai_switch_attr_t_u64<SAI_SWITCH_ATTR_NV_STORAGE_SIZE, sai_uint64_t>;
+using SAI_SWITCH_ATTR_ON_LINK_ROUTE_SUPPORTED_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_ON_LINK_ROUTE_SUPPORTED, bool>;
+using SAI_SWITCH_ATTR_OPER_STATUS_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_OPER_STATUS, sai_switch_oper_status_t>;
+using SAI_SWITCH_ATTR_PACKET_EVENT_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_PACKET_EVENT_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_PFC_DLR_PACKET_ACTION_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_PFC_DLR_PACKET_ACTION, sai_packet_action_t>;
+using SAI_SWITCH_ATTR_PFC_TC_DLD_INTERVAL_VAL = sai_switch_attr_t_maplist<SAI_SWITCH_ATTR_PFC_TC_DLD_INTERVAL, sai_map_list_t>;
+using SAI_SWITCH_ATTR_PFC_TC_DLD_INTERVAL_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_PFC_TC_DLD_INTERVAL_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_PFC_TC_DLR_INTERVAL_VAL = sai_switch_attr_t_maplist<SAI_SWITCH_ATTR_PFC_TC_DLR_INTERVAL, sai_map_list_t>;
+using SAI_SWITCH_ATTR_PFC_TC_DLR_INTERVAL_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_PFC_TC_DLR_INTERVAL_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_PORT_LIST_VAL = sai_switch_attr_t_objlist<SAI_SWITCH_ATTR_PORT_LIST, sai_object_list_t>;
+using SAI_SWITCH_ATTR_PORT_MAX_MTU_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_PORT_MAX_MTU, sai_uint32_t>;
+using SAI_SWITCH_ATTR_PORT_STATE_CHANGE_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_PORT_STATE_CHANGE_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_PORT_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_PORT_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_PRE_SHUTDOWN_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_PRE_SHUTDOWN, bool>;
+using SAI_SWITCH_ATTR_QOS_DEFAULT_TC_VAL = sai_switch_attr_t_u8<SAI_SWITCH_ATTR_QOS_DEFAULT_TC, sai_uint8_t>;
+using SAI_SWITCH_ATTR_QOS_DOT1P_TO_COLOR_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_DOT1P_TO_COLOR_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_DOT1P_TO_TC_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_DOT1P_TO_TC_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_DSCP_TO_COLOR_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_DSCP_TO_COLOR_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_DSCP_TO_TC_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_DSCP_TO_TC_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_CHILDS_PER_SCHEDULER_GROUP_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_CHILDS_PER_SCHEDULER_GROUP, sai_uint32_t>;
+using SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_SCHEDULER_GROUPS_PER_HIERARCHY_LEVEL_VAL = sai_switch_attr_t_u32list<SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_SCHEDULER_GROUPS_PER_HIERARCHY_LEVEL, sai_u32_list_t>;
+using SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_SCHEDULER_GROUP_HIERARCHY_LEVELS_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_SCHEDULER_GROUP_HIERARCHY_LEVELS, sai_uint32_t>;
+using SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_TRAFFIC_CLASSES_VAL = sai_switch_attr_t_u8<SAI_SWITCH_ATTR_QOS_MAX_NUMBER_OF_TRAFFIC_CLASSES, sai_uint8_t>;
+using SAI_SWITCH_ATTR_QOS_NUM_LOSSLESS_QUEUES_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_QOS_NUM_LOSSLESS_QUEUES, sai_uint32_t>;
+using SAI_SWITCH_ATTR_QOS_TC_AND_COLOR_TO_DOT1P_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_TC_AND_COLOR_TO_DOT1P_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_TC_AND_COLOR_TO_DSCP_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_TC_AND_COLOR_TO_DSCP_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QOS_TC_TO_QUEUE_MAP_VAL = sai_switch_attr_t_oid<SAI_SWITCH_ATTR_QOS_TC_TO_QUEUE_MAP, sai_object_id_t>;
+using SAI_SWITCH_ATTR_QUEUE_PFC_DEADLOCK_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_QUEUE_PFC_DEADLOCK_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_RESTART_TYPE_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_RESTART_TYPE, sai_switch_restart_type_t>;
+using SAI_SWITCH_ATTR_RESTART_WARM_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_RESTART_WARM, bool>;
+using SAI_SWITCH_ATTR_ROUTE_DST_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_ROUTE_DST_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_SEGMENTROUTE_MAX_SID_DEPTH_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_SEGMENTROUTE_MAX_SID_DEPTH, sai_uint32_t>;
+using SAI_SWITCH_ATTR_SEGMENTROUTE_TLV_TYPE_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_SEGMENTROUTE_TLV_TYPE, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_SRC_MAC_ADDRESS_VAL = sai_switch_attr_t_mac<SAI_SWITCH_ATTR_SRC_MAC_ADDRESS, sai_mac_t>;
+using SAI_SWITCH_ATTR_SUPPORTED_EXTENDED_STATS_MODE_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_SUPPORTED_EXTENDED_STATS_MODE, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_SUPPORTED_IPV4_BFD_SESSION_OFFLOAD_TYPE_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_SUPPORTED_IPV4_BFD_SESSION_OFFLOAD_TYPE, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_SUPPORTED_IPV6_BFD_SESSION_OFFLOAD_TYPE_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_SUPPORTED_IPV6_BFD_SESSION_OFFLOAD_TYPE, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_SUPPORTED_PROTECTED_OBJECT_TYPE_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_SUPPORTED_PROTECTED_OBJECT_TYPE, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_SWITCHING_MODE_VAL = sai_switch_attr_t_s32<SAI_SWITCH_ATTR_SWITCHING_MODE, sai_switch_switching_mode_t>;
+using SAI_SWITCH_ATTR_SWITCH_HARDWARE_INFO_VAL = sai_switch_attr_t_s8list<SAI_SWITCH_ATTR_SWITCH_HARDWARE_INFO, sai_s8_list_t>;
+using SAI_SWITCH_ATTR_SWITCH_PROFILE_ID_VAL = sai_switch_attr_t_u32<SAI_SWITCH_ATTR_SWITCH_PROFILE_ID, sai_uint32_t>;
+using SAI_SWITCH_ATTR_SWITCH_SHELL_ENABLE_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_SWITCH_SHELL_ENABLE, bool>;
+using SAI_SWITCH_ATTR_SWITCH_SHUTDOWN_REQUEST_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_SWITCH_SHUTDOWN_REQUEST_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_SWITCH_STATE_CHANGE_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_SWITCH_STATE_CHANGE_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_TAM_EVENT_NOTIFY_VAL = sai_switch_attr_t_ptr<SAI_SWITCH_ATTR_TAM_EVENT_NOTIFY, sai_pointer_t>;
+using SAI_SWITCH_ATTR_TAM_OBJECT_ID_VAL = sai_switch_attr_t_objlist<SAI_SWITCH_ATTR_TAM_OBJECT_ID, sai_object_list_t>;
+using SAI_SWITCH_ATTR_TEMP_LIST_VAL = sai_switch_attr_t_s32list<SAI_SWITCH_ATTR_TEMP_LIST, sai_s32_list_t>;
+using SAI_SWITCH_ATTR_TOTAL_BUFFER_SIZE_VAL = sai_switch_attr_t_u64<SAI_SWITCH_ATTR_TOTAL_BUFFER_SIZE, sai_uint64_t>;
+using SAI_SWITCH_ATTR_TPID_INNER_VLAN_VAL = sai_switch_attr_t_u16<SAI_SWITCH_ATTR_TPID_INNER_VLAN, sai_uint16_t>;
+using SAI_SWITCH_ATTR_TPID_OUTER_VLAN_VAL = sai_switch_attr_t_u16<SAI_SWITCH_ATTR_TPID_OUTER_VLAN, sai_uint16_t>;
+using SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON_REMOVAL_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON_REMOVAL, bool>;
+using SAI_SWITCH_ATTR_VLAN_USER_META_DATA_RANGE_VAL = sai_switch_attr_t_u32range<SAI_SWITCH_ATTR_VLAN_USER_META_DATA_RANGE, sai_u32_range_t>;
+using SAI_SWITCH_ATTR_VXLAN_DEFAULT_PORT_VAL = sai_switch_attr_t_u16<SAI_SWITCH_ATTR_VXLAN_DEFAULT_PORT, sai_uint16_t>;
+using SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC_VAL = sai_switch_attr_t_mac<SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC, sai_mac_t>;
+using SAI_SWITCH_ATTR_WARM_RECOVER_VAL = sai_switch_attr_t_booldata<SAI_SWITCH_ATTR_WARM_RECOVER, bool>;
+using SAI_TAM_ATTR_EVENT_OBJECTS_LIST_VAL = sai_tam_attr_t_objlist<SAI_TAM_ATTR_EVENT_OBJECTS_LIST, sai_object_list_t>;
+using SAI_TAM_ATTR_INT_OBJECTS_LIST_VAL = sai_tam_attr_t_objlist<SAI_TAM_ATTR_INT_OBJECTS_LIST, sai_object_list_t>;
+using SAI_TAM_ATTR_TAM_BIND_POINT_TYPE_LIST_VAL = sai_tam_attr_t_s32list<SAI_TAM_ATTR_TAM_BIND_POINT_TYPE_LIST, sai_s32_list_t>;
+using SAI_TAM_ATTR_TELEMETRY_OBJECTS_LIST_VAL = sai_tam_attr_t_objlist<SAI_TAM_ATTR_TELEMETRY_OBJECTS_LIST, sai_object_list_t>;
+using SAI_TAM_COLLECTOR_ATTR_DSCP_VALUE_VAL = sai_tam_collector_attr_t_u8<SAI_TAM_COLLECTOR_ATTR_DSCP_VALUE, sai_uint8_t>;
+using SAI_TAM_COLLECTOR_ATTR_DST_IP_VAL = sai_tam_collector_attr_t_ipaddr<SAI_TAM_COLLECTOR_ATTR_DST_IP, sai_ip_address_t>;
+using SAI_TAM_COLLECTOR_ATTR_LOCALHOST_VAL = sai_tam_collector_attr_t_booldata<SAI_TAM_COLLECTOR_ATTR_LOCALHOST, bool>;
+using SAI_TAM_COLLECTOR_ATTR_SRC_IP_VAL = sai_tam_collector_attr_t_ipaddr<SAI_TAM_COLLECTOR_ATTR_SRC_IP, sai_ip_address_t>;
+using SAI_TAM_COLLECTOR_ATTR_TRANSPORT_VAL = sai_tam_collector_attr_t_oid<SAI_TAM_COLLECTOR_ATTR_TRANSPORT, sai_object_id_t>;
+using SAI_TAM_COLLECTOR_ATTR_TRUNCATE_SIZE_VAL = sai_tam_collector_attr_t_u16<SAI_TAM_COLLECTOR_ATTR_TRUNCATE_SIZE, sai_uint16_t>;
+using SAI_TAM_COLLECTOR_ATTR_VIRTUAL_ROUTER_ID_VAL = sai_tam_collector_attr_t_oid<SAI_TAM_COLLECTOR_ATTR_VIRTUAL_ROUTER_ID, sai_object_id_t>;
+using SAI_TAM_EVENT_ACTION_ATTR_QOS_ACTION_TYPE_VAL = sai_tam_event_action_attr_t_u32<SAI_TAM_EVENT_ACTION_ATTR_QOS_ACTION_TYPE, sai_uint32_t>;
+using SAI_TAM_EVENT_ACTION_ATTR_REPORT_TYPE_VAL = sai_tam_event_action_attr_t_oid<SAI_TAM_EVENT_ACTION_ATTR_REPORT_TYPE, sai_object_id_t>;
+using SAI_TAM_EVENT_ATTR_ACTION_LIST_VAL = sai_tam_event_attr_t_objlist<SAI_TAM_EVENT_ATTR_ACTION_LIST, sai_object_list_t>;
+using SAI_TAM_EVENT_ATTR_COLLECTOR_LIST_VAL = sai_tam_event_attr_t_objlist<SAI_TAM_EVENT_ATTR_COLLECTOR_LIST, sai_object_list_t>;
+using SAI_TAM_EVENT_ATTR_DSCP_VALUE_VAL = sai_tam_event_attr_t_u8<SAI_TAM_EVENT_ATTR_DSCP_VALUE, sai_uint8_t>;
+using SAI_TAM_EVENT_ATTR_THRESHOLD_VAL = sai_tam_event_attr_t_oid<SAI_TAM_EVENT_ATTR_THRESHOLD, sai_object_id_t>;
+using SAI_TAM_EVENT_ATTR_TYPE_VAL = sai_tam_event_attr_t_s32<SAI_TAM_EVENT_ATTR_TYPE, sai_tam_event_type_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_ABS_VALUE_VAL = sai_tam_event_threshold_attr_t_u32<SAI_TAM_EVENT_THRESHOLD_ATTR_ABS_VALUE, sai_uint32_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_HIGH_WATERMARK_VAL = sai_tam_event_threshold_attr_t_u32<SAI_TAM_EVENT_THRESHOLD_ATTR_HIGH_WATERMARK, sai_uint32_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_LATENCY_VAL = sai_tam_event_threshold_attr_t_u32<SAI_TAM_EVENT_THRESHOLD_ATTR_LATENCY, sai_uint32_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_LOW_WATERMARK_VAL = sai_tam_event_threshold_attr_t_u32<SAI_TAM_EVENT_THRESHOLD_ATTR_LOW_WATERMARK, sai_uint32_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_RATE_VAL = sai_tam_event_threshold_attr_t_u32<SAI_TAM_EVENT_THRESHOLD_ATTR_RATE, sai_uint32_t>;
+using SAI_TAM_EVENT_THRESHOLD_ATTR_UNIT_VAL = sai_tam_event_threshold_attr_t_s32<SAI_TAM_EVENT_THRESHOLD_ATTR_UNIT, sai_tam_event_threshold_unit_t>;
+using SAI_TAM_INT_ATTR_ACL_GROUP_VAL = sai_tam_int_attr_t_oid<SAI_TAM_INT_ATTR_ACL_GROUP, sai_object_id_t>;
+using SAI_TAM_INT_ATTR_ACTION_VECTOR_VAL = sai_tam_int_attr_t_u16<SAI_TAM_INT_ATTR_ACTION_VECTOR, sai_uint16_t>;
+using SAI_TAM_INT_ATTR_COLLECTOR_LIST_VAL = sai_tam_int_attr_t_objlist<SAI_TAM_INT_ATTR_COLLECTOR_LIST, sai_object_list_t>;
+using SAI_TAM_INT_ATTR_DEVICE_ID_VAL = sai_tam_int_attr_t_u32<SAI_TAM_INT_ATTR_DEVICE_ID, sai_uint32_t>;
+using SAI_TAM_INT_ATTR_FLOW_LIVENESS_PERIOD_VAL = sai_tam_int_attr_t_u16<SAI_TAM_INT_ATTR_FLOW_LIVENESS_PERIOD, sai_uint16_t>;
+using SAI_TAM_INT_ATTR_INGRESS_SAMPLEPACKET_ENABLE_VAL = sai_tam_int_attr_t_oid<SAI_TAM_INT_ATTR_INGRESS_SAMPLEPACKET_ENABLE, sai_object_id_t>;
+using SAI_TAM_INT_ATTR_INLINE_VAL = sai_tam_int_attr_t_booldata<SAI_TAM_INT_ATTR_INLINE, bool>;
+using SAI_TAM_INT_ATTR_INT_PRESENCE_DSCP_VALUE_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_INT_PRESENCE_DSCP_VALUE, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_INT_PRESENCE_L3_PROTOCOL_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_INT_PRESENCE_L3_PROTOCOL, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_INT_PRESENCE_PB1_VAL = sai_tam_int_attr_t_u32<SAI_TAM_INT_ATTR_INT_PRESENCE_PB1, sai_uint32_t>;
+using SAI_TAM_INT_ATTR_INT_PRESENCE_PB2_VAL = sai_tam_int_attr_t_u32<SAI_TAM_INT_ATTR_INT_PRESENCE_PB2, sai_uint32_t>;
+using SAI_TAM_INT_ATTR_INT_PRESENCE_TYPE_VAL = sai_tam_int_attr_t_s32<SAI_TAM_INT_ATTR_INT_PRESENCE_TYPE, sai_tam_int_presence_type_t>;
+using SAI_TAM_INT_ATTR_IOAM_TRACE_TYPE_VAL = sai_tam_int_attr_t_u32<SAI_TAM_INT_ATTR_IOAM_TRACE_TYPE, sai_uint32_t>;
+using SAI_TAM_INT_ATTR_LATENCY_SENSITIVITY_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_LATENCY_SENSITIVITY, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_MATH_FUNC_VAL = sai_tam_int_attr_t_oid<SAI_TAM_INT_ATTR_MATH_FUNC, sai_object_id_t>;
+using SAI_TAM_INT_ATTR_MAX_HOP_COUNT_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_MAX_HOP_COUNT, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_MAX_LENGTH_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_MAX_LENGTH, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_METADATA_FRAGMENT_ENABLE_VAL = sai_tam_int_attr_t_booldata<SAI_TAM_INT_ATTR_METADATA_FRAGMENT_ENABLE, bool>;
+using SAI_TAM_INT_ATTR_NAME_SPACE_ID_VAL = sai_tam_int_attr_t_u8<SAI_TAM_INT_ATTR_NAME_SPACE_ID, sai_uint8_t>;
+using SAI_TAM_INT_ATTR_NAME_SPACE_ID_GLOBAL_VAL = sai_tam_int_attr_t_booldata<SAI_TAM_INT_ATTR_NAME_SPACE_ID_GLOBAL, bool>;
+using SAI_TAM_INT_ATTR_P4_INT_INSTRUCTION_BITMAP_VAL = sai_tam_int_attr_t_u16<SAI_TAM_INT_ATTR_P4_INT_INSTRUCTION_BITMAP, sai_uint16_t>;
+using SAI_TAM_INT_ATTR_REPORT_ALL_PACKETS_VAL = sai_tam_int_attr_t_booldata<SAI_TAM_INT_ATTR_REPORT_ALL_PACKETS, bool>;
+using SAI_TAM_INT_ATTR_REPORT_ID_VAL = sai_tam_int_attr_t_oid<SAI_TAM_INT_ATTR_REPORT_ID, sai_object_id_t>;
+using SAI_TAM_INT_ATTR_TRACE_VECTOR_VAL = sai_tam_int_attr_t_u16<SAI_TAM_INT_ATTR_TRACE_VECTOR, sai_uint16_t>;
+using SAI_TAM_INT_ATTR_TYPE_VAL = sai_tam_int_attr_t_s32<SAI_TAM_INT_ATTR_TYPE, sai_tam_int_type_t>;
+using SAI_TAM_MATH_FUNC_ATTR_TAM_TEL_MATH_FUNC_TYPE_VAL = sai_tam_math_func_attr_t_s32<SAI_TAM_MATH_FUNC_ATTR_TAM_TEL_MATH_FUNC_TYPE, sai_tam_tel_math_func_type_t>;
+using SAI_TAM_REPORT_ATTR_HISTOGRAM_BIN_BOUNDARY_VAL = sai_tam_report_attr_t_u32list<SAI_TAM_REPORT_ATTR_HISTOGRAM_BIN_BOUNDARY, sai_u32_list_t>;
+using SAI_TAM_REPORT_ATTR_HISTOGRAM_NUMBER_OF_BINS_VAL = sai_tam_report_attr_t_u32<SAI_TAM_REPORT_ATTR_HISTOGRAM_NUMBER_OF_BINS, sai_uint32_t>;
+using SAI_TAM_REPORT_ATTR_QUOTA_VAL = sai_tam_report_attr_t_u32<SAI_TAM_REPORT_ATTR_QUOTA, sai_uint32_t>;
+using SAI_TAM_REPORT_ATTR_REPORT_INTERVAL_VAL = sai_tam_report_attr_t_u32<SAI_TAM_REPORT_ATTR_REPORT_INTERVAL, sai_uint32_t>;
+using SAI_TAM_REPORT_ATTR_REPORT_MODE_VAL = sai_tam_report_attr_t_s32<SAI_TAM_REPORT_ATTR_REPORT_MODE, sai_tam_report_mode_t>;
+using SAI_TAM_REPORT_ATTR_TYPE_VAL = sai_tam_report_attr_t_s32<SAI_TAM_REPORT_ATTR_TYPE, sai_tam_report_type_t>;
+using SAI_TAM_TELEMETRY_ATTR_COLLECTOR_LIST_VAL = sai_tam_telemetry_attr_t_objlist<SAI_TAM_TELEMETRY_ATTR_COLLECTOR_LIST, sai_object_list_t>;
+using SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL_VAL = sai_tam_telemetry_attr_t_u32<SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL, sai_uint32_t>;
+using SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT_VAL = sai_tam_telemetry_attr_t_s32<SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT, sai_tam_reporting_unit_t>;
+using SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST_VAL = sai_tam_telemetry_attr_t_objlist<SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST, sai_object_list_t>;
+using SAI_TAM_TEL_TYPE_ATTR_DSCP_VALUE_VAL = sai_tam_tel_type_attr_t_u8<SAI_TAM_TEL_TYPE_ATTR_DSCP_VALUE, sai_uint8_t>;
+using SAI_TAM_TEL_TYPE_ATTR_FABRIC_Q_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_FABRIC_Q, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_INT_SWITCH_IDENTIFIER_VAL = sai_tam_tel_type_attr_t_u32<SAI_TAM_TEL_TYPE_ATTR_INT_SWITCH_IDENTIFIER, sai_uint32_t>;
+using SAI_TAM_TEL_TYPE_ATTR_MATH_FUNC_VAL = sai_tam_tel_type_attr_t_oid<SAI_TAM_TEL_TYPE_ATTR_MATH_FUNC, sai_object_id_t>;
+using SAI_TAM_TEL_TYPE_ATTR_NE_ENABLE_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_NE_ENABLE, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_REPORT_ID_VAL = sai_tam_tel_type_attr_t_oid<SAI_TAM_TEL_TYPE_ATTR_REPORT_ID, sai_object_id_t>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FABRIC_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FABRIC_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FILTER_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FILTER_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_MMU_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_MMU_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_OUTPUT_QUEUE_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_OUTPUT_QUEUE_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_EGRESS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_EGRESS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_INGRESS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_INGRESS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_RESOURCE_UTILIZATION_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_RESOURCE_UTILIZATION_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_VIRTUAL_QUEUE_STATS_VAL = sai_tam_tel_type_attr_t_booldata<SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_VIRTUAL_QUEUE_STATS, bool>;
+using SAI_TAM_TEL_TYPE_ATTR_TAM_TELEMETRY_TYPE_VAL = sai_tam_tel_type_attr_t_s32<SAI_TAM_TEL_TYPE_ATTR_TAM_TELEMETRY_TYPE, sai_tam_telemetry_type_t>;
+using SAI_TAM_TRANSPORT_ATTR_DST_PORT_VAL = sai_tam_transport_attr_t_u32<SAI_TAM_TRANSPORT_ATTR_DST_PORT, sai_uint32_t>;
+using SAI_TAM_TRANSPORT_ATTR_MTU_VAL = sai_tam_transport_attr_t_u32<SAI_TAM_TRANSPORT_ATTR_MTU, sai_uint32_t>;
+using SAI_TAM_TRANSPORT_ATTR_SRC_PORT_VAL = sai_tam_transport_attr_t_u32<SAI_TAM_TRANSPORT_ATTR_SRC_PORT, sai_uint32_t>;
+using SAI_TAM_TRANSPORT_ATTR_TRANSPORT_AUTH_TYPE_VAL = sai_tam_transport_attr_t_s32<SAI_TAM_TRANSPORT_ATTR_TRANSPORT_AUTH_TYPE, sai_tam_transport_auth_type_t>;
+using SAI_TAM_TRANSPORT_ATTR_TRANSPORT_TYPE_VAL = sai_tam_transport_attr_t_s32<SAI_TAM_TRANSPORT_ATTR_TRANSPORT_TYPE, sai_tam_transport_type_t>;
+using SAI_TUNNEL_ATTR_DECAP_DSCP_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_DECAP_DSCP_MODE, sai_tunnel_dscp_mode_t>;
+using SAI_TUNNEL_ATTR_DECAP_ECN_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_DECAP_ECN_MODE, sai_tunnel_decap_ecn_mode_t>;
+using SAI_TUNNEL_ATTR_DECAP_MAPPERS_VAL = sai_tunnel_attr_t_objlist<SAI_TUNNEL_ATTR_DECAP_MAPPERS, sai_object_list_t>;
+using SAI_TUNNEL_ATTR_DECAP_TTL_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_DECAP_TTL_MODE, sai_tunnel_ttl_mode_t>;
+using SAI_TUNNEL_ATTR_ENCAP_DSCP_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_ENCAP_DSCP_MODE, sai_tunnel_dscp_mode_t>;
+using SAI_TUNNEL_ATTR_ENCAP_DSCP_VAL_VAL = sai_tunnel_attr_t_u8<SAI_TUNNEL_ATTR_ENCAP_DSCP_VAL, sai_uint8_t>;
+using SAI_TUNNEL_ATTR_ENCAP_ECN_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_ENCAP_ECN_MODE, sai_tunnel_encap_ecn_mode_t>;
+using SAI_TUNNEL_ATTR_ENCAP_GRE_KEY_VAL = sai_tunnel_attr_t_u32<SAI_TUNNEL_ATTR_ENCAP_GRE_KEY, sai_uint32_t>;
+using SAI_TUNNEL_ATTR_ENCAP_GRE_KEY_VALID_VAL = sai_tunnel_attr_t_booldata<SAI_TUNNEL_ATTR_ENCAP_GRE_KEY_VALID, bool>;
+using SAI_TUNNEL_ATTR_ENCAP_MAPPERS_VAL = sai_tunnel_attr_t_objlist<SAI_TUNNEL_ATTR_ENCAP_MAPPERS, sai_object_list_t>;
+using SAI_TUNNEL_ATTR_ENCAP_SRC_IP_VAL = sai_tunnel_attr_t_ipaddr<SAI_TUNNEL_ATTR_ENCAP_SRC_IP, sai_ip_address_t>;
+using SAI_TUNNEL_ATTR_ENCAP_TTL_MODE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_ENCAP_TTL_MODE, sai_tunnel_ttl_mode_t>;
+using SAI_TUNNEL_ATTR_ENCAP_TTL_VAL_VAL = sai_tunnel_attr_t_u8<SAI_TUNNEL_ATTR_ENCAP_TTL_VAL, sai_uint8_t>;
+using SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_VAL = sai_tunnel_attr_t_oid<SAI_TUNNEL_ATTR_OVERLAY_INTERFACE, sai_object_id_t>;
+using SAI_TUNNEL_ATTR_TERM_TABLE_ENTRY_LIST_VAL = sai_tunnel_attr_t_objlist<SAI_TUNNEL_ATTR_TERM_TABLE_ENTRY_LIST, sai_object_list_t>;
+using SAI_TUNNEL_ATTR_TYPE_VAL = sai_tunnel_attr_t_s32<SAI_TUNNEL_ATTR_TYPE, sai_tunnel_type_t>;
+using SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE_VAL = sai_tunnel_attr_t_oid<SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ATTR_ENTRY_LIST_VAL = sai_tunnel_map_attr_t_objlist<SAI_TUNNEL_MAP_ATTR_ENTRY_LIST, sai_object_list_t>;
+using SAI_TUNNEL_MAP_ATTR_TYPE_VAL = sai_tunnel_map_attr_t_s32<SAI_TUNNEL_MAP_ATTR_TYPE, sai_tunnel_map_type_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_KEY_VAL = sai_tunnel_map_entry_attr_t_oid<SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_KEY, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_VALUE_VAL = sai_tunnel_map_entry_attr_t_oid<SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_VALUE, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_KEY_VAL = sai_tunnel_map_entry_attr_t_u8<SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_KEY, sai_uint8_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_VALUE_VAL = sai_tunnel_map_entry_attr_t_u8<SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_VALUE, sai_uint8_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP_VAL = sai_tunnel_map_entry_attr_t_oid<SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP_TYPE_VAL = sai_tunnel_map_entry_attr_t_s32<SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP_TYPE, sai_tunnel_map_type_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_KEY_VAL = sai_tunnel_map_entry_attr_t_u8<SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_KEY, sai_uint8_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_VALUE_VAL = sai_tunnel_map_entry_attr_t_u8<SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_VALUE, sai_uint8_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_KEY_VAL = sai_tunnel_map_entry_attr_t_oid<SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_KEY, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_VALUE_VAL = sai_tunnel_map_entry_attr_t_oid<SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_VALUE, sai_object_id_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_KEY_VAL = sai_tunnel_map_entry_attr_t_u16<SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_KEY, sai_uint16_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_VALUE_VAL = sai_tunnel_map_entry_attr_t_u16<SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_VALUE, sai_uint16_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VNI_ID_KEY_VAL = sai_tunnel_map_entry_attr_t_u32<SAI_TUNNEL_MAP_ENTRY_ATTR_VNI_ID_KEY, sai_uint32_t>;
+using SAI_TUNNEL_MAP_ENTRY_ATTR_VNI_ID_VALUE_VAL = sai_tunnel_map_entry_attr_t_u32<SAI_TUNNEL_MAP_ENTRY_ATTR_VNI_ID_VALUE, sai_uint32_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_ACTION_TUNNEL_ID_VAL = sai_tunnel_term_table_entry_attr_t_oid<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_ACTION_TUNNEL_ID, sai_object_id_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_DST_IP_VAL = sai_tunnel_term_table_entry_attr_t_ipaddr<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_DST_IP, sai_ip_address_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_SRC_IP_VAL = sai_tunnel_term_table_entry_attr_t_ipaddr<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_SRC_IP, sai_ip_address_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_TUNNEL_TYPE_VAL = sai_tunnel_term_table_entry_attr_t_s32<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_TUNNEL_TYPE, sai_tunnel_type_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_TYPE_VAL = sai_tunnel_term_table_entry_attr_t_s32<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_TYPE, sai_tunnel_term_table_entry_type_t>;
+using SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_VR_ID_VAL = sai_tunnel_term_table_entry_attr_t_oid<SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_VR_ID, sai_object_id_t>;
+using SAI_UDF_ATTR_BASE_VAL = sai_udf_attr_t_s32<SAI_UDF_ATTR_BASE, sai_udf_base_t>;
+using SAI_UDF_ATTR_GROUP_ID_VAL = sai_udf_attr_t_oid<SAI_UDF_ATTR_GROUP_ID, sai_object_id_t>;
+using SAI_UDF_ATTR_HASH_MASK_VAL = sai_udf_attr_t_u8list<SAI_UDF_ATTR_HASH_MASK, sai_u8_list_t>;
+using SAI_UDF_ATTR_MATCH_ID_VAL = sai_udf_attr_t_oid<SAI_UDF_ATTR_MATCH_ID, sai_object_id_t>;
+using SAI_UDF_ATTR_OFFSET_VAL = sai_udf_attr_t_u16<SAI_UDF_ATTR_OFFSET, sai_uint16_t>;
+using SAI_UDF_GROUP_ATTR_LENGTH_VAL = sai_udf_group_attr_t_u16<SAI_UDF_GROUP_ATTR_LENGTH, sai_uint16_t>;
+using SAI_UDF_GROUP_ATTR_TYPE_VAL = sai_udf_group_attr_t_s32<SAI_UDF_GROUP_ATTR_TYPE, sai_udf_group_type_t>;
+using SAI_UDF_GROUP_ATTR_UDF_LIST_VAL = sai_udf_group_attr_t_objlist<SAI_UDF_GROUP_ATTR_UDF_LIST, sai_object_list_t>;
+using SAI_UDF_MATCH_ATTR_GRE_TYPE_VAL = sai_udf_match_attr_t_aclfield_u16<SAI_UDF_MATCH_ATTR_GRE_TYPE, sai_uint16_t>;
+using SAI_UDF_MATCH_ATTR_L2_TYPE_VAL = sai_udf_match_attr_t_aclfield_u16<SAI_UDF_MATCH_ATTR_L2_TYPE, sai_uint16_t>;
+using SAI_UDF_MATCH_ATTR_L3_TYPE_VAL = sai_udf_match_attr_t_aclfield_u8<SAI_UDF_MATCH_ATTR_L3_TYPE, sai_uint8_t>;
+using SAI_UDF_MATCH_ATTR_PRIORITY_VAL = sai_udf_match_attr_t_u8<SAI_UDF_MATCH_ATTR_PRIORITY, sai_uint8_t>;
+using SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V4_STATE_VAL = sai_virtual_router_attr_t_booldata<SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V4_STATE, bool>;
+using SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V6_STATE_VAL = sai_virtual_router_attr_t_booldata<SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V6_STATE, bool>;
+using SAI_VIRTUAL_ROUTER_ATTR_SRC_MAC_ADDRESS_VAL = sai_virtual_router_attr_t_mac<SAI_VIRTUAL_ROUTER_ATTR_SRC_MAC_ADDRESS, sai_mac_t>;
+using SAI_VIRTUAL_ROUTER_ATTR_UNKNOWN_L3_MULTICAST_PACKET_ACTION_VAL = sai_virtual_router_attr_t_s32<SAI_VIRTUAL_ROUTER_ATTR_UNKNOWN_L3_MULTICAST_PACKET_ACTION, sai_packet_action_t>;
+using SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_IP_OPTIONS_PACKET_ACTION_VAL = sai_virtual_router_attr_t_s32<SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_IP_OPTIONS_PACKET_ACTION, sai_packet_action_t>;
+using SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_TTL1_PACKET_ACTION_VAL = sai_virtual_router_attr_t_s32<SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_TTL1_PACKET_ACTION, sai_packet_action_t>;
+using SAI_VLAN_ATTR_BROADCAST_FLOOD_CONTROL_TYPE_VAL = sai_vlan_attr_t_s32<SAI_VLAN_ATTR_BROADCAST_FLOOD_CONTROL_TYPE, sai_vlan_flood_control_type_t>;
+using SAI_VLAN_ATTR_BROADCAST_FLOOD_GROUP_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_BROADCAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_VLAN_ATTR_CUSTOM_IGMP_SNOOPING_ENABLE_VAL = sai_vlan_attr_t_booldata<SAI_VLAN_ATTR_CUSTOM_IGMP_SNOOPING_ENABLE, bool>;
+using SAI_VLAN_ATTR_EGRESS_ACL_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_EGRESS_ACL, sai_object_id_t>;
+using SAI_VLAN_ATTR_INGRESS_ACL_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_INGRESS_ACL, sai_object_id_t>;
+using SAI_VLAN_ATTR_IPV4_MCAST_LOOKUP_KEY_TYPE_VAL = sai_vlan_attr_t_s32<SAI_VLAN_ATTR_IPV4_MCAST_LOOKUP_KEY_TYPE, sai_vlan_mcast_lookup_key_type_t>;
+using SAI_VLAN_ATTR_IPV6_MCAST_LOOKUP_KEY_TYPE_VAL = sai_vlan_attr_t_s32<SAI_VLAN_ATTR_IPV6_MCAST_LOOKUP_KEY_TYPE, sai_vlan_mcast_lookup_key_type_t>;
+using SAI_VLAN_ATTR_LEARN_DISABLE_VAL = sai_vlan_attr_t_booldata<SAI_VLAN_ATTR_LEARN_DISABLE, bool>;
+using SAI_VLAN_ATTR_MAX_LEARNED_ADDRESSES_VAL = sai_vlan_attr_t_u32<SAI_VLAN_ATTR_MAX_LEARNED_ADDRESSES, sai_uint32_t>;
+using SAI_VLAN_ATTR_MEMBER_LIST_VAL = sai_vlan_attr_t_objlist<SAI_VLAN_ATTR_MEMBER_LIST, sai_object_list_t>;
+using SAI_VLAN_ATTR_META_DATA_VAL = sai_vlan_attr_t_u32<SAI_VLAN_ATTR_META_DATA, sai_uint32_t>;
+using SAI_VLAN_ATTR_STP_INSTANCE_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_STP_INSTANCE, sai_object_id_t>;
+using SAI_VLAN_ATTR_TAM_OBJECT_VAL = sai_vlan_attr_t_objlist<SAI_VLAN_ATTR_TAM_OBJECT, sai_object_list_t>;
+using SAI_VLAN_ATTR_UNKNOWN_IPV4_MCAST_OUTPUT_GROUP_ID_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_IPV4_MCAST_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_VLAN_ATTR_UNKNOWN_IPV6_MCAST_OUTPUT_GROUP_ID_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_IPV6_MCAST_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_VLAN_ATTR_UNKNOWN_LINKLOCAL_MCAST_OUTPUT_GROUP_ID_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_LINKLOCAL_MCAST_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_VLAN_ATTR_UNKNOWN_MULTICAST_FLOOD_CONTROL_TYPE_VAL = sai_vlan_attr_t_s32<SAI_VLAN_ATTR_UNKNOWN_MULTICAST_FLOOD_CONTROL_TYPE, sai_vlan_flood_control_type_t>;
+using SAI_VLAN_ATTR_UNKNOWN_MULTICAST_FLOOD_GROUP_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_MULTICAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_VLAN_ATTR_UNKNOWN_NON_IP_MCAST_OUTPUT_GROUP_ID_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_NON_IP_MCAST_OUTPUT_GROUP_ID, sai_object_id_t>;
+using SAI_VLAN_ATTR_UNKNOWN_UNICAST_FLOOD_CONTROL_TYPE_VAL = sai_vlan_attr_t_s32<SAI_VLAN_ATTR_UNKNOWN_UNICAST_FLOOD_CONTROL_TYPE, sai_vlan_flood_control_type_t>;
+using SAI_VLAN_ATTR_UNKNOWN_UNICAST_FLOOD_GROUP_VAL = sai_vlan_attr_t_oid<SAI_VLAN_ATTR_UNKNOWN_UNICAST_FLOOD_GROUP, sai_object_id_t>;
+using SAI_VLAN_ATTR_VLAN_ID_VAL = sai_vlan_attr_t_u16<SAI_VLAN_ATTR_VLAN_ID, sai_uint16_t>;
+using SAI_VLAN_MEMBER_ATTR_BRIDGE_PORT_ID_VAL = sai_vlan_member_attr_t_oid<SAI_VLAN_MEMBER_ATTR_BRIDGE_PORT_ID, sai_object_id_t>;
+using SAI_VLAN_MEMBER_ATTR_VLAN_ID_VAL = sai_vlan_member_attr_t_oid<SAI_VLAN_MEMBER_ATTR_VLAN_ID, sai_object_id_t>;
+using SAI_VLAN_MEMBER_ATTR_VLAN_TAGGING_MODE_VAL = sai_vlan_member_attr_t_s32<SAI_VLAN_MEMBER_ATTR_VLAN_TAGGING_MODE, sai_vlan_tagging_mode_t>;
+using SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MARK_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MARK_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_GREEN_MARK_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_GREEN_MARK_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_GREEN_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_GREEN_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_GREEN_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_GREEN_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_MARK_MODE_VAL = sai_wred_attr_t_s32<SAI_WRED_ATTR_ECN_MARK_MODE, sai_ecn_mark_mode_t>;
+using SAI_WRED_ATTR_ECN_RED_MARK_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_RED_MARK_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_RED_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_RED_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_RED_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_RED_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_YELLOW_MARK_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_YELLOW_MARK_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_YELLOW_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_YELLOW_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_ECN_YELLOW_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_ECN_YELLOW_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_GREEN_DROP_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_GREEN_DROP_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_GREEN_ENABLE_VAL = sai_wred_attr_t_booldata<SAI_WRED_ATTR_GREEN_ENABLE, bool>;
+using SAI_WRED_ATTR_GREEN_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_GREEN_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_GREEN_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_GREEN_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_RED_DROP_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_RED_DROP_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_RED_ENABLE_VAL = sai_wred_attr_t_booldata<SAI_WRED_ATTR_RED_ENABLE, bool>;
+using SAI_WRED_ATTR_RED_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_RED_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_RED_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_RED_MIN_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_WEIGHT_VAL = sai_wred_attr_t_u8<SAI_WRED_ATTR_WEIGHT, sai_uint8_t>;
+using SAI_WRED_ATTR_YELLOW_DROP_PROBABILITY_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_YELLOW_DROP_PROBABILITY, sai_uint32_t>;
+using SAI_WRED_ATTR_YELLOW_ENABLE_VAL = sai_wred_attr_t_booldata<SAI_WRED_ATTR_YELLOW_ENABLE, bool>;
+using SAI_WRED_ATTR_YELLOW_MAX_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_YELLOW_MAX_THRESHOLD, sai_uint32_t>;
+using SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD_VAL = sai_wred_attr_t_u32<SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD, sai_uint32_t>;
+namespace silicon_one
+{
+namespace sai
+{
+std::string to_string(sai_acl_counter_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_range_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_table_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_table_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_table_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_bfd_session_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_bridge_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_bridge_port_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_buffer_pool_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_buffer_profile_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_counter_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_debug_counter_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_dtel_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_dtel_event_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_dtel_int_session_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_dtel_queue_report_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_dtel_report_session_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_fdb_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_fdb_flush_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hash_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_packet_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_table_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_trap_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_trap_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_hostif_user_defined_trap_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_ingress_priority_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_inseg_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_ipmc_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_ipmc_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_ipmc_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_isolation_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_isolation_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_l2mc_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_l2mc_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_l2mc_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_lag_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_lag_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_mcast_fdb_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_mirror_session_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_nat_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_nat_zone_counter_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_neighbor_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_next_hop_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_next_hop_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_next_hop_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_policer_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_port_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_port_pool_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_port_serdes_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_qos_map_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_queue_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_route_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_router_interface_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_rpf_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_rpf_group_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_samplepacket_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_scheduler_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_scheduler_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_segmentroute_sidlist_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_stp_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_stp_port_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_switch_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_collector_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_event_action_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_event_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_event_threshold_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_int_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_math_func_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_report_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_tel_type_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_telemetry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tam_transport_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tunnel_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tunnel_map_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tunnel_map_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_tunnel_term_table_entry_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_udf_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_udf_group_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_udf_match_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_virtual_router_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_vlan_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_vlan_member_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_wred_attr_t a, sai_attribute_value_t v);
+std::string to_string(sai_acl_action_type_t& x);
+std::string to_string(sai_acl_bind_point_type_t& x);
+std::string to_string(sai_acl_counter_attr_t& x);
+std::string to_string(sai_acl_dtel_flow_op_t& x);
+std::string to_string(sai_acl_entry_attr_t& x);
+std::string to_string(sai_acl_ip_frag_t& x);
+std::string to_string(sai_acl_ip_type_t& x);
+std::string to_string(sai_acl_range_attr_t& x);
+std::string to_string(sai_acl_range_type_t& x);
+std::string to_string(sai_acl_stage_t& x);
+std::string to_string(sai_acl_table_attr_t& x);
+std::string to_string(sai_acl_table_group_attr_t& x);
+std::string to_string(sai_acl_table_group_member_attr_t& x);
+std::string to_string(sai_acl_table_group_type_t& x);
+std::string to_string(sai_api_t& x);
+std::string to_string(sai_bfd_encapsulation_type_t& x);
+std::string to_string(sai_bfd_session_attr_t& x);
+std::string to_string(sai_bfd_session_offload_type_t& x);
+std::string to_string(sai_bfd_session_stat_t& x);
+std::string to_string(sai_bfd_session_state_t& x);
+std::string to_string(sai_bfd_session_type_t& x);
+std::string to_string(sai_bridge_attr_t& x);
+std::string to_string(sai_bridge_flood_control_type_t& x);
+std::string to_string(sai_bridge_port_attr_t& x);
+std::string to_string(sai_bridge_port_fdb_learning_mode_t& x);
+std::string to_string(sai_bridge_port_stat_t& x);
+std::string to_string(sai_bridge_port_tagging_mode_t& x);
+std::string to_string(sai_bridge_port_type_t& x);
+std::string to_string(sai_bridge_stat_t& x);
+std::string to_string(sai_bridge_type_t& x);
+std::string to_string(sai_buffer_pool_attr_t& x);
+std::string to_string(sai_buffer_pool_stat_t& x);
+std::string to_string(sai_buffer_pool_threshold_mode_t& x);
+std::string to_string(sai_buffer_pool_type_t& x);
+std::string to_string(sai_buffer_profile_attr_t& x);
+std::string to_string(sai_buffer_profile_threshold_mode_t& x);
+std::string to_string(sai_bulk_op_error_mode_t& x);
+std::string to_string(sai_common_api_t& x);
+std::string to_string(sai_counter_attr_t& x);
+std::string to_string(sai_counter_stat_t& x);
+std::string to_string(sai_counter_type_t& x);
+std::string to_string(sai_debug_counter_attr_t& x);
+std::string to_string(sai_debug_counter_bind_method_t& x);
+std::string to_string(sai_debug_counter_type_t& x);
+std::string to_string(sai_dtel_attr_t& x);
+std::string to_string(sai_dtel_event_attr_t& x);
+std::string to_string(sai_dtel_event_type_t& x);
+std::string to_string(sai_dtel_int_session_attr_t& x);
+std::string to_string(sai_dtel_queue_report_attr_t& x);
+std::string to_string(sai_dtel_report_session_attr_t& x);
+std::string to_string(sai_ecn_mark_mode_t& x);
+std::string to_string(sai_erspan_encapsulation_type_t& x);
+std::string to_string(sai_fdb_entry_attr_t& x);
+std::string to_string(sai_fdb_entry_type_t& x);
+std::string to_string(sai_fdb_event_t& x);
+std::string to_string(sai_fdb_flush_attr_t& x);
+std::string to_string(sai_fdb_flush_entry_type_t& x);
+std::string to_string(sai_hash_algorithm_t& x);
+std::string to_string(sai_hash_attr_t& x);
+std::string to_string(sai_hostif_attr_t& x);
+std::string to_string(sai_hostif_packet_attr_t& x);
+std::string to_string(sai_hostif_table_entry_attr_t& x);
+std::string to_string(sai_hostif_table_entry_channel_type_t& x);
+std::string to_string(sai_hostif_table_entry_type_t& x);
+std::string to_string(sai_hostif_trap_attr_t& x);
+std::string to_string(sai_hostif_trap_group_attr_t& x);
+std::string to_string(sai_hostif_trap_type_t& x);
+std::string to_string(sai_hostif_tx_type_t& x);
+std::string to_string(sai_hostif_type_t& x);
+std::string to_string(sai_hostif_user_defined_trap_attr_t& x);
+std::string to_string(sai_hostif_user_defined_trap_type_t& x);
+std::string to_string(sai_hostif_vlan_tag_t& x);
+std::string to_string(sai_in_drop_reason_t& x);
+std::string to_string(sai_ingress_priority_group_attr_t& x);
+std::string to_string(sai_ingress_priority_group_stat_t& x);
+std::string to_string(sai_inseg_entry_attr_t& x);
+std::string to_string(sai_ip_addr_family_t& x);
+std::string to_string(sai_ipmc_entry_attr_t& x);
+std::string to_string(sai_ipmc_entry_type_t& x);
+std::string to_string(sai_ipmc_group_attr_t& x);
+std::string to_string(sai_ipmc_group_member_attr_t& x);
+std::string to_string(sai_isolation_group_attr_t& x);
+std::string to_string(sai_isolation_group_member_attr_t& x);
+std::string to_string(sai_isolation_group_type_t& x);
+std::string to_string(sai_l2mc_entry_attr_t& x);
+std::string to_string(sai_l2mc_entry_type_t& x);
+std::string to_string(sai_l2mc_group_attr_t& x);
+std::string to_string(sai_l2mc_group_member_attr_t& x);
+std::string to_string(sai_lag_attr_t& x);
+std::string to_string(sai_lag_member_attr_t& x);
+std::string to_string(sai_log_level_t& x);
+std::string to_string(sai_mcast_fdb_entry_attr_t& x);
+std::string to_string(sai_meter_type_t& x);
+std::string to_string(sai_mirror_session_attr_t& x);
+std::string to_string(sai_mirror_session_congestion_mode_t& x);
+std::string to_string(sai_mirror_session_type_t& x);
+std::string to_string(sai_nat_entry_attr_t& x);
+std::string to_string(sai_nat_type_t& x);
+std::string to_string(sai_nat_zone_counter_attr_t& x);
+std::string to_string(sai_native_hash_field_t& x);
+std::string to_string(sai_neighbor_entry_attr_t& x);
+std::string to_string(sai_next_hop_attr_t& x);
+std::string to_string(sai_next_hop_endpoint_pop_type_t& x);
+std::string to_string(sai_next_hop_endpoint_type_t& x);
+std::string to_string(sai_next_hop_group_attr_t& x);
+std::string to_string(sai_next_hop_group_member_attr_t& x);
+std::string to_string(sai_next_hop_group_member_configured_role_t& x);
+std::string to_string(sai_next_hop_group_member_observed_role_t& x);
+std::string to_string(sai_next_hop_group_type_t& x);
+std::string to_string(sai_next_hop_type_t& x);
+std::string to_string(sai_object_type_t& x);
+std::string to_string(sai_out_drop_reason_t& x);
+std::string to_string(sai_packet_action_t& x);
+std::string to_string(sai_packet_color_t& x);
+std::string to_string(sai_packet_vlan_t& x);
+std::string to_string(sai_policer_attr_t& x);
+std::string to_string(sai_policer_color_source_t& x);
+std::string to_string(sai_policer_mode_t& x);
+std::string to_string(sai_policer_stat_t& x);
+std::string to_string(sai_port_attr_t& x);
+std::string to_string(sai_port_breakout_mode_type_t& x);
+std::string to_string(sai_port_fec_mode_t& x);
+std::string to_string(sai_port_flow_control_mode_t& x);
+std::string to_string(sai_port_internal_loopback_mode_t& x);
+std::string to_string(sai_port_media_type_t& x);
+std::string to_string(sai_port_oper_status_t& x);
+std::string to_string(sai_port_pool_attr_t& x);
+std::string to_string(sai_port_pool_stat_t& x);
+std::string to_string(sai_port_priority_flow_control_mode_t& x);
+std::string to_string(sai_port_ptp_mode_t& x);
+std::string to_string(sai_port_serdes_attr_t& x);
+std::string to_string(sai_port_stat_t& x);
+std::string to_string(sai_port_type_t& x);
+std::string to_string(sai_qos_map_attr_t& x);
+std::string to_string(sai_qos_map_type_t& x);
+std::string to_string(sai_queue_attr_t& x);
+std::string to_string(sai_queue_pfc_deadlock_event_type_t& x);
+std::string to_string(sai_queue_stat_t& x);
+std::string to_string(sai_queue_type_t& x);
+std::string to_string(sai_route_entry_attr_t& x);
+std::string to_string(sai_router_interface_attr_t& x);
+std::string to_string(sai_router_interface_stat_t& x);
+std::string to_string(sai_router_interface_type_t& x);
+std::string to_string(sai_rpf_group_attr_t& x);
+std::string to_string(sai_rpf_group_member_attr_t& x);
+std::string to_string(sai_samplepacket_attr_t& x);
+std::string to_string(sai_samplepacket_mode_t& x);
+std::string to_string(sai_samplepacket_type_t& x);
+std::string to_string(sai_scheduler_attr_t& x);
+std::string to_string(sai_scheduler_group_attr_t& x);
+std::string to_string(sai_scheduling_type_t& x);
+std::string to_string(sai_segmentroute_sidlist_attr_t& x);
+std::string to_string(sai_segmentroute_sidlist_type_t& x);
+std::string to_string(sai_stats_mode_t& x);
+std::string to_string(sai_stp_attr_t& x);
+std::string to_string(sai_stp_port_attr_t& x);
+std::string to_string(sai_stp_port_state_t& x);
+std::string to_string(sai_switch_attr_t& x);
+std::string to_string(sai_switch_mcast_snooping_capability_t& x);
+std::string to_string(sai_switch_oper_status_t& x);
+std::string to_string(sai_switch_restart_type_t& x);
+std::string to_string(sai_switch_stat_t& x);
+std::string to_string(sai_switch_switching_mode_t& x);
+std::string to_string(sai_tam_attr_t& x);
+std::string to_string(sai_tam_bind_point_type_t& x);
+std::string to_string(sai_tam_collector_attr_t& x);
+std::string to_string(sai_tam_event_action_attr_t& x);
+std::string to_string(sai_tam_event_attr_t& x);
+std::string to_string(sai_tam_event_threshold_attr_t& x);
+std::string to_string(sai_tam_event_threshold_unit_t& x);
+std::string to_string(sai_tam_event_type_t& x);
+std::string to_string(sai_tam_int_attr_t& x);
+std::string to_string(sai_tam_int_presence_type_t& x);
+std::string to_string(sai_tam_int_type_t& x);
+std::string to_string(sai_tam_math_func_attr_t& x);
+std::string to_string(sai_tam_report_attr_t& x);
+std::string to_string(sai_tam_report_mode_t& x);
+std::string to_string(sai_tam_report_type_t& x);
+std::string to_string(sai_tam_reporting_unit_t& x);
+std::string to_string(sai_tam_tel_math_func_type_t& x);
+std::string to_string(sai_tam_tel_type_attr_t& x);
+std::string to_string(sai_tam_telemetry_attr_t& x);
+std::string to_string(sai_tam_telemetry_type_t& x);
+std::string to_string(sai_tam_transport_attr_t& x);
+std::string to_string(sai_tam_transport_auth_type_t& x);
+std::string to_string(sai_tam_transport_type_t& x);
+std::string to_string(sai_tlv_type_t& x);
+std::string to_string(sai_tunnel_attr_t& x);
+std::string to_string(sai_tunnel_decap_ecn_mode_t& x);
+std::string to_string(sai_tunnel_dscp_mode_t& x);
+std::string to_string(sai_tunnel_encap_ecn_mode_t& x);
+std::string to_string(sai_tunnel_map_attr_t& x);
+std::string to_string(sai_tunnel_map_entry_attr_t& x);
+std::string to_string(sai_tunnel_map_type_t& x);
+std::string to_string(sai_tunnel_stat_t& x);
+std::string to_string(sai_tunnel_term_table_entry_attr_t& x);
+std::string to_string(sai_tunnel_term_table_entry_type_t& x);
+std::string to_string(sai_tunnel_ttl_mode_t& x);
+std::string to_string(sai_tunnel_type_t& x);
+std::string to_string(sai_udf_attr_t& x);
+std::string to_string(sai_udf_base_t& x);
+std::string to_string(sai_udf_group_attr_t& x);
+std::string to_string(sai_udf_group_type_t& x);
+std::string to_string(sai_udf_match_attr_t& x);
+std::string to_string(sai_virtual_router_attr_t& x);
+std::string to_string(sai_vlan_attr_t& x);
+std::string to_string(sai_vlan_flood_control_type_t& x);
+std::string to_string(sai_vlan_mcast_lookup_key_type_t& x);
+std::string to_string(sai_vlan_member_attr_t& x);
+std::string to_string(sai_vlan_stat_t& x);
+std::string to_string(sai_vlan_tagging_mode_t& x);
+std::string to_string(sai_wred_attr_t& x);
+}
+}
+// clang-format on
+#endif // ___SAI_GEN_ATTR_H__
